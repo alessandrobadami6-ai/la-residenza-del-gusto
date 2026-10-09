@@ -2,809 +2,1694 @@
 <html lang="it">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>La Residenza del Gusto – Trattoria e Catering ad Albuzzano (PV)</title>
-<meta name="description" content="Trattoria con menù del giorno a prezzo fisso, catering, banqueting e ristorazione collettiva ad Albuzzano – Vigalfo (PV).">
-<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
-</head>
-<body>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Residenza del Gusto · Trattoria e catering a Vigalfo, Albuzzano (PV)</title>
+<meta name="description" content="Trattoria a Vigalfo, Albuzzano (Pavia). Menù fisso a 13 euro che cambia ogni giorno, dal lunedì al sabato a pranzo. Catering, eventi e ristorazione collettiva.">
+<meta name="theme-color" content="#F4F1EA">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='29' fill='%23FFFDF9' stroke='%23BF9B34' stroke-width='4'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%23BF9B34' stroke-width='1.6'/%3E%3Cpath d='M19 40 L21 24 L27.5 31 L32 20 L36.5 31 L43 24 L45 40 Z' fill='%23C9A43A' stroke='%232C2B28' stroke-width='2.4' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="La Residenza del Gusto · Trattoria a Vigalfo, Albuzzano">
+<meta property="og:description" content="Qui si pranza come a casa. Menù fisso a 13 euro, dal lunedì al sabato, dalle 12:00 alle 14:30.">
+<!-- DEPLOY STEP: sostituire con l'indirizzo assoluto del sito pubblicato -->
+<meta property="og:url" content="https://DEPLOY-URL/">
+<meta property="og:image" content="https://DEPLOY-URL/assets/sala.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Instrument+Sans:wght@400;500;600&family=Kalam:wght@400;700&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Cabin+Sketch:wght@400;700&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+  /* The static-hero gate, decided before first paint. Same strings as the CSS block and the main script. */
+  (function(){
+    var G = ['(prefers-reduced-motion: reduce)', '(orientation: landscape) and (pointer: coarse) and (max-height: 560px)'];
+    var d = document.documentElement;
+    d.classList.add('js');
+    if (!G.some(function(q){ return matchMedia(q).matches; })) d.classList.add('scrub');
+  })();
+</script>
 <style>
-/* Layout: sito a più pagine (navigazione con #ancore), testata salvia fissa, ogni pagina entra con una transizione; la lavagna del menù resta l'elemento forte */
 :root{
-  --paper:#F6F7F3;
-  --paper-2:#E9EDE5;
-  --ink:#1F2820;
-  --ink-soft:#56625A;
-  --line:#D2D9CD;
-  --sage:#8C9D85;
-  --sage-deep:#3E4D40;
-  --sage-ink:#F1F4EE;
-  --gold:#B8892E;
-  --chalk:#2A352D;
-  --chalk-ink:#F2F0E6;
-  --chalk-dim:#B9C2B5;
-  --ill-bg:#E4E9DF; --ill-line:#3E4D40; --ill-a:#A9B8A2; --ill-b:#D9AE55; --ill-c:#FBFBF7;
-  --f-display:"Young Serif", Georgia, "Times New Roman", serif;
-  --f-body:"Instrument Sans", "Helvetica Neue", Arial, sans-serif;
-  --f-hand:"Kalam", "Comic Sans MS", cursive;
-  color-scheme:light;
+  --canvas:#F4F1EA;        /* avorio perla, il fondo del logo */
+  --canvas-hi:#FFFDF8;
+  --canvas-lo:#E4DED0;     /* argento caldo */
+  --panel:#FFFDF9;
+  --gold:#C9A43A;          /* l'oro del logo */
+  --gold-deep:#7F6219;     /* oro leggibile per testi piccoli */
+  --silver:#A8A6A0;        /* l'argento delle foglie */
+  --accent:#C9A43A;
+  --accent-hover:#B8922A;
+  --accent-edge:#A07F25;
+  --accent-muted:rgba(201,164,58,.24);
+  --rim:#BF9B34;
+  --slate:#1F2B27;
+  --chalk:#F4F1E8;
+  --chalk-y:#F2C66A;
+  --chalk-r:#E9CF7E;
+  --espresso:#2C2B28;      /* il grigio scuro della scritta del logo */
+  --text-primary:#2C2B28;
+  --text-secondary:#5F5E5A;
+  --text-secondary-panel:#5F5E5A;
+  --text-on-dark:#E7E3DA;
+  --ease-out:cubic-bezier(.16,.84,.24,1);
+  --ease-io:cubic-bezier(.65,0,.35,1);
+  --f-display:"Bricolage Grotesque","Arial Black",system-ui,sans-serif;
+  --f-body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"DM Mono",ui-monospace,Consolas,monospace;
+  --f-chalk:"Cabin Sketch","Comic Sans MS",cursive;
+  --wrap:1240px;
+  --gut:clamp(16px,4vw,48px);
+  --noise:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --noise-light:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --paper:#151B17; --paper-2:#1C241F; --ink:#E7ECE4; --ink-soft:#A8B3AA; --line:#2F3B33;
-    --sage:#7E9077; --sage-deep:#26312A; --sage-ink:#ECF0E8; --gold:#D3A54C;
-    --chalk:#202B24; --chalk-ink:#F2F0E6; --chalk-dim:#A2AC9F; --ill-bg:#1F2822; --ill-line:#CAD4C5; --ill-a:#56684F; --ill-b:#C99B45; --ill-c:#2B352E; color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --paper:#151B17; --paper-2:#1C241F; --ink:#E7ECE4; --ink-soft:#A8B3AA; --line:#2F3B33;
-  --sage:#7E9077; --sage-deep:#26312A; --sage-ink:#ECF0E8; --gold:#D3A54C;
-  --chalk:#202B24; --chalk-ink:#F2F0E6; --chalk-dim:#A2AC9F; --ill-bg:#1F2822; --ill-line:#CAD4C5; --ill-a:#56684F; --ill-b:#C99B45; --ill-c:#2B352E; color-scheme:dark;
-}
-*{box-sizing:border-box}
-body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:1.0625rem;line-height:1.6}
+*,*::before,*::after{box-sizing:border-box}
+html{overflow-x:hidden;overflow-x:clip;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;overflow-x:hidden;overflow-x:clip;background:var(--canvas);color:var(--text-primary);font-family:var(--f-body);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased;animation:pageIn .9s var(--ease-out) both}
+@keyframes pageIn{from{opacity:0}to{opacity:1}}
+img{display:block;max-width:100%;height:auto}
 a{color:inherit}
-a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:3px}
-.wrap{max-width:70rem;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
-h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.15;text-wrap:balance;margin:0}
-p{margin:0}
-.eyebrow{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--gold)}
-.h2{font-size:clamp(1.9rem,4.2vw,2.8rem);margin-top:10px}
+button,input,textarea,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--gold-deep);outline-offset:3px;border-radius:6px}
+.dark :focus-visible,.slate :focus-visible{outline-color:var(--gold)}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:fixed;left:16px;top:-80px;z-index:100;background:var(--espresso);color:var(--panel);padding:.7em 1.1em;border-radius:999px;text-decoration:none;font-weight:600;transition:top .3s var(--ease-out)}
+.skip:focus{top:12px}
+.mono{font-family:var(--f-mono);font-weight:400;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem}
+.wrap{width:min(100% - 2*var(--gut),var(--wrap));margin-inline:auto}
 
-/* ---------- testata ---------- */
-header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--sage-deep);color:var(--sage-ink);transition:box-shadow .3s}
-header.top.scrolled{box-shadow:0 8px 24px -16px rgba(0,0,0,.6)}
-header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
-.brand{font-family:var(--f-display);font-size:1.15rem;text-decoration:none;white-space:nowrap;line-height:1.2}
-.brand small{display:block;font-family:var(--f-body);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;opacity:.7}
-nav.links{display:flex;gap:4px;font-size:.9rem}
-nav.links a{white-space:nowrap;text-decoration:none;padding:.45em .75em;border-radius:999px;opacity:.85;transition:background .2s,opacity .2s}
-nav.links a:hover{opacity:1;background:rgba(241,244,238,.1)}
-nav.links a.on{opacity:1;background:var(--sage);color:#17201A}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:.7em 1.25em;border-radius:999px;font-weight:600;font-size:.95rem;text-decoration:none;border:1.5px solid currentColor;cursor:pointer;background:none;font-family:inherit;color:inherit;transition:transform .2s,background .2s,color .2s}
-.btn:hover{transform:translateY(-2px)}
-.btn.fill{background:var(--gold);border-color:var(--gold);color:#1B1A14}
-.burger{display:none;background:none;border:1.5px solid rgba(241,244,238,.4);color:inherit;border-radius:999px;padding:.5em .9em;font:inherit;font-size:.9rem;cursor:pointer}
-.head-cta{display:flex;gap:10px;align-items:center}
-@media (max-width:1320px){nav.links{display:none}.burger{display:inline-block}}
-.drawer{background:var(--sage-deep);color:var(--sage-ink);border-top:1px solid rgba(241,244,238,.15)}
-.drawer .wrap{display:grid;gap:2px;padding-block:10px 18px}
-.drawer a{text-decoration:none;font-family:var(--f-display);font-size:1.35rem;padding:.35em 0}
-.drawer a.on{color:var(--gold)}
+/* One environment: a fixed warm layer behind everything */
+.env{position:fixed;inset:0;z-index:-1;pointer-events:none;background:var(--canvas);overflow:hidden}
+.env::before{content:"";position:absolute;inset:-30%;background:radial-gradient(40% 35% at 30% 30%,var(--canvas-hi),transparent 70%),radial-gradient(45% 40% at 75% 70%,var(--canvas-lo),transparent 70%),radial-gradient(30% 26% at 62% 22%,rgba(201,164,58,.10),transparent 70%);opacity:.9;animation:envDrift 90s var(--ease-io) -20s infinite alternate}
+.env::after{content:"";position:absolute;inset:0;background-image:var(--noise);opacity:.045;mix-blend-mode:multiply}
+@keyframes envDrift{0%{transform:translate3d(-4%,-2%,0) rotate(0deg)}100%{transform:translate3d(5%,4%,0) rotate(8deg)}}
 
-/* ---------- pagine ---------- */
-.page{display:none}
-.page.on{display:block;animation:enter .55s cubic-bezier(.2,.7,.2,1)}
-@keyframes enter{from{opacity:.0;transform:translateY(14px)}to{opacity:1;transform:none}}
-.stagger > *{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
-.stagger > *:nth-child(2){animation-delay:.08s}.stagger > *:nth-child(3){animation-delay:.16s}.stagger > *:nth-child(4){animation-delay:.24s}.stagger > *:nth-child(5){animation-delay:.32s}
-@keyframes rise{from{opacity:.0;transform:translateY(18px)}to{opacity:1;transform:none}}
-section{padding-block:clamp(52px,8vw,92px)}
-.band{background:var(--paper-2)}
-.banner{background:var(--sage-deep);color:var(--sage-ink);padding-block:clamp(44px,7vw,80px)}
-.banner p.lead{margin-top:14px;max-width:40rem;font-size:1.1rem;opacity:.88}
-.banner h1{font-size:clamp(2.2rem,5.5vw,3.8rem);margin-top:12px}
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55em;padding:.85em 1.4em;border-radius:999px;border:2px solid transparent;font-weight:600;font-size:1rem;line-height:1.1;text-decoration:none;cursor:pointer;transition:background-color .35s var(--ease-out),color .35s var(--ease-out),transform .35s var(--ease-out),border-color .35s var(--ease-out),box-shadow .35s var(--ease-out);white-space:nowrap}
+.btn svg{width:1.15em;height:1.15em;flex:none}
+.btn-primary{background:var(--accent);color:var(--espresso);border-color:var(--accent-edge);box-shadow:0 10px 24px -12px rgba(160,127,37,.75)}
+.btn-primary:hover{background:var(--accent-hover);transform:translateY(-2px);box-shadow:0 14px 28px -12px rgba(160,127,37,.85)}
+.btn-ghost{border-color:var(--espresso);color:var(--espresso);background:transparent}
+.btn-ghost:hover{background:var(--espresso);color:var(--panel);transform:translateY(-2px)}
+.btn-dark{background:var(--espresso);color:var(--panel)}
+.btn-dark:hover{background:#3C271A;transform:translateY(-2px)}
+.btn-light{background:var(--panel);color:var(--espresso)}
+.btn-light:hover{background:#FFFDF8;transform:translateY(-2px)}
+@media (pointer:coarse){.btn{min-height:48px}}
 
-/* ---------- foto (riempite da FOTO nello script) ---------- */
-.ph{position:relative;overflow:hidden;border-radius:4px;background:
-  repeating-linear-gradient(135deg,transparent 0 14px,rgba(140,157,133,.16) 14px 15px),var(--paper-2);
-  border:1px solid var(--line);aspect-ratio:4/3;max-width:100%}
-.ph.tall{aspect-ratio:3/4}.ph.wide{aspect-ratio:16/9}
-.ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
-.ph:hover img{transform:scale(1.04)}
-.ph .cap{position:absolute;inset:auto 12px 12px 12px;font-size:.78rem;color:var(--ink-soft);display:flex;gap:8px;align-items:center}
-.ph .cap::before{content:"";width:18px;height:14px;border:1.5px solid currentColor;border-radius:3px;flex:none}
-.ph.has .cap{display:none}
-.ph svg{width:100%;height:100%;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
-.ph:hover svg{transform:scale(1.04)}
-.ph .bg{fill:var(--ill-bg)}
-.ph .l{fill:none;stroke:var(--ill-line);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
-.ph .a{fill:var(--ill-a)}.ph .b{fill:var(--ill-b)}.ph .c{fill:var(--ill-c)}.ph .d{fill:var(--ill-line)}
-.ph .thin{stroke-width:2}
-.flame{transform-box:fill-box;transform-origin:50% 100%;animation:flick 1.6s ease-in-out infinite alternate}
-.flame:nth-of-type(2n){animation-duration:1.2s}
-@keyframes flick{from{transform:scaleY(.85)}to{transform:scaleY(1.12)}}
-.steam{stroke-dasharray:6 10;animation:steam 3s linear infinite}
-@keyframes steam{to{stroke-dashoffset:-64}}
-.twinkle{transform-box:fill-box;transform-origin:center;animation:tw 2.4s ease-in-out infinite}
-@keyframes tw{50%{transform:scale(.4);opacity:.4}}
-@media (prefers-reduced-motion: reduce){.flame,.steam,.twinkle{animation:none}}
+/* Kicker with the green-rim plate motif */
+.plate-dot{display:inline-block;width:1.05em;height:1.05em;border-radius:50%;background:var(--panel);box-shadow:inset 0 0 0 2px var(--rim),inset 0 0 0 4px var(--panel),inset 0 0 0 5px var(--rim);vertical-align:-.18em;flex:none}
+.kicker{display:flex;align-items:center;gap:.7em;margin:0 0 1rem;font-family:var(--f-mono);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep)}
+.h2{font-family:var(--f-display);font-weight:800;font-size:clamp(2.2rem,5.2vw,4.3rem);line-height:.98;letter-spacing:-.025em;margin:0 0 1.2rem;font-variation-settings:"opsz" 96}
+.lede{font-size:clamp(1.06rem,1.3vw,1.2rem);max-width:46ch;margin:0 0 1.2rem;color:var(--text-primary)}
 
-/* ---------- home ---------- */
-.hero{background:var(--sage-deep);color:var(--sage-ink);padding-block:clamp(44px,7vw,88px) clamp(52px,8vw,96px)}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center}
-.hero h1{font-size:clamp(2.4rem,6vw,4.4rem);letter-spacing:-.01em;margin-top:14px}
-.hero h1 em{font-style:normal;color:var(--gold)}
-.hero p.lead{margin-top:20px;max-width:34rem;font-size:1.12rem;opacity:.88}
-.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.hero .ph{border-color:rgba(241,244,238,.2);background:repeating-linear-gradient(135deg,transparent 0 14px,rgba(241,244,238,.07) 14px 15px),rgba(0,0,0,.12)}
-.hero .ph .cap{color:rgba(241,244,238,.7)}
-.hero .ph{--ill-bg:#34423A;--ill-line:#E9EEE5;--ill-a:#7E9077;--ill-c:#46564A}
-@media (max-width:820px){.hero .wrap{grid-template-columns:1fr}}
+/* NAV */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;padding:12px var(--gut);transition:transform .5s var(--ease-out)}
+.nav-in{display:flex;align-items:center;gap:20px;max-width:var(--wrap);margin:0 auto;padding:4px 8px 4px 10px;border-radius:999px;transition:background-color .45s var(--ease-out),box-shadow .45s var(--ease-out),backdrop-filter .45s}
+.nav.scrolled .nav-in{background:rgba(255,253,249,.95);box-shadow:0 10px 30px -18px rgba(44,43,40,.55);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.brand{display:flex;align-items:center;text-decoration:none;border-radius:12px;flex:none}
+.brand-logo{display:block;height:76px;width:auto;margin:-4px 0}
+.nav-links{display:flex;gap:4px;margin:0 0 0 auto;padding:0;list-style:none}
+.nav-links a{display:inline-flex;align-items:center;padding:.55em .85em;border-radius:999px;text-decoration:none;font-weight:500;font-size:.96rem;transition:background-color .3s var(--ease-out)}
+.nav-links a:hover{background:rgba(44,43,40,.08)}
+.nav .btn{padding:.7em 1.15em}
+.menu-btn{display:none;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;border:2px solid var(--espresso);background:transparent;cursor:pointer}
+.menu-btn span{display:block;width:18px;height:2px;background:var(--espresso);position:relative;transition:transform .35s var(--ease-out),background-color .2s}
+.menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--espresso);transition:transform .35s var(--ease-out)}
+.menu-btn span::before{top:-6px}.menu-btn span::after{top:6px}
+.nav.open .menu-btn span{background:transparent}
+.nav.open .menu-btn span::before{transform:translateY(6px) rotate(45deg)}
+.nav.open .menu-btn span::after{transform:translateY(-6px) rotate(-45deg)}
+@media (max-width:960px){
+  .nav-links{position:absolute;top:calc(100% + 4px);left:var(--gut);right:var(--gut);flex-direction:column;gap:2px;padding:10px;border-radius:24px;background:var(--panel);box-shadow:0 20px 40px -20px rgba(44,43,40,.6);opacity:0;transform:translateY(-8px);pointer-events:none;visibility:hidden;transition:opacity .35s var(--ease-out),transform .35s var(--ease-out),visibility 0s .35s}
+  .nav.open .nav-links{opacity:1;transform:none;pointer-events:auto;visibility:visible;transition:opacity .35s var(--ease-out),transform .35s var(--ease-out),visibility 0s}
+  .nav-links a{padding:.8em 1em;font-size:1.05rem}
+  .menu-btn{display:inline-flex}
+  .nav .btn{margin-left:auto}
+  .nav-in{gap:10px}
+}
+@media (max-width:520px){.brand-logo{height:58px;margin:-3px 0}.nav .btn{padding:.65em 1em}}
 
-.marquee{background:var(--sage);color:#17201A;overflow:hidden;white-space:nowrap;padding-block:14px;font-family:var(--f-display);font-size:1.2rem}
-.marquee .track{display:inline-flex;gap:2.2rem;animation:slide 32s linear infinite;padding-left:2.2rem}
-.marquee span::after{content:"✦";margin-left:2.2rem;font-size:.8rem;vertical-align:middle;opacity:.6}
-@keyframes slide{to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion: reduce){.marquee .track,.page.on,.stagger>*{animation:none}}
+/* HERO */
+.hero{position:relative}
+.stage{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:clamp(24px,4.5vw,80px);padding:110px max(var(--gut),calc((100vw - var(--wrap))/2)) 64px;min-height:100vh;min-height:100svh}
+.captions{position:relative;display:grid;align-items:center;min-height:100%}
+.band{grid-area:1/1;align-self:center}
+.band .kicker{margin-bottom:1.1rem}
+.band-h{font-family:var(--f-display);font-weight:800;font-size:clamp(2.5rem,4.8vw,4.9rem);line-height:.96;letter-spacing:-.03em;margin:0 0 1.1rem;max-width:11ch;font-variation-settings:"opsz" 96}
+.band-sub{font-size:clamp(1.05rem,1.35vw,1.25rem);line-height:1.5;color:var(--text-secondary);font-weight:500;margin:0;max-width:34ch}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:1.6rem}
+.static-copy{display:none}
+.board-wrap{width:min(44vw,600px,max(260px,calc((100vh - 200px) * .92)));width:min(44vw,600px,max(260px,calc((100svh - 200px) * .92)));position:relative}
+.board-label{display:flex;align-items:center;gap:.7em;margin:0 0 12px 4px;font-family:var(--f-mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-secondary)}
+.board-label::after{content:"";flex:1;height:0;border-top:2px dashed rgba(95,94,90,.4)}
+.frame{position:relative;padding:14px;border-radius:20px;background:
+  repeating-linear-gradient(92deg,rgba(255,255,255,.06) 0 2px,transparent 2px 9px),
+  repeating-linear-gradient(88deg,rgba(60,30,10,.12) 0 1px,transparent 1px 13px),
+  linear-gradient(135deg,#C99460,#A9733F 35%,#BE8852 60%,#9C6634);
+  box-shadow:0 34px 60px -28px rgba(44,43,40,.75),inset 0 1px 0 rgba(255,255,255,.35),inset 0 -2px 0 rgba(60,30,10,.35)}
+.eraser{position:absolute;right:14%;bottom:-9px;width:78px;height:22px;border-radius:5px;background:linear-gradient(#E9E2D3 0 46%,#4B5A55 46% 100%);box-shadow:0 6px 10px -4px rgba(44,43,40,.6);rotate:-3deg}
+.chalk-piece{position:absolute;left:16%;bottom:-5px;width:46px;height:10px;border-radius:5px;background:linear-gradient(#FFFFFF,#E3DDCF);box-shadow:0 4px 6px -3px rgba(44,43,40,.5);rotate:4deg}
+.board{position:relative;container-type:inline-size;border-radius:8px;padding:6% 7% 6.5%;color:var(--chalk);background-color:var(--slate);background-image:
+  radial-gradient(55% 38% at 28% 22%,rgba(244,241,232,.075),transparent 70%),
+  radial-gradient(45% 30% at 78% 74%,rgba(244,241,232,.055),transparent 70%),
+  radial-gradient(30% 22% at 62% 30%,rgba(244,241,232,.04),transparent 70%);
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.4),inset 0 10px 30px rgba(0,0,0,.35)}
+.board::before{content:"";position:absolute;inset:0;border-radius:inherit;background-image:var(--noise-light);opacity:.06;pointer-events:none}
+.bl{margin:0;font-family:var(--f-chalk);line-height:1.2;text-shadow:0 0 1px rgba(244,241,232,.55),0 0 .4cqw rgba(244,241,232,.12)}
+.bl .w{display:inline-block;white-space:nowrap}
+.bl .c{display:inline-block;--o:clamp(0,calc(var(--k,0) * (var(--n,10) + 1.5) - var(--i,0)),1);opacity:var(--o);transform:translateY(calc((1 - var(--o)) * .14em)) rotate(calc((1 - var(--o)) * var(--jr,0deg)))}
+.bl-title{font-weight:700;font-size:8.6cqw;line-height:1;text-align:center;letter-spacing:.01em}
+.under{display:block;width:62%;height:3.2cqw;margin:.6cqw auto 2.6cqw;overflow:visible}
+.draw{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1 1;stroke-dashoffset:1}
+.under .draw{stroke:var(--chalk-y);stroke-width:2.2;opacity:.9}
+.bl-cat{font-size:3.7cqw;letter-spacing:.14em;text-transform:uppercase;color:var(--chalk-y);margin-top:3cqw;margin-bottom:.6cqw}
+.under+.bl-cat{margin-top:0}
+.bl-dish{font-size:4.9cqw;margin-bottom:.6cqw;padding-left:3cqw;text-indent:-3cqw}
+.bl-dish .w,.bl-dish .c{text-indent:0}
+.bl-price{display:flex;align-items:baseline;justify-content:flex-end;gap:3.2cqw;margin-top:3.4cqw;position:relative}
+.bl-small{font-size:4.2cqw;color:var(--chalk-y)}
+.big-wrap{position:relative;display:inline-block}
+.bl-big{display:inline-block;font-weight:700;font-size:11cqw;line-height:1;padding:0 2cqw}
+.circle{position:absolute;left:-14%;top:-22%;width:128%;height:150%;overflow:visible;pointer-events:none}
+.circle .draw{stroke:var(--chalk-r);stroke-width:2.4}
+.stick{position:absolute;left:0;top:0;width:0;height:0;pointer-events:none;will-change:transform;z-index:3;opacity:0;transition:opacity .5s var(--ease-out)}
+.stick.on{opacity:1}
+.stick-body{position:absolute;left:0;top:-1.1cqw;width:8.5cqw;height:2.2cqw;border-radius:1.1cqw .6cqw .6cqw 1.1cqw;background:linear-gradient(180deg,#FFFFFF,#ECE6D8 55%,#CFC7B5);box-shadow:0 1.4cqw 1.8cqw -1cqw rgba(0,0,0,.6);transform-origin:0 50%;rotate:-34deg;transition:rotate .6s var(--ease-out),translate .6s var(--ease-out)}
+.stick.idle .stick-body{rotate:-48deg;translate:.6cqw -1.2cqw}
+.dust{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
+.cue{position:absolute;left:50%;bottom:22px;translate:-50% 0;display:flex;flex-direction:column;align-items:center;gap:6px;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-secondary);transition:opacity .5s var(--ease-out);pointer-events:none}
+.cue svg{width:22px;height:30px}
+.live .cue svg{animation:cueBob 2.4s var(--ease-io) -.6s infinite}
+@keyframes cueBob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+.cue.gone{opacity:0}
 
-.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-bottom:1px solid var(--line)}
-.facts div{padding:22px 20px 22px 0}
-.facts div + div{padding-left:20px;border-left:1px solid var(--line)}
-.facts dt{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
-.facts dd{margin:4px 0 0;font-size:1.05rem}
-@media (max-width:700px){.facts{grid-template-columns:1fr}.facts div + div{padding-left:0;border-left:0;border-top:1px solid var(--line)}}
+/* Scrub mode: the pinned journey */
+.scrub .hero{height:700vh}
+.scrub .stage{position:sticky;top:0;height:100vh;height:100svh;min-height:0;overflow:hidden;padding-top:96px;padding-bottom:48px}
+.scrub .band{opacity:0;will-change:opacity}
+/* The opening: the logo served on a plate, then it fades into a watermark as --i goes 0 to 1 */
+.stage>.captions,.stage>.board-wrap{position:relative;z-index:1}
+.logo-intro{position:absolute;inset:0;z-index:0;display:grid;place-content:center;justify-items:center;gap:22px;pointer-events:none}
+.logo-plate{display:grid;place-items:center;width:min(560px,62vh,80vw);width:min(560px,62svh,80vw);aspect-ratio:1;border-radius:50%;background:var(--panel);box-shadow:inset 0 0 0 7px var(--rim),inset 0 0 0 15px var(--panel),inset 0 0 0 18px var(--rim),inset 0 0 60px rgba(140,120,60,.10),0 40px 70px -40px rgba(44,43,40,.65)}
+.logo-plate img{width:80%;height:auto}
+.logo-tag{margin:0;font-family:var(--f-mono);font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-secondary);text-align:center}
+.scrub .logo-intro{--li:clamp(0,calc(var(--i,0) / .55),1);opacity:calc(1 - .88 * var(--li));transform:scale(calc(1 + .14 * var(--li)));will-change:opacity,transform}
+.scrub .logo-tag{opacity:clamp(0,calc(1 - var(--i,0) * 3),1)}
+.scrub .logo-plate{animation:plateIn 1.3s var(--ease-out) .1s both}
+@keyframes plateIn{from{opacity:0;transform:translateY(18px) scale(.94)}to{opacity:1;transform:none}}
+.scrub .board-wrap{--e:clamp(0,calc((var(--i,0) - .42) / .43),1);opacity:var(--e);transform:translateY(calc((1 - var(--e)) * 40px))}
+html:not(.scrub) .logo-intro{opacity:.14;transform:scale(1.14)}
+html:not(.scrub) .logo-tag{display:none}
+.scrub .static-copy{display:none}
+html:not(.scrub) .band{display:none}
+html:not(.scrub) .static-copy{display:block}
+html:not(.scrub) .cue,html:not(.scrub) .stick{display:none}
+html:not(.scrub) .bl{--k:1!important}
+html:not(.scrub) .draw{stroke-dashoffset:0!important}
+html:not(.js) .bl .c{opacity:1}
 
-.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:36px}
-@media (max-width:820px){.tiles{grid-template-columns:1fr}}
-.tile{text-decoration:none;display:grid;gap:12px;align-content:start}
-.tile h3{font-size:1.45rem;display:flex;justify-content:space-between;align-items:baseline;gap:12px}
-.tile h3 .arr{font-family:var(--f-body);font-size:1rem;color:var(--gold);transition:transform .25s}
-.tile:hover h3 .arr{transform:translateX(6px)}
-.tile p{color:var(--ink-soft)}
+/* Band entrances, all scrubbed off --k */
+.fx-rise .w{--kc:clamp(0,calc((var(--k,0) - var(--th,0)) * 3),1);opacity:var(--kc);transform:translateY(calc((1 - var(--kc)) * .5em))}
+.fx-rise .kicker,.fx-rise .band-sub{--ks:clamp(0,calc((var(--k,0) - .5) * 3),1);opacity:var(--ks);transform:translateY(calc((1 - var(--ks)) * 14px))}
+.fx-rise .kicker{--ks:clamp(0,calc(var(--k,0) * 3),1)}
+.fx-rise .cta-row{--kb:clamp(0,calc((var(--k,0) - .74) * 4.5),1);opacity:var(--kb);transform:translateY(calc((1 - var(--kb)) * 16px))}
+.band-h .w{display:inline-block;white-space:nowrap}
+.band-h .c{display:inline-block}
+.fx-write .c{--kc:clamp(0,calc(var(--k,0) * (var(--n,20) + 3) - var(--i,0)),1);opacity:var(--kc);transform:translateX(calc((1 - var(--kc)) * -.25em))}
+.fx-write .band-sub{--ks:clamp(0,calc((var(--k,0) - .6) * 3),1);opacity:var(--ks);transform:translateY(calc((1 - var(--ks)) * 12px))}
+.stack{display:grid}
+.stack>span{grid-area:1/1}
+.fx-blur .soft{filter:blur(9px);opacity:calc(1 - var(--k,0))}
+.fx-blur .sharp{opacity:var(--k,0);transform:scale(calc(1.04 - .04 * var(--k,0)));transform-origin:0 50%}
+.fx-blur .band-sub{--ks:clamp(0,calc((var(--k,0) - .45) * 2.5),1);opacity:var(--ks)}
+.fx-punch .w{--kc:clamp(0,calc((var(--k,0) - var(--th,0)) * 3),1);--ks:clamp(0,calc((var(--k,0) - var(--th,0) - var(--sd,.1)) * var(--ss,3.2)),1);opacity:var(--kc);transform:scale(calc(.6 + (.4 + var(--ov,.12)) * var(--kc) - var(--ov,.12) * var(--ks)));transform-origin:50% 80%}
+.fx-punch .w.em{--ov:.24;--sd:.16;--ss:2.6;color:var(--gold-deep)}
+.fx-punch .band-sub{--ks:clamp(0,calc((var(--k,0) - .55) * 3),1);opacity:var(--ks);transform:translateY(calc((1 - var(--ks)) * 12px))}
 
-.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,5vw,72px);align-items:center}
-.split.rev > :first-child{order:2}
-@media (max-width:820px){.split{grid-template-columns:1fr}.split.rev > :first-child{order:0}}
-.prose{display:grid;gap:16px;max-width:38rem;color:var(--ink-soft)}
-.prose strong{color:var(--ink);font-weight:600}
-.ticks{list-style:none;padding:0;margin:4px 0 0;display:grid;gap:10px}
-.ticks li{padding-left:24px;position:relative;color:var(--ink)}
-.ticks li::before{content:"";position:absolute;left:0;top:.62em;width:12px;height:2px;background:var(--gold)}
+@media (max-width:860px),(orientation:portrait){
+  .stage{grid-template-columns:1fr;grid-template-rows:auto auto;align-content:center;align-items:start;gap:20px;padding-top:92px}
+  .scrub .stage{padding-top:84px;padding-bottom:26px;gap:18px}
+  .board-wrap{width:min(100%,560px,max(200px,calc((100vh - 376px) * .86)));width:min(100%,560px,max(200px,calc((100svh - 376px) * .86)));justify-self:center;order:-1}
+  .bl-title{font-size:9.4cqw}
+  .bl-cat{font-size:4.1cqw}
+  .bl-dish{font-size:5.5cqw}
+  .captions{align-items:start;min-height:0}
+  .band{align-self:start}
+  .band-h{font-size:clamp(1.85rem,7.6vw,3rem);max-width:14ch;margin-bottom:.6rem}
+  .band-sub{font-size:1rem;max-width:40ch}
+  .band .kicker{margin-bottom:.6rem}
+  .cta-row{margin-top:1rem}
+  .cue{bottom:14px}
+  .logo-tag{font-size:.7rem;letter-spacing:.12em;max-width:30ch}
+  .board-label{font-size:.66rem;margin-bottom:8px}
+  .frame{padding:10px;border-radius:16px}
+}
+@media (max-width:860px) and (max-height:700px){
+  .scrub .band-h{font-size:clamp(1.6rem,6.8vw,2.4rem)}
+  .scrub .band .kicker{display:none}
+  .scrub .cta-row .btn{padding:.7em 1.1em}
+}
+@media (max-height:560px){.cue{display:none}}
+html:not(.scrub) .board-wrap{width:min(44vw,600px)}
+@media (max-width:860px),(orientation:portrait){html:not(.scrub) .board-wrap{width:min(100%,520px)}}
+main:focus{outline:none}
 
-.quote{background:var(--sage);color:#17201A;text-align:center}
-.quote blockquote{margin:0 auto;max-width:44rem;font-family:var(--f-display);font-size:clamp(1.5rem,3.4vw,2.3rem);line-height:1.3;text-wrap:balance}
-.quote cite{display:block;margin-top:16px;font-style:normal;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+/* SECTIONS */
+.sec{position:relative;padding:clamp(80px,11vw,150px) 0;scroll-margin-top:70px}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease-out),transform .9s var(--ease-out);transition-delay:calc(var(--d,0) * 95ms)}
+.in .rv{opacity:1;transform:none}
+.rv-done .rv,.rv-done .rv:nth-child(n){transition-delay:0s}
+html:not(.js) .rv{opacity:1;transform:none}
 
-/* ---------- lavagna ---------- */
-.board{background:var(--chalk);color:var(--chalk-ink);border-radius:6px;padding:clamp(26px,5vw,56px);box-shadow:inset 0 0 0 10px #4A3A2A, inset 0 0 0 12px rgba(0,0,0,.25), 0 22px 44px -26px rgba(0,0,0,.6);position:relative}
-.board .date{font-family:var(--f-hand);font-size:clamp(1.3rem,3vw,1.7rem);color:var(--gold);text-align:center}
-.board .title{font-family:var(--f-hand);font-weight:700;font-size:clamp(2rem,5vw,3rem);text-align:center;line-height:1.1;margin-top:4px}
-.board .cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 48px;margin-top:32px}
-@media (max-width:700px){.board .cols{grid-template-columns:1fr}}
-.course h3{font-family:var(--f-hand);font-weight:700;font-size:1.45rem;color:var(--gold);border-bottom:1px dashed rgba(242,240,230,.3);padding-bottom:4px;margin-bottom:10px}
-.course ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
-.course li{font-family:var(--f-hand);font-size:1.25rem;line-height:1.35;animation:write .5s both}
-@keyframes write{from{opacity:0;clip-path:inset(0 100% 0 0)}to{opacity:1;clip-path:inset(0 0 0 0)}}
-.board .foot{margin-top:32px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;font-family:var(--f-hand);font-size:1.2rem;color:var(--chalk-dim);border-top:1px dashed rgba(242,240,230,.3);padding-top:16px}
-.board .price{color:var(--chalk-ink);font-weight:700}
-.sample{position:absolute;top:14px;right:18px;font-family:var(--f-body);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;background:var(--gold);color:#1B1A14;padding:4px 10px;border-radius:999px}
-.board.mini .cols{grid-template-columns:1fr}
-@media (prefers-reduced-motion: reduce){.course li{animation:none}}
+/* Trattoria */
+.tr-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(40px,6vw,96px);align-items:center}
+.collage{position:relative;aspect-ratio:1/1.08}
+.ph{position:absolute;margin:0;padding:8px;background:var(--panel);border-radius:8px;box-shadow:0 24px 40px -24px rgba(44,43,40,.65);transition:opacity .8s var(--ease-out) calc(var(--d,0) * 95ms),transform .9s var(--ease-out) calc(var(--d,0) * 95ms),scale .5s var(--ease-out)}
+.ph img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:4px}
+.ph:hover{scale:1.025}
+.ph-sala{left:0;top:5%;width:56%;rotate:-2.5deg;z-index:1}
+.ph-spag{right:1%;top:0;width:41%;rotate:3deg}
+.ph-polp{right:7%;bottom:0;width:40%;rotate:-3.5deg;z-index:2}
+.price-badge{position:absolute;left:38%;bottom:4%;z-index:3;width:clamp(128px,15vw,172px);aspect-ratio:1;border-radius:50%;background:var(--panel);box-shadow:inset 0 0 0 4px var(--rim),inset 0 0 0 9px var(--panel),inset 0 0 0 11px var(--rim),0 18px 30px -16px rgba(44,43,40,.7);display:grid;place-items:center;text-align:center}
+.price-badge .ring{position:absolute;inset:14%;width:72%;height:72%}
+.live .price-badge .ring{animation:spin 40s linear -8s infinite}
+.price-badge .ring text{font-family:var(--f-mono);font-size:8.6px;letter-spacing:1.6px;fill:var(--text-secondary-panel);text-transform:uppercase}
+.price-badge strong{font-family:var(--f-display);font-weight:800;font-size:clamp(1.6rem,2.4vw,2.2rem);line-height:1;letter-spacing:-.02em}
+@keyframes spin{to{transform:rotate(360deg)}}
+.voice{font-size:1.1rem;margin:0 0 2rem;max-width:42ch;color:var(--text-secondary)}
+.voice em{font-style:normal;font-weight:600;color:var(--text-primary);background:linear-gradient(transparent 62%,rgba(201,164,58,.3) 62%)}
+.facts{display:grid;grid-template-columns:repeat(3,auto);gap:12px 28px;margin:0;padding:22px 0 0;list-style:none;border-top:2px solid rgba(44,43,40,.18);justify-content:start}
+.facts li{display:flex;flex-direction:column;gap:4px}
+.facts .mono{color:var(--text-secondary);font-size:.72rem}
+.facts strong{font-family:var(--f-display);font-weight:700;font-size:1.15rem;line-height:1.15}
+@media (max-width:860px){
+  .tr-grid{grid-template-columns:1fr}
+  .collage{max-width:560px;width:100%;margin:0 auto}
+  .facts{grid-template-columns:1fr 1fr}
+}
 
-/* ---------- gallery ---------- */
-.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:32px}
-.gallery .ph:nth-child(1){grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
-@media (max-width:700px){.gallery{grid-template-columns:1fr 1fr}.gallery .ph:nth-child(1){grid-column:span 2;grid-row:auto;aspect-ratio:16/9}}
+/* Ticker */
+.ticker{background:var(--espresso);color:var(--gold);overflow:hidden;padding:20px 0;border-block:2px solid #1D1C1A}
+.track{display:flex;width:max-content}
+.live .track,.ticker.live .track{animation:marquee 46s linear -12s infinite}
+.grp{display:flex;align-items:center;margin:0;padding:0;list-style:none}
+.grp li{display:flex;align-items:center;gap:28px;padding-right:28px;font-family:var(--f-display);font-weight:800;font-size:clamp(1.5rem,3vw,2.4rem);letter-spacing:-.01em;white-space:nowrap;line-height:1.2}
+.grp li::after{content:"";width:22px;height:22px;border-radius:50%;background:var(--panel);box-shadow:inset 0 0 0 3px var(--rim),inset 0 0 0 6px var(--panel),inset 0 0 0 7.5px var(--rim);flex:none}
+@keyframes marquee{to{transform:translateX(-50%)}}
 
-/* ---------- contatti ---------- */
-.contact{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
-@media (max-width:820px){.contact{grid-template-columns:1fr}}
-.contact h3{font-family:var(--f-body);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink-soft);margin-bottom:10px}
-.contact p{font-size:1.08rem}
-.hours{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;font-variant-numeric:tabular-nums}
-.hours .note{grid-column:1/-1;color:var(--ink-soft);font-size:.95rem;margin-top:6px}
-.open{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;font-weight:600;padding:4px 12px;border-radius:999px;border:1px solid var(--line);margin-top:12px}
-.open i{width:8px;height:8px;border-radius:50%;background:#8a8f88}
-.open.yes i{background:#4C9A5B;box-shadow:0 0 0 0 rgba(76,154,91,.6);animation:pulse 2s infinite}
-@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(76,154,91,0)}100%{box-shadow:0 0 0 0 rgba(76,154,91,0)}}
-.copy{background:none;border:1px solid var(--line);color:var(--ink-soft);font:inherit;font-size:.8rem;padding:2px 10px;border-radius:999px;cursor:pointer;margin-left:8px}
-.copy:hover{color:var(--ink);border-color:var(--ink-soft)}
-.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-.contact .btn{border-color:var(--line)}
+/* Come funziona */
+.panel{background:var(--panel);border-radius:clamp(24px,3vw,36px);padding:clamp(32px,5.5vw,72px);box-shadow:0 40px 70px -50px rgba(44,43,40,.7)}
+.panel .kicker{color:var(--gold-deep)}
+.come-head{display:flex;align-items:end;justify-content:space-between;gap:24px 60px;flex-wrap:wrap;margin-bottom:clamp(30px,4vw,56px)}
+.come-head .h2{margin:0;max-width:13ch}
+.come-head p{margin:0;max-width:34ch;color:var(--text-secondary-panel)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.4vw,28px);margin:0;padding:0;list-style:none;counter-reset:s}
+.step{position:relative;padding:28px 26px 30px;border-radius:24px;background:#F5F2EC;border:2px solid rgba(44,43,40,.08)}
+.step-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+.step-n{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--panel);box-shadow:inset 0 0 0 3px var(--rim),inset 0 0 0 6px var(--panel),inset 0 0 0 7.5px var(--rim);font-family:var(--f-display);font-weight:800;font-size:1.1rem}
+.step-ico{width:78px;height:78px}
+.step-ico svg{width:100%;height:100%;overflow:visible}
+.step-ico .ink{fill:none;stroke:var(--espresso);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.step-ico .fill-y{fill:var(--gold)}
+.step h3{font-family:var(--f-display);font-weight:800;font-size:1.45rem;line-height:1.08;letter-spacing:-.015em;margin:0 0 .5rem}
+.step p{margin:0;color:var(--text-secondary-panel)}
+.hand{transform-origin:40px 42px;transform-box:view-box}
+.live .hand-m{animation:spin 12s linear -3s infinite}
+.live .bubble{animation:bubble 4.5s var(--ease-io) -1s infinite}
+@keyframes bubble{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.live .steam path{animation:steam 5s var(--ease-io) infinite}
+.live .steam path:nth-child(2){animation-delay:-1.6s}
+.live .steam path:nth-child(3){animation-delay:-3.2s}
+@keyframes steam{0%,100%{opacity:.25;transform:translateY(2px)}50%{opacity:.9;transform:translateY(-3px)}}
+@media (max-width:860px){.steps{grid-template-columns:1fr}}
 
-.muted{color:var(--ink-soft)}.small{font-size:.9rem}
-.book{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(24px,5vw,64px);align-items:center}
-@media (max-width:820px){.book{grid-template-columns:1fr}}
-.book-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-@media (max-width:560px){.book-cards{grid-template-columns:1fr}}
-.bcard{display:grid;gap:6px;padding:24px;border:1px solid var(--line);border-radius:6px;background:var(--paper);transition:transform .25s,box-shadow .25s}
-.bcard:hover{transform:translateY(-3px);box-shadow:0 14px 30px -22px rgba(0,0,0,.5)}
-.blabel{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--gold)}
-.bnum{font-family:var(--f-display);font-size:clamp(1.6rem,4vw,2.1rem);font-variant-numeric:tabular-nums;user-select:all}
-.bcard .btn:not(.fill){border-color:var(--line)}
-.form-head{margin-bottom:28px}
-.evform{display:grid;gap:24px;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:clamp(20px,4vw,40px)}
-.types{border:0;padding:0;margin:0}
-.types legend{font-weight:600;margin-bottom:12px}
-.chips{display:flex;flex-wrap:wrap;gap:10px}
-.chips label{cursor:pointer}
-.chips input{position:absolute;opacity:0;pointer-events:none}
-.chips span{display:inline-block;padding:.55em 1.05em;border:1.5px solid var(--line);border-radius:999px;font-size:.95rem;transition:background .2s,border-color .2s,color .2s,transform .2s}
-.chips label:hover span{border-color:var(--sage);transform:translateY(-1px)}
-.chips input:checked + span{background:var(--sage-deep);border-color:var(--sage-deep);color:var(--sage-ink)}
-.chips input:focus-visible + span{outline:2px solid var(--gold);outline-offset:2px}
-.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 20px}
-@media (max-width:640px){.grid2{grid-template-columns:1fr}}
-.field{display:grid;gap:6px;font-size:.9rem;color:var(--ink-soft);min-width:0}
-.field.full{grid-column:1/-1}
-.field input,.field textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--paper-2);border:1px solid var(--line);border-radius:4px;padding:.7em .8em;width:100%;min-width:0}
-.field input:focus,.field textarea:focus{outline:2px solid var(--sage);outline-offset:0;border-color:var(--sage)}
-.err{color:#B4442F;font-weight:600}
-.done{display:grid;gap:12px;border-top:1px solid var(--line);padding-top:20px}
-.done pre{white-space:pre-wrap;font-family:var(--f-body);font-size:.95rem;background:var(--paper-2);border:1px solid var(--line);border-radius:4px;padding:16px;margin:0;overflow-x:auto}
-footer{background:var(--sage-deep);color:var(--sage-ink);font-size:.88rem}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-block:28px;opacity:.82}
-footer nav{display:flex;flex-wrap:wrap;gap:16px}
-footer a{text-decoration:none}
+/* Il tuo posto */
+.posto-grid{display:grid;justify-items:center;text-align:center}
+.posto .h2{max-width:22ch;margin-inline:auto}
+.posto .h2 .line{display:block}
+.posto .kicker{justify-content:center}
+.table-stage{width:min(100%,640px);margin:clamp(20px,3vw,36px) auto 0}
+.table-svg{width:100%;height:auto;overflow:visible}
+.table-svg *{transform-box:fill-box}
+.t-cloth{--e:clamp(0,calc(var(--h,0) / .22),1);transform-origin:50% 0;transform:scaleY(var(--e));opacity:clamp(0,calc(var(--e) * 3),1)}
+.t-plate{--e:clamp(0,calc((var(--h,0) - .2) / .26),1);transform-origin:50% 50%;opacity:var(--e);transform:scale(calc(1.35 - .35 * var(--e)))}
+.t-napkin{--e:clamp(0,calc((var(--h,0) - .42) / .16),1);opacity:var(--e);transform:translateY(calc((1 - var(--e)) * -26px)) rotate(calc((1 - var(--e)) * -10deg))}
+.t-fork{--e:clamp(0,calc((var(--h,0) - .52) / .16),1);opacity:var(--e);transform:translateX(calc((1 - var(--e)) * -70px))}
+.t-knife{--e:clamp(0,calc((var(--h,0) - .64) / .16),1);opacity:var(--e);transform:translateX(calc((1 - var(--e)) * 70px))}
+.t-glass{--e:clamp(0,calc((var(--h,0) - .78) / .18),1);transform-origin:50% 50%;opacity:var(--e);transform:scale(calc(1.4 - .4 * var(--e)))}
+.t-ghost{opacity:calc(.55 - .55 * clamp(0,calc(var(--h,0) * 4),1))}
+.posto-actions{position:relative;display:grid;justify-items:center;width:min(100%,560px);margin-top:clamp(18px,3vw,30px);min-height:130px}
+.hold-btn{position:relative;align-self:start;max-width:100%;text-align:left;display:inline-flex;align-items:center;gap:14px;padding:12px 26px 12px 12px;border-radius:999px;border:2px solid var(--espresso);background:var(--panel);font-weight:600;font-size:1.05rem;cursor:pointer;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;touch-action:manipulation;transition:transform .35s var(--ease-out),opacity .5s var(--ease-out),background-color .3s}
+.hold-btn::before{content:"";position:absolute;inset:-8px;border-radius:999px;box-shadow:0 0 0 6px var(--accent-muted);opacity:0;pointer-events:none}
+.live .hold-btn::before{animation:glow 4.2s var(--ease-io) -1.4s infinite}
+@keyframes glow{0%,100%{opacity:0}50%{opacity:1}}
+.hold-btn:hover{transform:translateY(-2px)}
+@media (max-width:420px){.hold-btn{font-size:.95rem;gap:12px;padding-right:20px}}
+.hold-btn.holding{transform:scale(.97);background:#FFFDF8}
+.hold-ring{width:46px;height:46px;flex:none;rotate:-90deg}
+.hold-ring circle{fill:none;stroke-width:4}
+.hold-ring .bg{stroke:rgba(44,43,40,.14)}
+.hold-ring .p{stroke:var(--accent);stroke-linecap:round;stroke-dasharray:1 1;stroke-dashoffset:1}
+.done-msg{position:absolute;inset:0;display:grid;justify-items:center;align-content:center;gap:14px;opacity:0;transform:translateY(14px);pointer-events:none;transition:opacity .6s var(--ease-out) .15s,transform .7s var(--ease-out) .15s}
+.done-h{margin:0;font-family:var(--f-display);font-weight:800;font-size:clamp(1.5rem,2.6vw,2rem);line-height:1.1;letter-spacing:-.02em}
+.posto.is-set .hold-btn{opacity:0;transform:scale(.9);pointer-events:none}
+.posto.is-set .done-msg{opacity:1;transform:none;pointer-events:auto}
+
+/* Storia (dark) */
+.dark{background:var(--espresso);color:var(--panel)}
+.dark .kicker{color:var(--gold)}
+.dark .plate-dot{background:var(--espresso);box-shadow:inset 0 0 0 2px var(--gold),inset 0 0 0 4px var(--espresso),inset 0 0 0 5px var(--gold)}
+.storia::before{content:"";position:absolute;inset:0;background-image:var(--noise-light);opacity:.035;pointer-events:none}
+.storia-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(48px,7vw,120px);align-items:start}
+.storia .h2{max-width:none;font-size:clamp(2rem,3.9vw,3.5rem)}
+.storia .h2 .line{display:block}
+.big-quote{margin:2.2rem 0 2.6rem;padding:0}
+.big-quote p{margin:0;font-family:var(--f-display);font-weight:700;font-size:clamp(1.5rem,2.5vw,2.1rem);line-height:1.18;letter-spacing:-.015em;color:var(--gold);max-width:22ch}
+.big-quote footer{margin-top:1rem;font-family:var(--f-mono);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-on-dark)}
+.name-def{display:grid;gap:16px;margin:0}
+.name-def div{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding-top:16px;border-top:1px solid rgba(234,219,196,.25)}
+.name-def dt{font-family:var(--f-display);font-weight:800;font-size:1.5rem;letter-spacing:-.01em}
+.name-def dd{margin:0;color:var(--text-on-dark)}
+.timeline{position:relative;margin:0;padding:6px 0 0 64px;list-style:none}
+.tl-line{position:absolute;left:21.5px;top:10px;bottom:10px;width:3px;border-radius:3px;background:rgba(234,219,196,.16)}
+.tl-fill{position:absolute;inset:0;border-radius:inherit;background:var(--gold);transform-origin:50% 0;transform:scaleY(0);box-shadow:0 0 12px rgba(201,164,58,.45)}
+.tl-item{position:relative;padding-bottom:clamp(40px,5vw,64px)}
+.tl-item:last-child{padding-bottom:0}
+.tl-node{position:absolute;left:-60px;top:-2px;width:38px;height:38px;border-radius:50%;background:var(--espresso);box-shadow:inset 0 0 0 3px rgba(234,219,196,.3),inset 0 0 0 7px var(--espresso),inset 0 0 0 9px rgba(234,219,196,.3);transition:box-shadow .6s var(--ease-out),scale .6s var(--ease-out)}
+.tl-item.lit .tl-node{box-shadow:inset 0 0 0 3px var(--gold),inset 0 0 0 7px var(--espresso),inset 0 0 0 9px var(--gold),0 0 24px rgba(201,164,58,.35);scale:1.08}
+.tl-item .mono{display:block;color:var(--gold);margin-bottom:.5rem;opacity:.75;transition:opacity .6s var(--ease-out)}
+.tl-item.lit .mono{opacity:1}
+.tl-item h3{font-family:var(--f-display);font-weight:800;font-size:clamp(1.5rem,2.2vw,1.9rem);line-height:1.08;letter-spacing:-.015em;margin:0 0 .6rem}
+.tl-item p{margin:0;color:var(--text-on-dark);max-width:40ch}
+@media (max-width:860px){.storia-grid{grid-template-columns:1fr}.timeline{padding-left:56px}.tl-node{left:-54px}.tl-line{left:19.5px}}
+.storia-grid{position:relative}
+
+/* Eventi */
+.ev-head{display:grid;grid-template-columns:1.1fr 1fr;gap:20px clamp(40px,6vw,96px);align-items:end;margin-bottom:clamp(36px,5vw,60px)}
+.ev-head .h2{margin:0;max-width:12ch}
+.ev-head .lede{margin:0 0 1.2rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.chips li{padding:.45em .95em;border-radius:999px;border:2px solid var(--espresso);font-weight:600;font-size:.92rem;line-height:1.2}
+.mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(clamp(150px,17vw,230px),auto);gap:clamp(10px,1.4vw,18px)}
+.tile{position:relative;margin:0;border-radius:18px;overflow:hidden;background:var(--espresso);box-shadow:0 24px 40px -30px rgba(44,43,40,.8)}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease-out)}
+.tile:hover img{transform:scale(1.04)}
+.tile figcaption{position:absolute;left:12px;bottom:12px;right:12px;width:max-content;max-width:calc(100% - 24px);padding:.45em .8em;border-radius:10px;background:rgba(44,43,40,.78);color:var(--panel);font-size:.85rem;font-weight:500;line-height:1.3;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.t-com{grid-row:span 2}
+.t-com img{object-position:50% 78%}
+.t-buf{grid-column:span 2}
+.t-van{grid-column:span 2;background:#FFFEFB}
+.t-van img{object-fit:contain;padding:6% 8%}
+.ev-info{grid-row:span 2;border-radius:18px;background:var(--espresso);color:var(--panel);padding:clamp(22px,2.4vw,32px);display:flex;flex-direction:column;gap:18px}
+.ev-info ul{margin:0;padding:0;list-style:none;display:grid;gap:16px}
+.ev-info li{display:grid;gap:3px;padding-bottom:14px;border-bottom:1px solid rgba(234,219,196,.2)}
+.ev-info li .mono{color:var(--gold);font-size:.7rem}
+.ev-info li strong{font-family:var(--f-display);font-weight:700;font-size:1.12rem;line-height:1.2}
+.ev-info .btn{margin-top:auto;align-self:flex-start}
+.live .t-com img{animation:kb 22s var(--ease-io) -6s infinite alternate}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.06)}}
+@media (max-width:960px){
+  .ev-head{grid-template-columns:1fr}
+  .mosaic{grid-template-columns:repeat(2,1fr);grid-auto-rows:minmax(clamp(150px,40vw,260px),auto)}
+  .ev-info{grid-column:span 2;grid-row:auto}
+  .t-van{grid-column:span 2}
+}
+
+/* Aziende (light) */
+.light{background:#ECE8E0}
+.light .kicker{color:var(--gold-deep)}
+.az-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(40px,7vw,110px);align-items:center}
+.az-quote{position:relative;padding:clamp(30px,4vw,54px);border-radius:28px;background:var(--gold);color:var(--espresso);box-shadow:0 30px 50px -36px rgba(160,127,37,.9)}
+.az-quote .qmark{position:absolute;top:.14em;left:.22em;font-family:var(--f-display);font-weight:800;font-size:6.5rem;line-height:1;color:var(--panel)}
+.az-quote p{position:relative;margin:3.4rem 0 1.4rem;font-family:var(--f-display);font-weight:700;font-size:clamp(1.45rem,2.4vw,2.05rem);line-height:1.18;letter-spacing:-.015em}
+.az-quote footer{font-family:var(--f-mono);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:#3A372F}
+.live .az-quote .qmark{animation:qfloat 6s var(--ease-io) -2s infinite}
+@keyframes qfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.az-copy .h2{max-width:15ch;font-size:clamp(2rem,4.3vw,3.6rem)}
+.az-copy p{color:var(--text-secondary-panel);max-width:48ch}
+.checks{margin:1.6rem 0 2rem;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:14px 26px}
+.checks li{display:flex;gap:12px;align-items:flex-start;font-weight:600;line-height:1.35}
+.checks svg{width:26px;height:26px;flex:none;margin-top:-1px}
+.checks circle{fill:var(--gold)}
+.checks .draw{stroke:var(--espresso);stroke-width:2.6;transition:stroke-dashoffset .7s var(--ease-out);transition-delay:calc(var(--d,0) * 140ms + 300ms)}
+.in .checks .draw{stroke-dashoffset:0}
+@media (max-width:860px){.az-grid{grid-template-columns:1fr}.checks{grid-template-columns:1fr}}
+
+/* Recensioni */
+.rc-head{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:clamp(30px,4vw,54px)}
+.rc-head .h2{margin:0}
+.reviews{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:clamp(16px,2vw,26px);align-items:start}
+.review{margin:0;padding:clamp(24px,2.6vw,34px);border-radius:24px;background:var(--panel);box-shadow:0 30px 50px -36px rgba(44,43,40,.75);display:flex;flex-direction:column;gap:18px}
+.review:nth-child(2){margin-top:48px}
+.review:nth-child(3){margin-top:16px}
+.review blockquote{margin:0}
+.review blockquote p{margin:0;font-size:1.08rem;line-height:1.55}
+.review .qm{display:block;font-family:var(--f-display);font-weight:800;font-size:3.4rem;line-height:.6;color:var(--rim);height:.5em}
+.review figcaption{display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid rgba(44,43,40,.14)}
+.review figcaption strong{display:block;font-weight:600}
+.review figcaption .mono{color:var(--text-secondary-panel);font-size:.7rem}
+.avatar{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--gold);font-family:var(--f-display);font-weight:800;flex:none}
+.live .review .avatar{animation:qfloat 7s var(--ease-io) infinite}
+.live .review:nth-child(2) .avatar{animation-delay:-2.3s}
+.live .review:nth-child(3) .avatar{animation-delay:-4.6s}
+@media (max-width:900px){.reviews{grid-template-columns:1fr}.review:nth-child(n){margin-top:0}}
+
+/* FAQ */
+.faq{padding-top:0}
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,100px);align-items:start}
+.faq .panel{padding:clamp(10px,2vw,24px) clamp(22px,3vw,40px)}
+.faq .h2{max-width:10ch}
+.faq-side p{color:var(--text-secondary);max-width:30ch}
+.qa{border-bottom:1px solid rgba(44,43,40,.14)}
+.qa:last-child{border-bottom:0}
+.qa summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 0;cursor:pointer;list-style:none;font-family:var(--f-display);font-weight:700;font-size:clamp(1.12rem,1.6vw,1.3rem);line-height:1.25}
+.qa summary::-webkit-details-marker{display:none}
+.qa .pm{position:relative;width:34px;height:34px;flex:none;border-radius:50%;background:var(--gold);transition:rotate .45s var(--ease-out),background-color .3s}
+.qa .pm::before,.qa .pm::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:2.5px;margin:-1.25px 0 0 -7px;background:var(--espresso);border-radius:2px}
+.qa .pm::after{rotate:90deg;transition:rotate .45s var(--ease-out)}
+.qa[open] .pm{rotate:180deg}
+.qa[open] .pm::after{rotate:0deg}
+.qa .ans{padding:0 0 22px;color:var(--text-secondary-panel);max-width:56ch;animation:ansIn .5s var(--ease-out)}
+.qa .ans p{margin:0}
+@keyframes ansIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.live .faq-plate{animation:spin 50s linear -10s infinite}
+.faq-plate{width:120px;height:120px;margin-top:1.4rem}
+@media (max-width:860px){.faq-grid{grid-template-columns:1fr}.faq-plate{display:none}}
+
+/* Prenota (slate) */
+.slate{background:var(--slate);color:var(--chalk)}
+.slate::before{content:"";position:absolute;inset:0;background-image:radial-gradient(40% 30% at 20% 20%,rgba(244,241,232,.06),transparent 70%),radial-gradient(40% 30% at 85% 80%,rgba(244,241,232,.05),transparent 70%),radial-gradient(30% 25% at 60% 40%,rgba(244,241,232,.035),transparent 70%);pointer-events:none}
+.slate::after{content:"";position:absolute;inset:0 0 auto;height:14px;background:linear-gradient(135deg,#C99460,#A9733F 35%,#BE8852 60%,#9C6634);box-shadow:0 2px 0 rgba(0,0,0,.25)}
+.slate .kicker{color:var(--chalk-y)}
+.slate .plate-dot{background:var(--slate);box-shadow:inset 0 0 0 2px var(--chalk-y),inset 0 0 0 4px var(--slate),inset 0 0 0 5px var(--chalk-y)}
+.pr-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,6vw,96px);align-items:start}
+.prenota .h2{color:var(--chalk);max-width:10ch}
+.book{display:grid;gap:20px;margin-top:1.6rem}
+.branch{display:inline-flex;gap:4px;margin-top:1.2rem;padding:5px;border-radius:999px;border:2px solid rgba(244,241,232,.35);background:rgba(244,241,232,.04)}
+.branch [role=tab]{min-height:46px;padding:.55em 1.25em;border:0;border-radius:999px;background:transparent;color:var(--chalk);font-weight:600;font-size:1rem;line-height:1.1;cursor:pointer;transition:background-color .35s var(--ease-out),color .35s var(--ease-out)}
+.branch [role=tab][aria-selected=true]{background:var(--chalk);color:var(--slate)}
+.branch [role=tab]:not([aria-selected=true]):hover{background:rgba(244,241,232,.1)}
+.branch [role=tab]:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.bpanel{animation:panelIn .5s var(--ease-out)}
+@keyframes panelIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.ev-intro{margin:0;color:#CFC8B6;max-width:48ch}
+.consent{display:flex;gap:12px;align-items:flex-start;color:#CFC8B6;font-size:.95rem;line-height:1.45;cursor:pointer;max-width:52ch}
+.consent input{width:22px;height:22px;margin:1px 0 0;accent-color:var(--gold);flex:none;cursor:pointer}
+.captcha-wrap{min-height:78px}
+@media (max-width:480px){.branch{display:flex}.branch [role=tab]{flex:1;padding:.55em .5em;font-size:.94rem}}
+.field{display:grid;gap:8px}
+.field>span,.tipo legend{font-family:var(--f-mono);font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:#CFC8B6}
+.field input,.field textarea{width:100%;padding:.75em .2em;border:0;border-bottom:2px solid rgba(244,241,232,.55);background:transparent;color:var(--chalk);font-size:1.2rem;border-radius:0;transition:border-color .3s var(--ease-out),background-color .3s}
+.field input::placeholder,.field textarea::placeholder{color:rgba(244,241,232,.42)}
+.field input:focus,.field textarea:focus{outline:none;border-bottom-color:var(--chalk-y);background:rgba(244,241,232,.05)}
+.field input:focus-visible,.field textarea:focus-visible{outline:none}
+.field textarea{resize:vertical;min-height:84px;font-size:1.05rem}
+.field input[type=date]{color-scheme:dark}
+.row2{display:grid;grid-template-columns:1.3fr 1fr;gap:20px}
+.tipo{border:0;margin:0;padding:0;display:grid;gap:10px}
+.tipo legend{padding:0;margin-bottom:10px}
+.tipo-opts{display:flex;flex-wrap:wrap;gap:10px}
+.tipo label{position:relative;cursor:pointer}
+.tipo input{position:absolute;opacity:0;width:1px;height:1px}
+.tipo label span{display:inline-flex;align-items:center;min-height:46px;padding:.55em 1.15em;border-radius:999px;border:2px solid rgba(244,241,232,.55);font-weight:600;transition:background-color .3s var(--ease-out),color .3s var(--ease-out),border-color .3s}
+.tipo input:checked+span{background:var(--chalk);color:var(--slate);border-color:var(--chalk)}
+.tipo input:focus-visible+span{outline:3px solid var(--chalk-y);outline-offset:3px}
+.hint{margin:-6px 0 0;min-height:1.4em;color:var(--chalk-y);font-size:.95rem}
+.book .btn-primary{justify-self:start;font-size:1.06rem;padding:1em 1.6em}
+.fine{margin:-6px 0 0;font-size:.92rem;color:#CFC8B6;max-width:46ch}
+.sent{margin:0;min-height:0;font-size:1rem;color:var(--chalk);max-width:48ch}
+.sent:not(:empty){padding:14px 16px;border-radius:14px;background:rgba(244,241,232,.08);border:1px dashed rgba(244,241,232,.4)}
+.alt{margin:0;color:#CFC8B6}
+.alt a{color:var(--chalk);font-weight:600}
+.mini-frame{padding:12px;border-radius:18px}
+.mini{padding:7% 7.5% 8%;min-height:0}
+.mini .bl-title{font-size:8.4cqw;text-align:left}
+.mini-line{display:block;min-height:1.25em;font-family:var(--f-chalk);font-size:6.6cqw;line-height:1.25;white-space:pre-wrap;word-break:break-word;color:var(--chalk);text-shadow:0 0 1px rgba(244,241,232,.55)}
+.mini-line.y{color:var(--chalk-y);font-size:5cqw;letter-spacing:.06em}
+.mini-line.is-ph{opacity:.38}
+.mini .ink{display:inline-block;animation:inkIn .45s var(--ease-out) both;white-space:pre}
+@keyframes inkIn{from{opacity:0;transform:translateY(.14em)}to{opacity:1;transform:none}}
+.mini .under{width:44%;margin:1cqw 0 4cqw}
+.mini .under .draw{transition:stroke-dashoffset 1.2s var(--ease-out) .4s}
+.in .mini .under .draw{stroke-dashoffset:0}
+.contact-card{margin-top:28px;font-style:normal;display:grid;gap:18px;padding:26px;border-radius:22px;border:1px solid rgba(244,241,232,.2);background:rgba(244,241,232,.04)}
+.contact-card div{display:grid;gap:4px}
+.contact-card .mono{color:var(--chalk-y);font-size:.7rem}
+.contact-card a{color:var(--chalk);font-weight:600;text-decoration-thickness:1px;text-underline-offset:3px}
+.contact-card p{margin:0;color:var(--chalk)}
+.contact-card .social{display:flex;gap:10px;flex-wrap:wrap}
+.social a{display:inline-flex;align-items:center;gap:8px;padding:.5em .9em;border-radius:999px;border:1px solid rgba(244,241,232,.35);text-decoration:none;font-weight:500;min-height:44px}
+.social svg{width:18px;height:18px}
+@media (min-width:901px){.pr-side{position:sticky;top:110px}}
+.contact-row{position:relative;margin-top:clamp(48px,6vw,80px);grid-template-columns:1.2fr 1.4fr 1fr 1.1fr;align-items:start;gap:24px 32px}
+.contact-row .social{grid-column:1 / -1;padding-top:14px;border-top:1px solid rgba(244,241,232,.15)}
+@media (max-width:900px){.contact-row{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.contact-row{grid-template-columns:1fr}}
+@media (max-width:900px){.pr-grid{grid-template-columns:1fr}.row2{grid-template-columns:1fr 1fr}}
+@media (max-width:420px){.row2{grid-template-columns:1fr}}
+
+/* Footer */
+.foot{background:var(--panel);padding:clamp(56px,7vw,90px) 0 32px;font-size:.95rem}
+.foot-grid{display:grid;grid-template-columns:1.1fr 1fr 1fr 1fr;gap:32px}
+.foot-logo{width:200px;height:auto;margin-bottom:14px}
+.foot h3{margin:0 0 .8rem;font-family:var(--f-mono);font-weight:500;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-secondary-panel)}
+.foot p{margin:0 0 .4rem;color:var(--text-primary)}
+.foot a{text-underline-offset:3px}
+.foot-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:44px;padding-top:22px;border-top:1px solid rgba(44,43,40,.15);color:var(--text-secondary-panel);font-size:.86rem}
+@media (max-width:860px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.foot-grid{grid-template-columns:1fr}}
+
+/* Pause everything on hidden tabs */
+body.paused *,body.paused *::before,body.paused *::after{animation-play-state:paused!important}
+
+/* Reduced motion, honored completely. Same gate string as the head script and the main script. */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important;transition-delay:0s!important}
+  .rv{opacity:1!important;transform:none!important}
+  .draw{stroke-dashoffset:0!important}
+  .tl-fill{transform:scaleY(1)!important}
+  .tl-item .tl-node{box-shadow:inset 0 0 0 3px var(--gold),inset 0 0 0 7px var(--espresso),inset 0 0 0 9px var(--gold)}
+  .tl-item .mono{opacity:1}
+  .posto{--h:1!important}
+  .posto .hold-btn{display:none}
+  .posto .done-msg{position:relative;opacity:1;transform:none;pointer-events:auto}
+  .mini .ink{animation:none}
+}
+@media (orientation: landscape) and (pointer: coarse) and (max-height: 560px){
+  .scrub .hero{height:auto}
+}
 </style>
+</head>
+<body>
+<a class="skip" href="#main">Vai al contenuto</a>
+<div class="env" aria-hidden="true"></div>
 
-<header class="top" id="hdr">
-  <div class="wrap">
-    <a class="brand" href="#home">La Residenza del Gusto<small>Trattoria · Catering · Vigalfo</small></a>
-    <nav class="links" id="nav" aria-label="Pagine">
-      <a href="#home">Home</a>
-      <a href="#menu">Menù del giorno</a>
-      <a href="#trattoria">La Trattoria</a>
-      <a href="#catering">Catering</a>
-      <a href="#collettiva">Ristorazione collettiva</a>
-      <a href="#storia">La Storia</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#contatti">Prenotazioni</a>
-    </nav>
-    <div class="head-cta">
-      <a class="btn fill" href="#contatti">Prenota</a>
-      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="drawer">Menu</button>
-    </div>
-  </div>
-  <div class="drawer" id="drawer" hidden>
-    <div class="wrap" id="drawerLinks"></div>
-  </div>
+<header class="nav" id="nav">
+  <nav class="nav-in" aria-label="Principale">
+    <a class="brand" href="#top" aria-label="La Residenza del Gusto, torna all'inizio">
+      <img class="brand-logo" src="assets/logo.png" width="500" height="278" alt="">
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#trattoria">Trattoria</a></li>
+      <li><a href="#eventi">Eventi</a></li>
+      <li><a href="#aziende">Aziende</a></li>
+      <li><a href="#storia">La storia</a></li>
+      <li><a href="#prenota">Contatti</a></li>
+    </ul>
+    <a class="btn btn-primary" href="#prenota">Prenota</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Apri il menu"><span></span></button>
+  </nav>
 </header>
 
-<main>
-<!-- ================= HOME ================= -->
-<div class="page" id="p-home">
-  <div class="hero">
-    <div class="wrap">
-      <div class="stagger">
-        <p class="eyebrow">Trattoria e catering ad Albuzzano · Pavia</p>
-        <h1>Dove tradizione e <em>innovazione</em> si incontrano a tavola.</h1>
-        <p class="lead">A pranzo un menù a prezzo fisso che cambia ogni giorno, con griglia mista di carne o pesce. Per matrimoni, cerimonie e aziende, menù su misura.</p>
-        <div class="ctas">
-          <a class="btn fill" href="#menu">Il menù di oggi</a>
-          <a class="btn" href="#catering">Organizza un evento</a>
+<main id="main" tabindex="-1">
+
+  <!-- HERO: the chalkboard journey -->
+  <section class="hero" id="top" aria-label="Benvenuti">
+    <div class="stage">
+      <div class="logo-intro" aria-hidden="true">
+        <div class="logo-plate"><img src="assets/logo.png" width="500" height="278" alt="" fetchpriority="high" decoding="async"></div>
+        <p class="logo-tag">Trattoria · Catering · Ristorazione collettiva</p>
+      </div>
+      <div class="captions">
+        <div class="band b1 fx-rise" data-a="0" data-b="0.19">
+          <p class="kicker"><span class="plate-dot" aria-hidden="true"></span>La Residenza del Gusto</p>
+          <h1 class="band-h split">Qui si pranza come a casa.</h1>
+          <p class="band-sub">Trattoria a Vigalfo, Albuzzano. Dal lunedì al sabato, a pranzo.</p>
         </div>
-      </div>
-      <div class="ph tall" data-foto="hero" data-cap="Foto: sala o piatto principale"></div>
-    </div>
-  </div>
-  <div class="marquee" aria-hidden="true"><div class="track">
-    <span>Menù a prezzo fisso</span><span>Griglia di carne e pesce</span><span>Matrimoni</span><span>Cerimonie</span><span>Banqueting aziendali</span><span>Ristorazione collettiva</span>
-    <span>Menù a prezzo fisso</span><span>Griglia di carne e pesce</span><span>Matrimoni</span><span>Cerimonie</span><span>Banqueting aziendali</span><span>Ristorazione collettiva</span>
-  </div></div>
-
-  <div class="wrap">
-    <dl class="facts">
-      <div><dt>Pranzo</dt><dd>Lunedì – sabato, 12:00 – 14:30</dd></div>
-      <div><dt>Domenica</dt><dd>Eventi su prenotazione, min. 22 persone</dd></div>
-      <div><dt>Dove</dt><dd>Via Vigalfo 14, Albuzzano (PV)</dd></div>
-    </dl>
-  </div>
-
-  <section>
-    <div class="wrap split">
-      <div>
-        <p class="eyebrow">Benvenuti</p>
-        <h2 class="h2">Un viaggio di sapori tra tradizione, territorio ed emozione</h2>
-        <div class="prose" style="margin-top:20px">
-          <p>La Residenza del Gusto nasce dalla passione di <strong>Giorgio Alpegiani</strong> e da una storia di famiglia legata alla cucina e all'ospitalità.</p>
-          <p>Un solo progetto per l'autenticità della <strong>trattoria</strong>, il <strong>catering</strong> su misura e la <strong>ristorazione collettiva</strong>.</p>
+        <div class="band b2 fx-write" data-a="0.21" data-b="0.39" data-ramp="0.06">
+          <p class="band-h split">Il menù cambia ogni giorno.</p>
+          <p class="band-sub">Lo decide il mercato della mattina. E lo scriviamo qui, col gesso.</p>
         </div>
-        <div class="ctas"><a class="btn" href="#storia">La nostra storia</a></div>
-      </div>
-      <div class="board mini" id="board-mini"></div>
-    </div>
-  </section>
-
-  <section class="band">
-    <div class="wrap">
-      <p class="eyebrow">Cosa facciamo</p>
-      <h2 class="h2">Dalla cucina di ogni giorno agli eventi che restano</h2>
-      <div class="tiles">
-        <a class="tile" href="#trattoria">
-          <div class="ph" data-foto="trattoria" data-cap="Foto: la trattoria"></div>
-          <h3>La Trattoria <span class="arr">→</span></h3>
-          <p>Pranzo a prezzo fisso, piatti freschi di stagione e griglia.</p>
-        </a>
-        <a class="tile" href="#catering">
-          <div class="ph" data-foto="catering" data-cap="Foto: allestimento catering"></div>
-          <h3>Catering &amp; Banqueting <span class="arr">→</span></h3>
-          <p>Matrimoni, cerimonie, eventi aziendali e ricevimenti.</p>
-        </a>
-        <a class="tile" href="#collettiva">
-          <div class="ph" data-foto="collettiva" data-cap="Foto: ristorazione collettiva"></div>
-          <h3>Ristorazione collettiva <span class="arr">→</span></h3>
-          <p>Aziende, scuole, strutture sanitarie e comunità.</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <div class="quote"><section><div class="wrap">
-    <blockquote>“La cucina non è mangiare. È molto, molto di più. La cucina è poesia.”</blockquote>
-    <cite>Heinz Beck</cite>
-  </div></section></div>
-</div>
-
-<!-- ================= MENÙ DEL GIORNO ================= -->
-<div class="page" id="p-menu">
-  <div class="banner"><div class="wrap stagger">
-    <p class="eyebrow">Aggiornato ogni giorno</p>
-    <h1>Menù del giorno</h1>
-    <p class="lead">Prezzo fisso, piatti che cambiano ogni giorno. Griglia mista di carne o pesce sempre disponibile.</p>
-  </div></div>
-  <section><div class="wrap">
-    <div class="board" id="board"></div>
-    <div class="ctas" style="justify-content:center"><a class="btn" href="#contatti">Prenota un tavolo</a></div>
-  </div></section>
-</div>
-
-<!-- ================= TRATTORIA ================= -->
-<div class="page" id="p-trattoria">
-  <div class="banner"><div class="wrap stagger">
-    <p class="eyebrow">La Trattoria</p>
-    <h1>L'eleganza della tradizione, il calore di casa</h1>
-  </div></div>
-  <section><div class="wrap split">
-    <div class="prose">
-      <p>Alla Residenza del Gusto, ad Albuzzano, frazione Vigalfo, trovi un <strong>menù a prezzo fisso che cambia ogni giorno</strong>, con griglia mista di carne o pesce.</p>
-      <p>I piatti sono preparati con <strong>ingredienti freschi e di stagione</strong>, nel rispetto delle norme HACCP. Si va dai classici della cucina italiana alle nuove creazioni dello chef.</p>
-      <p>La sala è disponibile anche <strong>in affitto per eventi</strong>, su prenotazione.</p>
-      <div class="ctas"><a class="btn fill" href="#menu">Vedi il menù di oggi</a></div>
-    </div>
-    <div class="ph" data-foto="sala" data-cap="Foto: la sala"></div>
-  </div></section>
-  <section class="band"><div class="wrap split rev">
-    <div class="prose">
-      <p class="eyebrow">Entra nell'esperienza</p>
-      <h2 class="h2" style="color:var(--ink)">Dove la tradizione diventa esperienza</h2>
-      <p>La tradizione italiana viene valorizzata con ingredienti scelti con cura e lavorazioni che esaltano la materia prima senza coprirla.</p>
-      <p>Luci calde, dettagli curati e un'eleganza sobria, perché il protagonista resti il gusto.</p>
-    </div>
-    <div class="ph" data-foto="piatto" data-cap="Foto: un piatto della trattoria"></div>
-  </div></section>
-</div>
-
-<!-- ================= CATERING ================= -->
-<div class="page" id="p-catering">
-  <div class="banner"><div class="wrap stagger">
-    <p class="eyebrow">Catering &amp; Banqueting</p>
-    <h1>Il lusso alla portata di tutti</h1>
-    <p class="lead">Menù su misura per chi vuole trasformare un evento in un momento da ricordare.</p>
-  </div></div>
-  <section><div class="wrap split">
-    <div class="prose">
-      <p>Selezioniamo fornitori d'eccellenza e materie prime di qualità per creare <strong>menù su misura</strong> che uniscono:</p>
-      <ul class="ticks">
-        <li>la tradizione culinaria italiana</li>
-        <li>raffinate contaminazioni internazionali</li>
-        <li>l'eleganza delle tecniche contemporanee</li>
-      </ul>
-      <p>Ogni evento è un progetto unico, con servizio curato e ambienti certificati per qualità e sicurezza.</p>
-    </div>
-    <div class="ph" data-foto="catering2" data-cap="Foto: buffet o tavola imbandita"></div>
-  </div></section>
-  <section class="band"><div class="wrap">
-    <p class="eyebrow">Eventi che diventano ricordi</p>
-    <h2 class="h2">Cosa organizziamo</h2>
-    <div class="tiles">
-      <div class="tile"><div class="ph" data-foto="matrimoni" data-cap="Foto: matrimonio"></div><h3>Matrimoni e cerimonie</h3><p>Dalla celebrazione intima al grande ricevimento.</p></div>
-      <div class="tile"><div class="ph" data-foto="aziende" data-cap="Foto: evento aziendale"></div><h3>Banqueting aziendali</h3><p>Pranzi, cene e rinfreschi per aziende e convegni.</p></div>
-      <div class="tile"><div class="ph" data-foto="privati" data-cap="Foto: ricevimento privato"></div><h3>Ricevimenti privati</h3><p>Compleanni, anniversari e feste, anche in sala la domenica (min. 22 persone).</p></div>
-    </div>
-    <div class="ctas"><a class="btn fill" href="#contatti">Chiedi un preventivo</a></div>
-  </div></section>
-</div>
-
-<!-- ================= COLLETTIVA ================= -->
-<div class="page" id="p-collettiva">
-  <div class="banner"><div class="wrap stagger">
-    <p class="eyebrow">Ristorazione collettiva</p>
-    <h1>Qualità costante, ogni giorno</h1>
-    <p class="lead">Per aziende, strutture sanitarie, scuole e comunità.</p>
-  </div></div>
-  <section><div class="wrap split">
-    <div class="ph wide" data-foto="collettiva2" data-cap="Foto: cucina o servizio mensa"></div>
-    <div class="prose">
-      <p>Ingredienti selezionati, preparazioni curate e <strong>menù equilibrati</strong>, sviluppati con nutrizionisti e secondo le linee guida ATS.</p>
-      <ul class="ticks">
-        <li>Puntualità e affidabilità operativa</li>
-        <li>Rispetto delle norme igienico-sanitarie HACCP</li>
-        <li>Sistema di qualità certificato ISO 9001</li>
-        <li>Menù vari e attenzione a esigenze specifiche</li>
-      </ul>
-      <div class="ctas"><a class="btn fill" href="#contatti">Richiedi informazioni</a></div>
-    </div>
-  </div></section>
-</div>
-
-<!-- ================= STORIA ================= -->
-<div class="page" id="p-storia">
-  <div class="banner"><div class="wrap stagger">
-    <p class="eyebrow">La Storia</p>
-    <h1>Molto più di un ristorante</h1>
-  </div></div>
-  <section><div class="wrap split">
-    <div class="prose">
-      <p>La Residenza del Gusto nasce dalla passione di <strong>Giorgio Alpegiani</strong> e da una storia di famiglia profondamente legata alla cucina e all'arte dell'ospitalità.</p>
-      <p>Per noi la cucina è <strong>emozione, memoria e condivisione</strong>. Ogni piatto racconta famiglia, dedizione e rispetto per la materia prima, tra sapori della tradizione e una visione contemporanea dell'accoglienza.</p>
-      <p>Che tu cerchi un pranzo autentico in trattoria o un evento su misura, qui trovi accoglienza sincera e qualità senza compromessi.</p>
-    </div>
-    <div class="ph tall" data-foto="storia" data-cap="Foto: Giorgio o la famiglia"></div>
-  </div></section>
-</div>
-
-<!-- ================= GALLERY ================= -->
-<div class="page" id="p-gallery">
-  <div class="banner"><div class="wrap stagger">
-    <p class="eyebrow">Gallery</p>
-    <h1>Uno sguardo alla Residenza</h1>
-  </div></div>
-  <section><div class="wrap">
-    <div class="gallery">
-      <div class="ph" data-foto="g1" data-cap="Foto 1"></div>
-      <div class="ph" data-foto="g2" data-cap="Foto 2"></div>
-      <div class="ph" data-foto="g3" data-cap="Foto 3"></div>
-      <div class="ph" data-foto="g4" data-cap="Foto 4"></div>
-      <div class="ph" data-foto="g5" data-cap="Foto 5"></div>
-      <div class="ph" data-foto="g6" data-cap="Foto 6"></div>
-      <div class="ph" data-foto="g7" data-cap="Foto 7"></div>
-    </div>
-  </div></section>
-</div>
-
-<!-- ================= CONTATTI ================= -->
-<div class="page" id="p-contatti">
-  <div class="banner"><div class="wrap stagger">
-    <p class="eyebrow">Prenotazioni e contatti</p>
-    <h1>Prenota alla Residenza</h1>
-    <p class="lead">Per il pranzo in trattoria basta una telefonata o un messaggio. Per eventi, cerimonie e catering compila la richiesta qui sotto.</p>
-    <div class="ctas">
-      <a class="btn fill" href="#prenota-pranzo">Prenota il pranzo</a>
-      <a class="btn" href="#richiesta-evento">Richiedi un evento</a>
-    </div>
-  </div></div>
-
-  <!-- 1. pranzo -->
-  <section id="prenota-pranzo"><div class="wrap">
-    <div class="book">
-      <div>
-        <p class="eyebrow">1 · Pranzo in trattoria</p>
-        <h2 class="h2">Prenota il tuo tavolo</h2>
-        <p class="muted" style="margin-top:12px;max-width:30rem">Lunedì – sabato, dalle 12:00 alle 14:30. Chiamaci o scrivici su WhatsApp indicando giorno, orario e numero di persone.</p>
-      </div>
-      <div class="book-cards">
-        <div class="bcard">
-          <span class="blabel">Telefono</span>
-          <span class="bnum">351 405 2965</span>
-          <div class="actions" style="margin-top:6px">
-            <a class="btn fill" href="tel:+393514052965">Chiama</a>
-            <button class="btn copy-big" type="button" data-copy="+39 351 405 2965">Copia numero</button>
+        <div class="band b3 fx-blur" data-a="0.41" data-b="0.58" data-ramp="0.05">
+          <p class="band-h"><span class="sr-only">Ricette di casa, fatte qui.</span><span class="stack" aria-hidden="true"><span class="soft">Ricette di casa, fatte qui.</span><span class="sharp">Ricette di casa, fatte qui.</span></span></p>
+          <p class="band-sub">Ingredienti freschi e di stagione, anche dai produttori dell'Oltrepò.</p>
+        </div>
+        <div class="band b4 fx-punch" data-a="0.60" data-b="0.78" data-ramp="0.04">
+          <p class="band-h split" data-em="3">Sua Maestà la griglia.</p>
+          <p class="band-sub">D'estate c'è tutti i giorni, di carne o di pesce.</p>
+        </div>
+        <div class="band b5 fx-rise" data-a="0.80" data-b="1" data-ramp="0.06">
+          <p class="band-h split">Il pranzo è servito.</p>
+          <p class="band-sub">Menù fisso a 13 euro, dalle 12:00 alle 14:30.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#prenota" data-tipo="pranzo">Prenota il tavolo</a>
+            <a class="btn btn-ghost" href="tel:+393514052965"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>Chiama</a>
           </div>
         </div>
-        <div class="bcard">
-          <span class="blabel">WhatsApp</span>
-          <span class="bnum">351 405 2965</span>
-          <div class="actions" style="margin-top:6px">
-            <a class="btn fill" href="https://wa.me/393514052965?text=Buongiorno%2C%20vorrei%20prenotare%20un%20tavolo%20per%20pranzo." target="_blank" rel="noopener">Scrivi su WhatsApp</a>
+        <div class="static-copy">
+          <p class="kicker"><span class="plate-dot" aria-hidden="true"></span>La Residenza del Gusto</p>
+          <h1 class="band-h">Qui si pranza come a casa.</h1>
+          <p class="band-sub">Il menù cambia ogni giorno e lo decide il mercato della mattina. Menù fisso a 13 euro, dal lunedì al sabato, dalle 12:00 alle 14:30.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#prenota" data-tipo="pranzo">Prenota il tavolo</a>
+            <a class="btn btn-ghost" href="tel:+393514052965"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>Chiama</a>
           </div>
         </div>
       </div>
-    </div>
-  </div></section>
 
-  <!-- 2. eventi -->
-  <section class="band" id="richiesta-evento"><div class="wrap">
-    <div class="form-head">
-      <p class="eyebrow">2 · Eventi, cerimonie e catering</p>
-      <h2 class="h2">Richiedi un preventivo</h2>
-      <p class="muted" style="margin-top:12px;max-width:38rem">Compila la richiesta: si aprirà la tua email con il messaggio già pronto per <strong>info@laresidenzadelgusto.it</strong>. Ti ricontattiamo noi.</p>
-    </div>
-    <form id="evForm" class="evform" novalidate>
-      <fieldset class="types">
-        <legend>Per cosa ci contatti?</legend>
-        <div class="chips">
-          <label><input type="radio" name="tipo" id="t1" value="Banchetto" required><span>Banchetto</span></label>
-          <label><input type="radio" name="tipo" id="t2" value="Matrimonio"><span>Matrimonio</span></label>
-          <label><input type="radio" name="tipo" id="t3" value="Cerimonia (battesimo, comunione, cresima)"><span>Cerimonia</span></label>
-          <label><input type="radio" name="tipo" id="t4" value="Evento aziendale"><span>Evento aziendale</span></label>
-          <label><input type="radio" name="tipo" id="t5" value="Ricevimento privato"><span>Ricevimento privato</span></label>
-          <label><input type="radio" name="tipo" id="t6" value="Catering a domicilio / in location"><span>Catering esterno</span></label>
-          <label><input type="radio" name="tipo" id="t7" value="Affitto sala"><span>Affitto sala</span></label>
-          <label><input type="radio" name="tipo" id="t8" value="Ristorazione collettiva"><span>Ristorazione collettiva</span></label>
-          <label><input type="radio" name="tipo" id="t9" value="Altro"><span>Altro</span></label>
+      <div class="board-wrap">
+        <p class="board-label">Ogni giorno una lavagna nuova</p>
+        <div class="frame">
+          <div class="board" id="board" aria-hidden="true">
+            <p class="bl bl-title" data-intro="title">Menù del giorno</p>
+            <svg class="under" viewBox="0 0 200 12" preserveAspectRatio="none"><path class="draw" data-intro="under" pathLength="1" d="M4 7 C 40 3, 80 9, 120 6 S 180 4, 196 7"/></svg>
+            <p class="bl bl-cat" data-s="0.015" data-e="0.04">Primi</p>
+            <p class="bl bl-dish" data-s="0.04" data-e="0.15">Spaghetti aglio, olio e peperoncino</p>
+            <p class="bl bl-cat" data-s="0.215" data-e="0.235">Secondi</p>
+            <p class="bl bl-dish" data-s="0.235" data-e="0.29">Polpette al sugo</p>
+            <p class="bl bl-dish" data-s="0.30" data-e="0.37">Trippa della tradizione</p>
+            <p class="bl bl-dish" data-s="0.43" data-e="0.53">Merluzzo, polenta e cipolle</p>
+            <p class="bl bl-cat" data-s="0.615" data-e="0.635">D'estate</p>
+            <p class="bl bl-dish" data-s="0.635" data-e="0.74">Griglia mista di carne o di pesce</p>
+            <div class="bl-price">
+              <p class="bl bl-small" data-s="0.81" data-e="0.84">menù fisso</p>
+              <span class="big-wrap">
+                <span class="bl bl-big" data-s="0.84" data-e="0.89">13 €</span>
+                <svg class="circle" viewBox="0 0 200 100" preserveAspectRatio="none"><path class="draw" data-s="0.895" data-e="0.965" pathLength="1" d="M150 14 C 120 4, 50 6, 22 30 C 2 48, 18 82, 70 92 C 120 100, 186 86, 192 52 C 196 26, 160 10, 112 12"/></svg>
+              </span>
+            </div>
+            <canvas class="dust"></canvas>
+            <div class="stick"><div class="stick-body"></div></div>
+          </div>
+          <div class="chalk-piece" aria-hidden="true"></div>
+          <div class="eraser" aria-hidden="true"></div>
         </div>
-      </fieldset>
-      <div class="grid2">
-        <label class="field"><span>Nome e cognome *</span><input id="f-nome" name="nome" required autocomplete="name"></label>
-        <label class="field"><span>Telefono *</span><input id="f-tel" name="tel" type="tel" required autocomplete="tel"></label>
-        <label class="field"><span>Email</span><input id="f-mail" name="mail" type="email" autocomplete="email"></label>
-        <label class="field"><span>Data dell'evento</span><input id="f-data" name="data" type="date"></label>
-        <label class="field"><span>Numero di invitati</span><input id="f-ospiti" name="ospiti" type="number" min="1" inputmode="numeric"></label>
-        <label class="field"><span>Luogo (se catering esterno)</span><input id="f-luogo" name="luogo"></label>
-        <label class="field full"><span>Dettagli della richiesta</span><textarea id="f-msg" name="msg" rows="4" placeholder="Orario, esigenze alimentari, budget indicativo…"></textarea></label>
+        <p class="sr-only">Esempio di lavagna del giorno. Primi: spaghetti aglio, olio e peperoncino. Secondi: polpette al sugo, trippa della tradizione, merluzzo, polenta e cipolle. D'estate: griglia mista di carne o di pesce. Menù fisso 13 euro.</p>
       </div>
-      <p class="err" id="err" hidden></p>
-      <div class="actions">
-        <button class="btn fill" type="submit">Prepara l'email</button>
-        <span class="muted small">Oppure scrivi direttamente a <span>info@laresidenzadelgusto.it</span><button class="copy" type="button" data-copy="info@laresidenzadelgusto.it">Copia</button></span>
-      </div>
-      <div class="done" id="done" hidden>
-        <p><strong>La tua richiesta è pronta.</strong> Se la tua app email non si è aperta, copia il testo qui sotto e invialo a info@laresidenzadelgusto.it.</p>
-        <pre id="out"></pre>
-        <div class="actions">
-          <a class="btn fill" id="mailLink" href="#">Apri l'email</a>
-          <button class="btn" type="button" id="copyOut">Copia il testo</button>
-        </div>
-      </div>
-    </form>
-  </div></section>
 
-  <!-- info -->
-  <section><div class="wrap contact">
-    <div>
-      <h3>Telefono e WhatsApp</h3>
-      <p><span>+39 351 405 2965</span><button class="copy" type="button" data-copy="+39 351 405 2965">Copia</button></p>
-      <h3 style="margin-top:20px">Email</h3>
-      <p><span>info@laresidenzadelgusto.it</span><button class="copy" type="button" data-copy="info@laresidenzadelgusto.it">Copia</button></p>
-      <div class="actions">
-        <a class="btn" href="https://wa.me/393514052965" target="_blank" rel="noopener">WhatsApp</a>
-        <a class="btn" href="https://www.instagram.com/la.residenza.del.gusto/" target="_blank" rel="noopener">Instagram</a>
-        <a class="btn" href="https://www.facebook.com/profile.php?id=61577120136402" target="_blank" rel="noopener">Facebook</a>
+      <div class="cue" aria-hidden="true">
+        <span>Scorri</span>
+        <svg viewBox="0 0 22 30"><path d="M11 2 C 10 10, 12 16, 11 26 M4 19 C 7 22, 9 24, 11 27 C 13 24, 15 22, 18 19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
     </div>
-    <div>
-      <h3>Orari trattoria</h3>
-      <div class="hours">
-        <span>Lun – Sab</span><span>12:00 – 14:30</span>
-        <span>Domenica</span><span>Su prenotazione</span>
-        <p class="note">La domenica apriamo solo per eventi prenotati in anticipo, minimo 22 persone.</p>
+  </section>
+
+  <!-- LA TRATTORIA -->
+  <section class="sec trattoria" id="trattoria" data-reveal>
+    <div class="wrap tr-grid">
+      <div class="collage">
+        <figure class="ph ph-sala rv"><img src="assets/sala.jpg" width="1050" height="1400" loading="lazy" decoding="async" alt="La sala della trattoria: tavoli lunghi con tovaglie bianche, pilastri di mattoni e tende color zafferano"></figure>
+        <figure class="ph ph-spag rv" style="--d:1"><img src="assets/spaghetti.jpg" width="1050" height="1400" loading="lazy" decoding="async" alt="Spaghetti aglio, olio e peperoncino in un piatto bianco col bordo verde"></figure>
+        <figure class="ph ph-polp rv" style="--d:2"><img src="assets/polpette.jpg" width="1050" height="1400" loading="lazy" decoding="async" alt="Polpette al sugo con una foglia di basilico"></figure>
+        <div class="price-badge rv" style="--d:3">
+          <svg class="ring" viewBox="0 0 100 100" aria-hidden="true"><defs><path id="ringpath" d="M50 50 m-38 0 a38 38 0 1 1 76 0 a38 38 0 1 1 -76 0"/></defs><text><textPath href="#ringpath">Menù fisso · ogni giorno diverso · </textPath></text></svg>
+          <strong>13 €</strong>
+        </div>
       </div>
-      <span class="open" id="open"><i></i><span></span></span>
-    </div>
-    <div>
-      <h3>Dove siamo</h3>
-      <p>Via Vigalfo, 14<br>27010 Albuzzano – Vigalfo (PV)</p>
-      <div class="actions">
-        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Via+Vigalfo+14+27010+Albuzzano+PV" target="_blank" rel="noopener">Apri in Maps</a>
+      <div class="tr-copy">
+        <p class="kicker rv"><span class="plate-dot" aria-hidden="true"></span>La trattoria</p>
+        <h2 class="h2 rv" style="--d:1">Pranzo vero, a prezzo giusto.</h2>
+        <p class="lede rv" style="--d:2">Siamo a Vigalfo, frazione di Albuzzano, a pochi minuti da Pavia. A pranzo trovi un menù fisso che cambia ogni giorno, con piatti preparati la mattina con ingredienti freschi e di stagione. D'estate c'è sempre la griglia mista, di carne o di pesce.</p>
+        <p class="voice rv" style="--d:3">Chi viene da noi lo dice così: <em>buon cibo, giuste quantità, locale pulito.</em></p>
+        <ul class="facts rv" style="--d:4">
+          <li><span class="mono">Giorni</span><strong>Dal lunedì al sabato</strong></li>
+          <li><span class="mono">Orario</span><strong>Dalle 12:00 alle 14:30</strong></li>
+          <li><span class="mono">Prezzo</span><strong>Menù fisso 13 €</strong></li>
+        </ul>
       </div>
     </div>
-  </div></section>
-</div>
+  </section>
+
+  <!-- NASTRO DEI PIATTI -->
+  <div class="ticker" data-live>
+    <p class="sr-only">Alcuni piatti della nostra cucina: trippa, merluzzo con polenta e cipolle, polpette al sugo, spaghetti aglio, olio e peperoncino, griglia mista di carne, griglia mista di pesce.</p>
+    <div class="track" aria-hidden="true">
+      <ul class="grp"><li>Trippa</li><li>Merluzzo con polenta e cipolle</li><li>Polpette al sugo</li><li>Spaghetti aglio, olio e peperoncino</li><li>Griglia mista di carne</li><li>Griglia mista di pesce</li></ul>
+      <ul class="grp"><li>Trippa</li><li>Merluzzo con polenta e cipolle</li><li>Polpette al sugo</li><li>Spaghetti aglio, olio e peperoncino</li><li>Griglia mista di carne</li><li>Griglia mista di pesce</li></ul>
+    </div>
+  </div>
+
+  <!-- COME FUNZIONA -->
+  <section class="sec come" id="come" data-reveal>
+    <div class="wrap">
+      <div class="panel">
+        <div class="come-head">
+          <div>
+            <p class="kicker rv"><span class="plate-dot" aria-hidden="true"></span>Come funziona</p>
+            <h2 class="h2 rv" style="--d:1">La pausa pranzo, senza pensieri.</h2>
+          </div>
+        </div>
+        <ol class="steps">
+          <li class="step rv" style="--d:2">
+            <div class="step-top">
+              <span class="step-n" aria-hidden="true">1</span>
+              <div class="step-ico" aria-hidden="true">
+                <svg viewBox="0 0 80 80"><rect class="ink fill-y" x="18" y="10" width="34" height="60" rx="7"/><path class="ink" d="M30 62 h10"/><g class="bubble"><path class="ink" d="M44 20 h26 a6 6 0 0 1 6 6 v12 a6 6 0 0 1 -6 6 h-14 l-8 7 v-7 h-4 a6 6 0 0 1 -6 -6 v-12 a6 6 0 0 1 6 -6 z" style="fill:#FFFDF9"/><path class="ink" d="M52 32 h0.1 M59 32 h0.1 M66 32 h0.1" stroke-width="4"/></g></svg>
+              </div>
+            </div>
+            <h3>Scrivici o chiamaci</h3>
+            <p>Un messaggio su WhatsApp e ti teniamo il posto.</p>
+          </li>
+          <li class="step rv" style="--d:3">
+            <div class="step-top">
+              <span class="step-n" aria-hidden="true">2</span>
+              <div class="step-ico" aria-hidden="true">
+                <svg viewBox="0 0 80 80"><circle class="ink fill-y" cx="40" cy="42" r="30"/><path class="ink" d="M40 16 v4 M40 64 v4 M14 42 h4 M62 42 h4"/><path class="ink hand" d="M40 42 V28"/><path class="ink hand hand-m" d="M40 42 V20" stroke-width="2.4"/><circle cx="40" cy="42" r="3" fill="#2C2B28"/></svg>
+              </div>
+            </div>
+            <h3>Arriva tra le 12:00 e le 14:30</h3>
+            <p>Dal lunedì al sabato. Il menù del giorno è già pronto.</p>
+          </li>
+          <li class="step rv" style="--d:4">
+            <div class="step-top">
+              <span class="step-n" aria-hidden="true">3</span>
+              <div class="step-ico" aria-hidden="true">
+                <svg viewBox="0 0 80 80"><g class="steam"><path class="ink" d="M32 22 c-4 -5 4 -8 0 -14" stroke-width="2.4"/><path class="ink" d="M40 22 c-4 -5 4 -8 0 -14" stroke-width="2.4"/><path class="ink" d="M48 22 c-4 -5 4 -8 0 -14" stroke-width="2.4"/></g><circle class="ink" cx="40" cy="50" r="24" style="fill:#FFFDF9"/><circle cx="40" cy="50" r="18" fill="none" stroke="#BF9B34" stroke-width="2.4"/><circle class="fill-y" cx="40" cy="50" r="11"/><path class="ink" d="M8 30 v14 a4 4 0 0 0 8 0 v-14 M12 30 v44 M72 30 c-6 4 -6 16 0 20 v24"/></svg>
+              </div>
+            </div>
+            <h3>Siediti, al resto pensiamo noi</h3>
+            <p>Mangi bene, paghi il giusto e torni al lavoro contento.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- IL TUO POSTO: the one interactive moment -->
+  <section class="sec posto" id="posto" data-reveal>
+    <div class="wrap posto-grid">
+      <p class="kicker rv"><span class="plate-dot" aria-hidden="true"></span>Prova</p>
+      <h2 class="h2 rv" style="--d:1"><span class="line">Tieni premuto.</span> <span class="line">Ti apparecchiamo la tavola.</span></h2>
+      <div class="table-stage rv" style="--d:2">
+        <svg class="table-svg" viewBox="0 0 600 340" aria-hidden="true">
+          <rect class="t-ghost" x="40" y="20" width="520" height="300" rx="18" fill="none" stroke="#8C8A84" stroke-width="2" stroke-dasharray="8 10"/>
+          <g class="t-cloth">
+            <rect x="40" y="20" width="520" height="300" rx="18" fill="#FFFDF9"/>
+            <path d="M40 120 H560 M40 220 H560 M213 20 V320 M387 20 V320" stroke="#ECE8DF" stroke-width="2"/>
+            <rect x="40" y="20" width="520" height="300" rx="18" fill="none" stroke="#DCD7CB" stroke-width="2"/>
+          </g>
+          <g class="t-napkin"><rect x="108" y="96" width="74" height="150" rx="8" fill="#ECE7DA"/><path d="M108 130 H182" stroke="#BF9B34" stroke-width="2" opacity=".5"/></g>
+          <g class="t-plate">
+            <circle cx="300" cy="170" r="112" fill="#FFFFFF" stroke="#E6DBC6" stroke-width="2"/>
+            <circle cx="300" cy="170" r="101" fill="none" stroke="#BF9B34" stroke-width="4"/>
+            <circle cx="300" cy="170" r="94" fill="none" stroke="#BF9B34" stroke-width="1.6"/>
+            <circle cx="300" cy="170" r="66" fill="none" stroke="#EFE6D6" stroke-width="2"/>
+          </g>
+          <g class="t-fork"><path d="M136 70 V118 M146 70 V118 M156 70 V118 M136 118 Q146 132 156 118 M146 128 V272" fill="none" stroke="#5F5E5A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></g>
+          <g class="t-knife"><path d="M450 112 C 466 132, 466 176, 456 196 L 456 276" fill="none" stroke="#5F5E5A" stroke-width="7" stroke-linecap="round"/><path d="M450 112 C 464 134, 464 174, 455 194" fill="none" stroke="#B9A48E" stroke-width="3" stroke-linecap="round"/></g>
+          <g class="t-glass"><circle cx="508" cy="72" r="28" fill="rgba(255,255,255,.6)" stroke="#9FB7C0" stroke-width="3"/><path d="M493 63 a19 19 0 0 1 13 -9" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/></g>
+        </svg>
+      </div>
+      <div class="posto-actions">
+        <button class="hold-btn" type="button" aria-describedby="hold-help">
+          <svg class="hold-ring" viewBox="0 0 46 46" aria-hidden="true"><circle class="bg" cx="23" cy="23" r="19"/><circle class="p" cx="23" cy="23" r="19" pathLength="1"/></svg>
+          <span class="hold-label">Tieni premuto per apparecchiare</span>
+        </button>
+        <span id="hold-help" class="sr-only">Tieni premuto il pulsante, oppure tieni premuto Invio o la barra spaziatrice.</span>
+        <div class="done-msg">
+          <p class="done-h" aria-live="polite"></p>
+          <a class="btn btn-primary" href="#prenota" data-tipo="pranzo">Prenotalo davvero</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LA STORIA -->
+  <section class="sec storia dark" id="storia" data-reveal>
+    <div class="wrap storia-grid">
+      <div>
+        <p class="kicker rv"><span class="plate-dot" aria-hidden="true"></span>La storia</p>
+        <h2 class="h2 rv" style="--d:1"><span class="line">Una vita in cucina,</span> <span class="line">cominciata a 13&nbsp;anni.</span></h2>
+        <blockquote class="big-quote rv" style="--d:2">
+          <p>“Volevo che chi entra qui si sentisse come a casa.”</p>
+          <footer>Giorgio Alpegiani</footer>
+        </blockquote>
+        <dl class="name-def rv" style="--d:3">
+          <div><dt>Residenza</dt><dd>vuol dire casa.</dd></div>
+          <div><dt>Gusto</dt><dd>vuol dire il piacere di mangiare bene.</dd></div>
+        </dl>
+      </div>
+      <ol class="timeline" id="timeline">
+        <li class="tl-line" aria-hidden="true" role="presentation"><span class="tl-fill"></span></li>
+        <li class="tl-item" data-at="0">
+          <span class="tl-node" aria-hidden="true"></span>
+          <span class="mono">Brallo di Pergola</span>
+          <h3>Le estati dal nonno Rino</h3>
+          <p>Le estati nell'hotel del nonno Rino, famoso albergatore dell'Oltrepò Pavese. Giorgio guarda, impara e comincia dal basso: lavapiatti, a 13 anni.</p>
+        </li>
+        <li class="tl-item" data-at="0.45">
+          <span class="tl-node" aria-hidden="true"></span>
+          <span class="mono">Gli anni di studio e lavoro</span>
+          <h3>Una cucina dopo l'altra</h3>
+          <p>Anni di studio e di lavoro nel settore, un'esperienza dopo l'altra. Ogni cucina gli insegna qualcosa.</p>
+        </li>
+        <li class="tl-item" data-at="0.9">
+          <span class="tl-node" aria-hidden="true"></span>
+          <span class="mono">Vigalfo, oggi</span>
+          <h3>La Residenza del Gusto</h3>
+          <p>Oggi a Vigalfo: la trattoria, il catering e la ristorazione collettiva. Sempre con la stessa regola di casa.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- EVENTI E CATERING -->
+  <section class="sec eventi" id="eventi" data-reveal>
+    <div class="wrap">
+      <div class="ev-head">
+        <div>
+          <p class="kicker rv"><span class="plate-dot" aria-hidden="true"></span>Eventi e catering</p>
+          <h2 class="h2 rv" style="--d:1">La tua festa, a casa nostra.</h2>
+        </div>
+        <div>
+          <p class="lede rv" style="--d:2">Comunioni, matrimoni, cerimonie, feste private, pranzi aziendali. Ti affittiamo la sala oppure portiamo noi il catering, con un menù su misura per te e per i tuoi ospiti.</p>
+          <ul class="chips rv" style="--d:3"><li>Matrimoni</li><li>Comunioni e cerimonie</li><li>Eventi aziendali</li><li>Ricevimenti privati</li></ul>
+        </div>
+      </div>
+      <div class="mosaic">
+        <figure class="tile t-com rv"><img src="assets/comunione.jpg" width="1050" height="1400" loading="lazy" decoding="async" alt="La sala apparecchiata per una comunione, con un arco di palloncini bianchi e gialli"><figcaption>La sala pronta per una comunione</figcaption></figure>
+        <figure class="tile rv" style="--d:1"><img src="assets/tartine.jpg" width="1050" height="1400" loading="lazy" decoding="async" alt="Vassoi di tartine con salmone e crema verde"></figure>
+        <figure class="tile rv" style="--d:2"><img src="assets/gamberi.jpg" width="1050" height="1400" loading="lazy" decoding="async" alt="Coppette di vetro con gamberi, rucola e agrumi"></figure>
+        <div class="ev-info rv" style="--d:3">
+          <ul>
+            <li><span class="mono">Quando</span><strong>Sera e domenica su prenotazione</strong></li>
+            <li><span class="mono">Ospiti</span><strong>Minimo 22 persone</strong></li>
+            <li><span class="mono">Il menù</span><strong>Su misura, anche per intolleranze</strong></li>
+          </ul>
+          <a class="btn btn-light" href="#prenota" data-tipo="evento">Chiedi un preventivo</a>
+        </div>
+        <figure class="tile t-buf rv" style="--d:2"><img src="assets/buffet.jpg" width="1400" height="1050" loading="lazy" decoding="async" alt="Un buffet allestito con tovaglie blu e il logo della Residenza del Gusto"></figure>
+        <figure class="tile t-van rv" style="--d:1"><img src="assets/furgone.jpg" width="1400" height="647" loading="lazy" decoding="async" alt="Il furgone del catering della Residenza del Gusto"><figcaption>Il catering arriva da te</figcaption></figure>
+        <figure class="tile rv" style="--d:2"><img src="assets/giardino.jpg" width="1200" height="1117" loading="lazy" decoding="async" alt="Bottiglie di bollicine in un secchiello col ghiaccio, all'aperto"></figure>
+        <figure class="tile rv" style="--d:3"><img src="assets/vini.jpg" width="1050" height="1400" loading="lazy" decoding="async" alt="Vini bianchi e rosati in un secchiello col ghiaccio"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- AZIENDE E COMUNITA -->
+  <section class="sec aziende light" id="aziende" data-reveal>
+    <div class="wrap az-grid">
+      <blockquote class="az-quote rv">
+        <span class="qmark" aria-hidden="true">“</span>
+        <p>Se una cosa non la servirei ai miei clienti della trattoria, non la servo nemmeno agli ospiti.</p>
+        <footer>Giorgio Alpegiani</footer>
+      </blockquote>
+      <div class="az-copy">
+        <p class="kicker rv"><span class="plate-dot" aria-hidden="true"></span>Ristorazione collettiva</p>
+        <h2 class="h2 rv" style="--d:1">Lo stesso cibo, anche per aziende, scuole e strutture.</h2>
+        <p class="rv" style="--d:2">Prepariamo i pasti per aziende, scuole, strutture sanitarie e comunità. Menù equilibrati, studiati con nutrizionisti e secondo le linee guida ATS, che cambiano e ruotano nel tempo.</p>
+        <ul class="checks rv" style="--d:3">
+          <li style="--d:0"><svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="13"/><path class="draw" pathLength="1" d="M7 13.5 l4 4 l8 -9"/></svg>Puntuali, ogni giorno</li>
+          <li style="--d:1"><svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="13"/><path class="draw" pathLength="1" d="M7 13.5 l4 4 l8 -9"/></svg>Norme igieniche HACCP</li>
+          <li style="--d:2"><svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="13"/><path class="draw" pathLength="1" d="M7 13.5 l4 4 l8 -9"/></svg>Qualità certificata ISO 9001</li>
+          <li style="--d:3"><svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="13"/><path class="draw" pathLength="1" d="M7 13.5 l4 4 l8 -9"/></svg>Menù per esigenze alimentari specifiche</li>
+        </ul>
+        <div class="rv" style="--d:4"><a class="btn btn-dark" href="#prenota" data-tipo="aziende">Parliamone</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DICONO DI NOI -->
+  <section class="sec recensioni" id="recensioni" data-reveal>
+    <div class="wrap">
+      <div class="rc-head">
+        <div>
+          <p class="kicker rv"><span class="plate-dot" aria-hidden="true"></span>Recensioni Google</p>
+          <h2 class="h2 rv" style="--d:1">Dicono di noi</h2>
+        </div>
+      </div>
+      <div class="reviews">
+        <figure class="review rv" style="--d:1">
+          <span class="qm" aria-hidden="true">“</span>
+          <blockquote><p>Ottima qualità e personale cordiale, cibo ottimo.</p></blockquote>
+          <figcaption><span class="avatar" aria-hidden="true">A</span><span><strong>Alessandro Badami</strong><span class="mono">Recensione Google</span></span></figcaption>
+        </figure>
+        <figure class="review rv" style="--d:2">
+          <span class="qm" aria-hidden="true">“</span>
+          <blockquote><p>Abbiamo festeggiato la comunione di nostra figlia qui. Che dire, ci siamo trovati benissimo in tutto, dalla location, al servizio ai piatti tutti buonissimi e di giuste quantità. Giorgio ed il suo staff disponibilissimi, hanno fatto anche una piccola gradita sorpresa alla bimba facendole trovare un arco di palloncini come allestimento del tavolo bomboniere. Torneremo sicuramente, grazie Giorgio!</p></blockquote>
+          <figcaption><span class="avatar" aria-hidden="true">B</span><span><strong>Beatrice Galeotti</strong><span class="mono">Recensione Google</span></span></figcaption>
+        </figure>
+        <figure class="review rv" style="--d:3">
+          <span class="qm" aria-hidden="true">“</span>
+          <blockquote><p>Buon cibo, servizio impeccabile. Locale pulito. Tutto perfetto, vale la pena fermarsi. Consiglio vivamente.</p></blockquote>
+          <figcaption><span class="avatar" aria-hidden="true">F</span><span><strong>Francesco Martello</strong><span class="mono">Recensione Google</span></span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOMANDE FREQUENTI -->
+  <section class="sec faq" id="faq" data-reveal>
+    <div class="wrap faq-grid">
+      <div class="faq-side">
+        <p class="kicker rv"><span class="plate-dot" aria-hidden="true"></span>Prima di venire</p>
+        <h2 class="h2 rv" style="--d:1">Domande frequenti</h2>
+        <div class="rv" style="--d:2"><svg class="faq-plate" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="56" fill="#FFFDF9"/><circle cx="60" cy="60" r="50" fill="none" stroke="#BF9B34" stroke-width="3"/><circle cx="60" cy="60" r="45" fill="none" stroke="#BF9B34" stroke-width="1.2"/><text x="60" y="76" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="46" fill="#2C2B28">?</text></svg></div>
+      </div>
+      <div class="panel rv" style="--d:1">
+        <details class="qa"><summary>Quanto costa il pranzo?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>Il menù fisso costa 13 euro e cambia ogni giorno.</p></div></details>
+        <details class="qa"><summary>Devo prenotare?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>Ti consigliamo di scriverci o chiamarci prima: così ti teniamo il posto.</p></div></details>
+        <details class="qa"><summary>Siete aperti la sera o la domenica?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>La trattoria è aperta a pranzo, dal lunedì al sabato. La sera e la domenica apriamo solo per eventi prenotati, con almeno 22 persone.</p></div></details>
+        <details class="qa"><summary>Fate menù per intolleranze?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>Per gli eventi prepariamo menù su misura, anche per intolleranze ed esigenze particolari. Per il pranzo di tutti i giorni chiedici pure: ti diciamo cosa c'è in menù.</p></div></details>
+        <details class="qa"><summary>Si può affittare la sala?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>Sì, la sala si affitta per feste ed eventi, su prenotazione.</p></div></details>
+        <details class="qa"><summary>Dove siete?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>In Via Vigalfo 14, a Vigalfo, frazione di Albuzzano, in provincia di Pavia.</p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRENOTA: the single call to action -->
+  <section class="sec prenota slate" id="prenota" data-reveal>
+    <div class="wrap pr-grid">
+      <div>
+        <p class="kicker rv"><span class="plate-dot" aria-hidden="true"></span>Prenota</p>
+        <h2 class="h2 rv" style="--d:1">Ti teniamo il posto.</h2>
+        <div class="branch rv" style="--d:2" role="tablist" aria-label="Cosa vuoi prenotare?">
+          <button type="button" role="tab" id="tab-pranzo" aria-controls="panel-pranzo" aria-selected="true">Tavolo a pranzo</button>
+          <button type="button" role="tab" id="tab-eventi" aria-controls="panel-eventi" aria-selected="false" tabindex="-1">Eventi e aziende</button>
+        </div>
+        <div class="branch-panels rv" style="--d:3">
+        <div class="bpanel" id="panel-pranzo" role="tabpanel" aria-labelledby="tab-pranzo">
+        <form class="book" id="book" novalidate>
+          <label class="field"><span>Come ti chiami?</span><input name="nome" type="text" autocomplete="name" placeholder="Il tuo nome" required maxlength="60"></label>
+          <div class="row2">
+            <label class="field"><span>Che giorno?</span><input name="giorno" type="date"></label>
+            <label class="field"><span>Quante persone?</span><input name="persone" type="number" inputmode="numeric" min="1" max="999" value="2"></label>
+          </div>
+          <p class="hint" id="hint" aria-live="polite"></p>
+          <label class="field"><span>Vuoi aggiungere qualcosa?</span><textarea name="note" rows="3" maxlength="500" placeholder="Un orario, un'intolleranza, una sorpresa..."></textarea></label>
+          <button class="btn btn-primary" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>Invia su WhatsApp</button>
+          <p class="fine">Si apre WhatsApp con il messaggio già scritto. Lo invii tu e ti rispondiamo il prima possibile.</p>
+          <p class="sent" id="sent" role="status"></p>
+          <p class="alt">Preferisci chiamare? <a href="tel:+393514052965">351 405 2965</a></p>
+        </form>
+        </div>
+        <div class="bpanel" id="panel-eventi" role="tabpanel" aria-labelledby="tab-eventi" hidden>
+        <form class="book" id="ev-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <!-- SETUP STEP: incollare qui la chiave di accesso Web3Forms (arriva per email da web3forms.com) -->
+          <input type="hidden" name="access_key" value="INCOLLA-QUI-LA-CHIAVE-WEB3FORMS">
+          <input type="hidden" name="subject" value="Nuova richiesta evento dal sito">
+          <input type="hidden" name="from_name" value="Sito La Residenza del Gusto">
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+          <p class="ev-intro">Raccontaci cosa hai in mente: ti rispondiamo per email con una proposta su misura.</p>
+          <div class="row2">
+            <label class="field"><span>Nome e cognome</span><input name="nome" type="text" autocomplete="name" placeholder="Il tuo nome" required maxlength="80"></label>
+            <label class="field"><span>La tua email</span><input name="email" type="email" autocomplete="email" placeholder="nome@esempio.it" required maxlength="120"></label>
+          </div>
+          <fieldset class="tipo">
+            <legend>Che evento è?</legend>
+            <div class="tipo-opts">
+              <label><input type="radio" name="tipo_evento" value="matrimonio"><span>Matrimonio</span></label>
+              <label><input type="radio" name="tipo_evento" value="cerimonia"><span>Comunione o cerimonia</span></label>
+              <label><input type="radio" name="tipo_evento" value="aziendale"><span>Evento aziendale</span></label>
+              <label><input type="radio" name="tipo_evento" value="festa"><span>Festa privata</span></label>
+              <label><input type="radio" name="tipo_evento" value="collettiva"><span>Ristorazione collettiva</span></label>
+            </div>
+          </fieldset>
+          <div class="row2">
+            <label class="field"><span>Che giorno, se lo sai?</span><input name="data" type="date"></label>
+            <label class="field"><span>Quanti ospiti, circa?</span><input name="ospiti" type="number" inputmode="numeric" min="1" max="2000" placeholder="Es. 40"></label>
+          </div>
+          <p class="hint" id="ev-hint" aria-live="polite"></p>
+          <label class="field"><span>Raccontaci qualcosa</span><textarea name="messaggio" rows="4" maxlength="1500" placeholder="Il menù che immagini, intolleranze, la nostra sala o il catering da te..."></textarea></label>
+          <label class="consent"><input type="checkbox" name="privacy" value="sì" required><span>Acconsento al trattamento dei miei dati solo per ricevere una risposta a questa richiesta.</span></label>
+          <div class="captcha-wrap"><div class="h-captcha" data-captcha="true" data-theme="dark" data-hl="it"></div></div>
+          <button class="btn btn-primary" type="submit">Invia la richiesta</button>
+          <p class="fine">La richiesta arriva alla nostra email e ti rispondiamo il prima possibile.</p>
+          <p class="sent" id="ev-sent" role="status"></p>
+          <p class="alt">Preferisci scriverci direttamente? <a href="mailto:info@laresidenzadelgusto.it">info@laresidenzadelgusto.it</a></p>
+        </form>
+        </div>
+        </div>
+      </div>
+      <div class="pr-side">
+        <div class="frame mini-frame rv" style="--d:2">
+          <div class="board mini" aria-hidden="true">
+            <p class="bl bl-title" id="ml-title">Prenotazione</p>
+            <svg class="under" viewBox="0 0 200 12" preserveAspectRatio="none"><path class="draw" pathLength="1" d="M4 7 C 40 3, 80 9, 120 6 S 180 4, 196 7"/></svg>
+            <span class="mini-line y" id="ml-tipo"></span>
+            <span class="mini-line" id="ml-nome"></span>
+            <span class="mini-line" id="ml-giorno"></span>
+            <span class="mini-line" id="ml-persone"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap">
+        <address class="contact-card contact-row rv" style="--d:1">
+          <div><span class="mono">Dove</span><p>Via Vigalfo, 14 · 27010 Albuzzano, Vigalfo (PV)</p><a href="https://www.google.com/maps/search/?api=1&amp;query=Via+Vigalfo+14+27010+Albuzzano+PV" target="_blank" rel="noopener">Apri in Google Maps</a></div>
+          <div><span class="mono">Orari</span><p>Trattoria: dal lunedì al sabato, dalle 12:00 alle 14:30.</p><p>Domenica e sera: eventi su prenotazione, minimo 22 persone.</p></div>
+          <div><span class="mono">Telefono e WhatsApp</span><a href="tel:+393514052965">+39 351 405 2965</a></div>
+          <div><span class="mono">Email</span><a href="mailto:info@laresidenzadelgusto.it">info@laresidenzadelgusto.it</a></div>
+          <div class="social">
+            <a href="https://www.instagram.com/la.residenza.del.gusto/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM12 3.8c2.7 0 3 0 4 .1 2.7.1 4 1.4 4.1 4.1.1 1 .1 1.4.1 4s0 3-.1 4c-.1 2.7-1.4 4-4.1 4.1-1 .1-1.4.1-4 .1s-3 0-4-.1c-2.7-.1-4-1.4-4.1-4.1-.1-1-.1-1.4-.1-4s0-3 .1-4C4 5.3 5.3 4 8 3.9c1-.1 1.3-.1 4-.1zM12 2c-2.7 0-3.1 0-4.1.1C4.3 2.2 2.2 4.3 2.1 7.9 2 8.9 2 9.3 2 12s0 3.1.1 4.1c.2 3.6 2.2 5.7 5.8 5.8 1 .1 1.4.1 4.1.1s3.1 0 4.1-.1c3.6-.2 5.7-2.2 5.8-5.8.1-1 .1-1.4.1-4.1s0-3.1-.1-4.1c-.2-3.6-2.2-5.7-5.8-5.8C15.1 2 14.7 2 12 2z"/></svg>Instagram</a>
+            <a href="https://www.facebook.com/profile.php?id=61577120136402" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-8.2h2.8l.4-3.2h-3.2V8.5c0-.9.3-1.6 1.6-1.6h1.7V4.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.4H7.3v3.2h2.8V22h3.4z"/></svg>Facebook</a>
+          </div>
+        </address>
+    </div>
+  </section>
 </main>
 
-<footer>
+<footer class="foot">
   <div class="wrap">
-    <span>La Residenza del Gusto S.r.l. · P.IVA 02949320184 · Via Vigalfo 14, Albuzzano (PV)</span>
-    <nav aria-label="Pagine"><a href="#menu">Menù del giorno</a><a href="#catering">Catering</a><a href="#contatti">Contatti</a></nav>
+    <div class="foot-grid">
+      <div>
+        <img class="foot-logo" src="assets/logo.png" width="500" height="278" loading="lazy" decoding="async" alt="Logo de La Residenza del Gusto">
+        <p>Trattoria, catering e ristorazione collettiva a Vigalfo, Albuzzano.</p>
+      </div>
+      <div>
+        <h3>Trattoria</h3>
+        <p>Dal lunedì al sabato</p>
+        <p>Dalle 12:00 alle 14:30</p>
+        <p>Domenica su prenotazione per eventi, minimo 22 persone</p>
+      </div>
+      <div>
+        <h3>Contatti</h3>
+        <p><a href="tel:+393514052965">+39 351 405 2965</a></p>
+        <p><a href="mailto:info@laresidenzadelgusto.it">info@laresidenzadelgusto.it</a></p>
+        <p>PEC: <a href="mailto:laresidenzadelgustosrl@pec.it">laresidenzadelgustosrl@pec.it</a></p>
+      </div>
+      <div>
+        <h3>Dove siamo</h3>
+        <p>Via Vigalfo, 14</p>
+        <p>27010 Albuzzano, Vigalfo (PV)</p>
+        <p><a href="https://www.instagram.com/la.residenza.del.gusto/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/profile.php?id=61577120136402" target="_blank" rel="noopener">Facebook</a></p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>LA RESIDENZA DEL GUSTO S.R.L. · P.IVA 02949320184</span>
+      <span>Foto: La Residenza del Gusto</span>
+    </div>
   </div>
 </footer>
 
 <script>
-/* ====== MENÙ DEL GIORNO: si aggiorna qui ====== */
-const MENU = {
-  esempio: true,
-  data: "2026-10-09",
-  portate: [
-    { nome: "Primi",    piatti: ["Risotto alla pavese", "Pasta al ragù"] },
-    { nome: "Secondi",  piatti: ["Arrosto di vitello", "Griglia mista di carne o pesce"] },
-    { nome: "Contorni", piatti: ["Verdure di stagione", "Patate al forno"] },
-    { nome: "Dolce",    piatti: ["Dolce della casa"] }
-  ],
-  prezzo: "Prezzo fisso: da indicare",
-  nota: "Griglia mista sempre disponibile"
-};
-/* ====== FOTO: data URI per ogni spazio (vuoto = segnaposto) ====== */
-const FOTO = {};
-/* ================================================================ */
+(() => {
+  'use strict';
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const root = document.documentElement;
+  const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
+  const smoothstep = (p, e0, e1) => { const t = clamp((p - e0) / (e1 - e0), 0, 1); return t * t * (3 - 2 * t); };
+  function rng(seed) { let s = seed >>> 0; return () => (s = (s * 1664525 + 1013904223) >>> 0) / 4294967296; }
 
-/* Illustrazioni provvisorie (si vedono finché manca la foto) */
-const BG = '<rect class="bg" width="400" height="300"/>';
-const ILL = {
-  piatto: BG +
-    '<path class="l thin steam" d="M175 70c-8-14 8-22 0-36M200 64c-8-14 8-22 0-36M225 70c-8-14 8-22 0-36"/>' +
-    '<circle class="c l" cx="200" cy="165" r="96"/><circle class="l thin" cx="200" cy="165" r="70"/>' +
-    '<circle class="b" cx="200" cy="165" r="50"/>' +
-    '<circle class="c" cx="186" cy="152" r="5"/><circle class="c" cx="214" cy="170" r="4"/><circle class="c" cx="196" cy="182" r="4"/><circle class="c" cx="222" cy="148" r="3"/>' +
-    '<path class="a l thin" d="M190 140c8-12 22-12 26-2-10 4-18 6-26 2z"/>' +
-    '<path class="l" d="M72 90v150M62 90v34c0 10 20 10 20 0V90"/>' +
-    '<path class="c l" d="M328 90c14 10 14 50 0 64v86"/>',
-  griglia: BG +
-    '<path class="b flame" d="M110 262c-14-20 6-30 0-50 18 14 22 34 0 50z"/><path class="b flame" d="M170 266c-16-24 8-36 0-58 22 16 24 40 0 58z"/><path class="b flame" d="M230 266c-16-24 8-36 0-58 22 16 24 40 0 58z"/><path class="b flame" d="M290 262c-14-20 6-30 0-50 18 14 22 34 0 50z"/>' +
-    '<rect class="c l" x="60" y="78" width="280" height="140" rx="14"/>' +
-    '<path class="l thin" d="M92 78v140M124 78v140M156 78v140M188 78v140M220 78v140M252 78v140M284 78v140M316 78v140"/>' +
-    '<path class="b l" d="M96 110c20-16 70-12 78 8 6 18-14 34-44 34s-52-24-34-42z"/>' +
-    '<path class="l thin" d="M110 120l50 14M108 134l44 12"/>' +
-    '<rect class="a l" x="200" y="104" width="110" height="26" rx="13"/><rect class="a l" x="214" y="150" width="96" height="24" rx="12"/>' +
-    '<path class="l thin" d="M232 108v18M262 108v18M292 108v18"/>',
-  tavola: BG +
-    '<path class="l" d="M200 54v34M188 70h24"/><path class="b" d="M200 30c-6 8-6 14 0 18 6-4 6-10 0-18z"/>' +
-    '<path class="c l" d="M186 88h28l-4 52h-20z"/>' +
-    '<path class="c l" d="M40 160h320v60c-16 12-32 12-48 0-16 12-32 12-48 0-16 12-32 12-48 0-16 12-32 12-48 0-16 12-32 12-48 0-16 12-32 12-48 0-16 12-24 10-32 6z"/>' +
-    '<ellipse class="c l thin" cx="110" cy="152" rx="40" ry="8"/><ellipse class="c l thin" cx="290" cy="152" rx="40" ry="8"/>' +
-    '<path class="a l thin" d="M60 100h26c0 22-6 30-13 30s-13-8-13-30zM73 130v24M64 154h18"/>' +
-    '<path class="b l thin" d="M318 104h22c0 18-5 26-11 26s-11-8-11-26zM329 130v24M320 154h18"/>' +
-    '<path class="l thin" d="M150 120h22v32h-22zM154 120v-14h14v14"/><path class="a" d="M152 134h18v16h-18z"/>',
-  torta: BG +
-    '<path class="l" d="M110 262h180M200 262v-14"/><ellipse class="c l" cx="200" cy="246" rx="98" ry="8"/>' +
-    '<rect class="c l" x="116" y="186" width="168" height="58" rx="6"/>' +
-    '<rect class="c l" x="140" y="132" width="120" height="54" rx="6"/>' +
-    '<rect class="c l" x="164" y="86" width="72" height="46" rx="6"/>' +
-    '<path class="l thin" d="M116 206c14 10 28 10 42 0s28-10 42 0 28 10 42 0 28-10 42 0M140 150c10 8 20 8 30 0s20-8 30 0 20 8 30 0 20-8 30 0"/>' +
-    '<circle class="a" cx="150" cy="226" r="6"/><circle class="b" cx="200" cy="228" r="7"/><circle class="a" cx="250" cy="226" r="6"/><circle class="b" cx="178" cy="166" r="5"/><circle class="a" cx="222" cy="166" r="5"/>' +
-    '<path class="b l thin" d="M200 78c-10-14-28-2-14 12l14 12 14-12c14-14-4-26-14-12z"/>' +
-    '<path class="b twinkle" d="M90 90l4 10 10 4-10 4-4 10-4-10-10-4 10-4z"/><path class="b twinkle" style="animation-delay:.8s" d="M312 70l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>',
-  brindisi: BG +
-    '<g transform="rotate(-14 160 160)"><path class="c l" d="M130 70h56c0 56-12 76-28 76s-28-20-28-76z"/><path class="b" d="M133 96h50c-2 34-12 46-25 46s-23-12-25-46z"/><path class="l" d="M158 146v80M136 228h44"/></g>' +
-    '<g transform="rotate(14 240 160)"><path class="c l" d="M214 70h56c0 56-12 76-28 76s-28-20-28-76z"/><path class="b" d="M217 96h50c-2 34-12 46-25 46s-23-12-25-46z"/><path class="l" d="M242 146v80M220 228h44"/></g>' +
-    '<path class="b twinkle" d="M200 34l5 13 13 5-13 5-5 13-5-13-13-5 13-5z"/><path class="a twinkle" style="animation-delay:.6s" d="M150 40l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/><path class="a twinkle" style="animation-delay:1.2s" d="M252 44l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>' +
-    '<circle class="c" cx="174" cy="120" r="3"/><circle class="c" cx="226" cy="114" r="3"/><circle class="c" cx="232" cy="128" r="2"/>',
-  cloche: BG +
-    '<path class="l thin steam" d="M300 80c-8-14 8-22 0-36M326 90c-8-14 8-22 0-36"/>' +
-    '<ellipse class="a l" cx="200" cy="222" rx="150" ry="18"/>' +
-    '<path class="c l" d="M76 214c0-74 56-120 124-120s124 46 124 120z"/>' +
-    '<path class="l thin" d="M110 170c10-30 34-50 62-58"/>' +
-    '<circle class="b l" cx="200" cy="84" r="12"/>' +
-    '<path class="l" d="M50 246h300"/>',
-  mensa: BG +
-    '<rect class="c l" x="56" y="64" width="288" height="180" rx="16"/>' +
-    '<path class="l thin" d="M176 64v180M176 154h168M260 154v90"/>' +
-    '<path class="b" d="M74 92c20-16 70-16 88 0v120c-18 12-70 12-88 0z" opacity=".9"/>' +
-    '<path class="l thin" d="M86 110c10 6 20 6 30 0s20-6 30 0M86 132c10 6 20 6 30 0s20-6 30 0M86 154c10 6 20 6 30 0s20-6 30 0M86 176c10 6 20 6 30 0s20-6 30 0"/>' +
-    '<path class="a l thin" d="M196 120c10-30 50-36 70-20-4 30-48 40-70 20zM260 126c14-24 50-26 66-10-8 24-46 30-66 10z"/>' +
-    '<circle class="a l" cx="218" cy="200" r="24"/><path class="l thin" d="M218 176v-10"/>' +
-    '<rect class="b l" x="276" y="176" width="52" height="46" rx="18"/>',
-  sala: BG +
-    '<path class="c l" d="M120 210V110a80 80 0 0 1 160 0v100z"/><path class="l thin" d="M200 30v180M120 120h160M135 74h130"/>' +
-    '<path class="l" d="M200 0v40"/><path class="b l" d="M174 62a26 22 0 0 1 52 0z"/>' +
-    '<path class="l" d="M30 210h340"/>' +
-    '<rect class="a l" x="140" y="196" width="120" height="14" rx="3"/><path class="l" d="M156 210v60M244 210v60"/>' +
-    '<path class="l" d="M110 160v110M110 210h22v60M290 160v110M290 210h-22v60"/>' +
-    '<path class="l thin" d="M338 210v-34"/><path class="a l thin" d="M338 186c-18-6-24-24-12-34 10 10 14 22 12 34zM338 178c14-10 30-6 30 6-12 6-22 4-30-6z"/><path class="c l" d="M326 210h24l-4 22h-16z"/>',
-  cascina: BG +
-    '<circle class="b" cx="318" cy="70" r="28"/>' +
-    '<path class="l thin" d="M0 236h400M0 252h400M0 268h400M0 284h400"/>' +
-    '<path class="a" d="M0 222h400v14H0z" opacity=".7"/>' +
-    '<path class="c l" d="M124 222V146l76-46 76 46v76z"/><path class="b l" d="M112 152l88-58 88 58"/>' +
-    '<path class="l thin" d="M184 222v-44h32v44M148 168h22v20h-22zM230 168h22v20h-22zM190 124h20v16h-20z"/>' +
-    '<ellipse class="a l" cx="66" cy="150" rx="18" ry="58"/><path class="l" d="M66 208v14"/>' +
-    '<ellipse class="a l" cx="98" cy="166" rx="14" ry="44"/><path class="l" d="M98 210v12"/>' +
-    '<ellipse class="a l" cx="336" cy="160" rx="16" ry="50"/><path class="l" d="M336 210v12"/>',
-  ingredienti: BG +
-    '<path class="b l" d="M60 200c0-40 40-62 110-62s110 22 110 62c0 18-20 26-110 26S60 218 60 200z"/>' +
-    '<path class="l thin" d="M100 160l18 26M146 150l18 30M196 150l18 30M240 160l14 24"/>' +
-    '<circle class="b l" cx="300" cy="196" r="34"/><path class="a l thin" d="M300 162c-6-12 6-18 12-12-4 6-8 10-12 12zM300 162c-10-4-16 4-8 10"/>' +
-    '<circle class="b l" cx="344" cy="226" r="22"/>' +
-    '<path class="c l" d="M300 96c-20 0-30 20-26 36 6 14 46 14 52 0 4-16-6-36-26-36zM300 96v-14"/><path class="l thin" d="M290 104c-6 10-6 20-2 30M310 104c6 10 6 20 2 30"/>' +
-    '<path class="a l thin" d="M96 92c-16-30 18-46 34-26-8 22-20 28-34 26zM132 108c4-30 40-30 46-8-14 16-30 16-46 8zM110 120c-28 0-34-30-14-38 14 12 18 26 14 38z"/>'
-};
-const SLOT = { hero:"piatto", trattoria:"sala", catering:"cloche", collettiva:"mensa", sala:"sala", piatto:"griglia",
-  catering2:"tavola", matrimoni:"torta", aziende:"cloche", privati:"brindisi", collettiva2:"mensa", storia:"cascina",
-  g1:"griglia", g2:"tavola", g3:"torta", g4:"ingredienti", g5:"sala", g6:"brindisi", g7:"cascina" };
+  const GATES = [
+    '(prefers-reduced-motion: reduce)',
+    '(orientation: landscape) and (pointer: coarse) and (max-height: 560px)'
+  ];
+  const RM = matchMedia(GATES[0]);
 
-const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-function dataIt(){
-  const d = new Date(MENU.data + "T12:00:00");
-  const s = d.toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long"});
-  return s.charAt(0).toUpperCase() + s.slice(1);
-}
-function renderBoard(el, mini){
-  const portate = mini ? MENU.portate.slice(0,2) : MENU.portate;
-  let i = 0;
-  el.innerHTML =
-    (MENU.esempio ? '<span class="sample">Esempio</span>' : '') +
-    '<p class="date">' + esc(dataIt()) + '</p>' +
-    '<p class="title">' + (mini ? 'Oggi a pranzo' : 'Oggi in cucina') + '</p>' +
-    '<div class="cols">' + portate.map(p =>
-      '<div class="course"><h3>' + esc(p.nome) + '</h3><ul>' +
-      p.piatti.map(x => '<li style="animation-delay:' + (0.15 + 0.12 * i++) + 's">' + esc(x) + '</li>').join('') + '</ul></div>').join('') +
-    '</div>' +
-    '<div class="foot">' + (mini
-      ? '<a href="#menu" style="color:var(--chalk-ink)">Vedi il menù completo →</a>'
-      : '<span class="price">' + esc(MENU.prezzo) + '</span>' + (MENU.nota ? '<span>' + esc(MENU.nota) + '</span>' : '')) + '</div>';
-}
-
-document.querySelectorAll(".ph").forEach(ph => {
-  const src = FOTO[ph.dataset.foto];
-  if (src){ ph.classList.add("has"); ph.innerHTML = '<img alt="' + esc(ph.dataset.cap.replace("Foto: ","")) + '" src="' + src + '">'; }
-  else if (ILL[SLOT[ph.dataset.foto]]){ ph.classList.add("has"); ph.innerHTML = '<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="' + esc(ph.dataset.cap.replace("Foto: ","Illustrazione: ")) + '">' + ILL[SLOT[ph.dataset.foto]] + '</svg>'; }
-  else { ph.innerHTML = '<span class="cap">' + esc(ph.dataset.cap) + '</span>'; }
-});
-
-/* navigazione a pagine */
-const pages = ["home","menu","trattoria","catering","collettiva","storia","gallery","contatti"];
-const drawer = document.getElementById("drawer"), burger = document.getElementById("burger");
-document.getElementById("drawerLinks").innerHTML = document.getElementById("nav").innerHTML;
-function show(){
-  let id = (location.hash || "#home").slice(1), anchor = null;
-  if (!pages.includes(id)){
-    const t = document.getElementById(id);
-    const pg = t && t.closest(".page");
-    if (pg){ anchor = t; id = pg.id.slice(2); } else id = "home";
+  /* ---------- Nav ---------- */
+  const nav = $('#nav');
+  const menuBtn = $('.menu-btn');
+  let navScrolled = null;
+  function updateNav() {
+    const s = scrollY > 24;
+    if (s !== navScrolled) { navScrolled = s; nav.classList.toggle('scrolled', s); }
   }
-  document.querySelectorAll(".page").forEach(p => p.classList.toggle("on", p.id === "p-" + id));
-  document.querySelectorAll("nav.links a, #drawerLinks a").forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + id));
-  if (id === "menu") renderBoard(document.getElementById("board"));
-  if (id === "home") renderBoard(document.getElementById("board-mini"), true);
-  drawer.hidden = true; burger.setAttribute("aria-expanded","false");
-  document.querySelectorAll("nav.links a, #drawerLinks a").forEach(a => { if (anchor && a.getAttribute("href") === "#" + id) a.classList.add("on"); });
-  if (anchor){ const h = document.getElementById("hdr").offsetHeight; requestAnimationFrame(() => window.scrollTo(0, anchor.getBoundingClientRect().top + scrollY - h - 8)); }
-  else window.scrollTo(0,0);
-}
-window.addEventListener("hashchange", show);
-burger.addEventListener("click", () => { drawer.hidden = !drawer.hidden; burger.setAttribute("aria-expanded", String(!drawer.hidden)); });
-window.addEventListener("scroll", () => document.getElementById("hdr").classList.toggle("scrolled", scrollY > 8), {passive:true});
-show();
+  function setMenu(open) {
+    nav.classList.toggle('open', open);
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.setAttribute('aria-label', open ? 'Chiudi il menu' : 'Apri il menu');
+  }
+  menuBtn.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+  $$('#nav-links a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  addEventListener('keydown', e => { if (e.key === 'Escape' && nav.classList.contains('open')) { setMenu(false); menuBtn.focus(); } });
 
-/* aperto ora? (ora italiana) */
-(function(){
-  const el = document.getElementById("open");
-  let day, mins;
-  try {
-    const parts = new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Rome",weekday:"short",hour:"2-digit",minute:"2-digit",hour12:false}).formatToParts(new Date());
-    const g = t => parts.find(p => p.type === t).value;
-    day = g("weekday"); mins = (+g("hour")) * 60 + (+g("minute"));
-  } catch(e){ const n = new Date(); day = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][n.getDay()]; mins = n.getHours()*60 + n.getMinutes(); }
-  const aperto = day !== "Sun" && mins >= 720 && mins < 870;
-  el.classList.toggle("yes", aperto);
-  el.lastElementChild.textContent = aperto ? "Aperto ora" : (day === "Sun" ? "Oggi solo eventi su prenotazione" : "Ora chiuso · pranzo 12:00 – 14:30");
-})();
+  /* ---------- Text splitting (done once) ---------- */
+  function splitBand(el, seed) {
+    const text = el.textContent.trim();
+    const r = rng(seed);
+    const em = el.dataset.em !== undefined ? Number(el.dataset.em) : -1;
+    el.textContent = '';
+    const sr = document.createElement('span'); sr.className = 'sr-only'; sr.textContent = text;
+    const vis = document.createElement('span'); vis.setAttribute('aria-hidden', 'true');
+    const words = text.split(/\s+/);
+    let ci = 0;
+    words.forEach((w, wi) => {
+      const ws = document.createElement('span');
+      ws.className = 'w' + (wi === em ? ' em' : '');
+      ws.style.setProperty('--th', (wi / words.length * 0.5).toFixed(3));
+      for (const ch of w) {
+        const c = document.createElement('span');
+        c.className = 'c'; c.textContent = ch;
+        c.style.setProperty('--i', ci++);
+        c.style.setProperty('--jr', ((r() - 0.5) * 8).toFixed(1) + 'deg');
+        ws.appendChild(c);
+      }
+      vis.appendChild(ws);
+      if (wi < words.length - 1) vis.appendChild(document.createTextNode(' '));
+    });
+    vis.style.setProperty('--n', ci);
+    el.append(sr, vis);
+  }
+  function splitChalk(el, seed) {
+    const text = el.textContent.trim();
+    const r = rng(seed);
+    el.textContent = '';
+    const words = text.split(/\s+/);
+    const chars = [];
+    words.forEach((w, wi) => {
+      const ws = document.createElement('span'); ws.className = 'w';
+      for (const ch of w) {
+        const c = document.createElement('span');
+        c.className = 'c'; c.textContent = ch;
+        c.style.setProperty('--i', chars.length);
+        c.style.setProperty('--jr', ((r() - 0.5) * 10).toFixed(1) + 'deg');
+        ws.appendChild(c); chars.push(c);
+      }
+      el.appendChild(ws);
+      if (wi < words.length - 1) el.appendChild(document.createTextNode(' '));
+    });
+    el.style.setProperty('--n', chars.length);
+    return chars;
+  }
 
-/* richiesta eventi -> email */
-const form = document.getElementById("evForm");
-form.addEventListener("submit", e => {
-  e.preventDefault();
-  const err = document.getElementById("err");
-  const tipo = form.querySelector('input[name="tipo"]:checked');
-  const v = id => document.getElementById(id).value.trim();
-  const missing = [];
-  if (!tipo) missing.push("il tipo di richiesta");
-  if (!v("f-nome")) missing.push("nome e cognome");
-  if (!v("f-tel")) missing.push("il telefono");
-  if (missing.length){ err.textContent = "Manca " + missing.join(", ") + "."; err.hidden = false; return; }
-  err.hidden = true;
-  let dataTxt = "";
-  if (v("f-data")){ const d = new Date(v("f-data") + "T12:00:00"); dataTxt = d.toLocaleDateString("it-IT",{weekday:"long",day:"numeric",month:"long",year:"numeric"}); }
-  const righe = [
-    "Tipo di richiesta: " + tipo.value,
-    "Nome: " + v("f-nome"),
-    "Telefono: " + v("f-tel"),
-    v("f-mail") && "Email: " + v("f-mail"),
-    dataTxt && "Data dell'evento: " + dataTxt,
-    v("f-ospiti") && "Invitati: " + v("f-ospiti"),
-    v("f-luogo") && "Luogo: " + v("f-luogo"),
-    v("f-msg") && "\nDettagli:\n" + v("f-msg")
-  ].filter(Boolean);
-  const corpo = "Buongiorno,\nvorrei un preventivo per:\n\n" + righe.join("\n") + "\n\nGrazie.";
-  const oggetto = "Richiesta " + tipo.value + " – " + v("f-nome");
-  const href = "mailto:info@laresidenzadelgusto.it?subject=" + encodeURIComponent(oggetto) + "&body=" + encodeURIComponent(corpo);
-  document.getElementById("out").textContent = "A: info@laresidenzadelgusto.it\nOggetto: " + oggetto + "\n\n" + corpo;
-  document.getElementById("mailLink").href = href;
-  document.getElementById("done").hidden = false;
-  try { location.href = href; } catch(e){}
-});
-document.getElementById("copyOut").addEventListener("click", ev => {
-  const b = ev.currentTarget, pre = document.getElementById("out");
-  const sel = () => { const r = document.createRange(); r.selectNodeContents(pre); const s = getSelection(); s.removeAllRanges(); s.addRange(r); };
-  try { navigator.clipboard.writeText(pre.textContent).then(() => { b.textContent = "Copiato"; setTimeout(() => b.textContent = "Copia il testo", 1600); }).catch(sel); } catch(e){ sel(); }
-});
-document.querySelectorAll(".copy-big").forEach(btn => btn.addEventListener("click", () => {
-  const sel = () => { const r = document.createRange(); r.selectNodeContents(btn.closest(".bcard").querySelector(".bnum")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); };
-  try { navigator.clipboard.writeText(btn.dataset.copy).then(() => { btn.textContent = "Copiato"; setTimeout(() => btn.textContent = "Copia numero", 1600); }).catch(sel); } catch(e){ sel(); }
-}));
+  $$('.band-h.split').forEach((el, i) => splitBand(el, 101 + i * 17));
 
-document.querySelectorAll(".copy").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const done = () => { btn.textContent = "Copiato"; setTimeout(() => btn.textContent = "Copia", 1600); };
-    const sel = () => { const r = document.createRange(); r.selectNodeContents(btn.previousElementSibling); const s = getSelection(); s.removeAllRanges(); s.addRange(r); };
-    try { navigator.clipboard.writeText(btn.dataset.copy).then(done).catch(sel); } catch(e){ sel(); }
+  /* ---------- Hero: the chalkboard ---------- */
+  const hero = $('.hero');
+  const stage = $('.stage', hero);
+  const board = $('#board');
+  const stick = $('.stick', board);
+  const cue = $('.cue');
+  const canvas = $('.dust', board);
+  const ctx = canvas.getContext('2d');
+
+  const lines = $$('.bl', board).map((el, i) => {
+    const chars = splitChalk(el, 7 + i * 13);
+    return { el, chars, n: chars.length, s: Number(el.dataset.s), e: Number(el.dataset.e), intro: el.dataset.intro || null, k: -1, pts: [] };
   });
-});
-</script>
+  const paths = $$('.draw', board).map(el => ({
+    el, s: Number(el.dataset.s), e: Number(el.dataset.e), intro: el.dataset.intro || null, k: -1, len: 0
+  }));
+  const circle = paths.find(p => !p.intro);
 
+  const bands = $$('.band').map((el, i, all) => ({
+    el, a: Number(el.dataset.a), b: Number(el.dataset.b),
+    ramp: el.dataset.ramp ? Number(el.dataset.ramp) : null,
+    first: i === 0, last: i === all.length - 1, op: -1, k: -1, inert: null,
+    interactive: !!el.querySelector('a, button')
+  }));
+
+  let heroTop = 0, heroRange = 1, boardRect = null;
+  function measure() {
+    heroTop = hero.getBoundingClientRect().top + scrollY;
+    heroRange = Math.max(1, hero.offsetHeight - innerHeight);
+    computePositions();
+  }
+  function heroProgress() { return clamp((scrollY - heroTop) / heroRange, 0, 1); }
+
+  /* Points the chalk tip travels through: start of line, then the right edge of every character. */
+  function computePositions() {
+    const br = board.getBoundingClientRect();
+    boardRect = br;
+    lines.forEach(L => {
+      L.pts = [];
+      if (!L.n) return;
+      const r0 = L.chars[0].getBoundingClientRect();
+      L.pts.push({ x: r0.left - br.left, y: r0.top - br.top + r0.height * 0.78 });
+      L.chars.forEach(c => {
+        const r = c.getBoundingClientRect();
+        L.pts.push({ x: r.right - br.left, y: r.top - br.top + r.height * 0.78 });
+      });
+    });
+    if (circle) {
+      const svg = circle.el.ownerSVGElement;
+      const sr = svg.getBoundingClientRect();
+      circle.box = { x: sr.left - br.left, y: sr.top - br.top, w: sr.width, h: sr.height };
+      try { circle.len = circle.el.getTotalLength(); } catch (e) { circle.len = 0; }
+    }
+    const dpr = Math.min(2, devicePixelRatio || 1);
+    canvas.width = Math.round(br.width * dpr);
+    canvas.height = Math.round(br.height * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    lastHead = null;
+  }
+
+  /* The journey opens on the logo: the first P0 of scroll fades the logo plate into a watermark
+     and brings in the board (iProg 0..1); the rest is the chalk journey (q 0..1). */
+  const P0 = 0.085;
+  let iProg = 0, lastI = -1;
+  function lineK(L, q) {
+    if (L.intro === 'title') return clamp((iProg - 0.55) / 0.33, 0, 1);
+    return clamp((q - L.s) / (L.e - L.s), 0, 1);
+  }
+  function pathK(P, q) {
+    if (P.intro === 'under') return clamp((iProg - 0.88) / 0.12, 0, 1);
+    return clamp((q - P.s) / (P.e - P.s), 0, 1);
+  }
+
+  let lastHead = null, stickIdle = null;
+  function updateBoard(p) {
+    let active = null, activeK = 0;
+    lines.forEach(L => {
+      const k = lineK(L, p);
+      if (k > 0) { active = L; activeK = k; }
+      if (Math.abs(k - L.k) > 0.004 || (k !== L.k && (k === 0 || k === 1))) {
+        L.k = k; L.el.style.setProperty('--k', k.toFixed(4));
+      }
+    });
+    let circleK = 0;
+    paths.forEach(P => {
+      const k = pathK(P, p);
+      if (P === circle) circleK = k;
+      if (Math.abs(k - P.k) > 0.004 || (k !== P.k && (k === 0 || k === 1))) {
+        P.k = k; P.el.style.strokeDashoffset = (1 - k).toFixed(4);
+      }
+    });
+    if (!scrubOn) return;
+    /* Where is the chalk tip? */
+    let head = null, writing = false;
+    if (circle && circleK > 0 && circle.len && circle.box) {
+      const pt = circle.el.getPointAtLength(circle.len * circleK);
+      head = { x: circle.box.x + pt.x / 200 * circle.box.w, y: circle.box.y + pt.y / 100 * circle.box.h };
+      writing = circleK < 1;
+    } else if (active && active.pts.length) {
+      const u = clamp(activeK * (active.n + 1.5), 0, active.n);
+      const j = Math.floor(u), t = u - j;
+      const a = active.pts[j], b = active.pts[Math.min(j + 1, active.n)];
+      head = { x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t };
+      writing = activeK < 1;
+    }
+    if (!head) return;
+    if (!lastHead || Math.abs(head.x - lastHead.x) > 0.3 || Math.abs(head.y - lastHead.y) > 0.3) {
+      if (lastHead && writing && !RM.matches) emitDust(lastHead, head);
+      stick.style.transform = 'translate3d(' + head.x.toFixed(1) + 'px,' + head.y.toFixed(1) + 'px,0)';
+      if (!lastHead) stick.classList.add('on');
+      lastHead = head;
+    }
+    if (writing === stickIdle) { stickIdle = !writing; stick.classList.toggle('idle', !writing); }
+  }
+
+  /* Whisper-level chalk dust, its own loop that rests when empty */
+  const motes = [];
+  let dustRaf = null, dustLast = 0;
+  const dustRng = rng(42);
+  function emitDust(a, b) {
+    const d = Math.hypot(b.x - a.x, b.y - a.y);
+    const count = Math.min(4, Math.floor(d / 6) + (dustRng() < 0.35 ? 1 : 0));
+    for (let i = 0; i < count && motes.length < 90; i++) {
+      motes.push({ x: b.x + (dustRng() - 0.5) * 4, y: b.y + (dustRng() - 0.2) * 3, vx: (dustRng() - 0.5) * 0.02, vy: 0.01 + dustRng() * 0.03, r: 0.5 + dustRng() * 1.1, life: 1 });
+    }
+    if (motes.length && dustRaf === null) dustRaf = requestAnimationFrame(dustTick);
+  }
+  function dustTick(now) {
+    const dt = Math.min(64, now - (dustLast || now)); dustLast = now;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = motes.length - 1; i >= 0; i--) {
+      const m = motes[i];
+      m.vy += 0.00006 * dt; m.x += m.vx * dt; m.y += m.vy * dt; m.life -= dt / 900;
+      if (m.life <= 0) { motes.splice(i, 1); continue; }
+      ctx.globalAlpha = m.life * 0.55;
+      ctx.beginPath(); ctx.arc(m.x, m.y, m.r, 0, 6.2832); ctx.fillStyle = '#F4F1E8'; ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+    if (motes.length) dustRaf = requestAnimationFrame(dustTick);
+    else { dustRaf = null; dustLast = 0; ctx.clearRect(0, 0, canvas.width, canvas.height); }
+  }
+
+  /* Caption bands, paced in scroll distance */
+  function updateCaptions(q) {
+    bands.forEach(B => {
+      const f = Math.min(0.02, (B.b - B.a) / 3);
+      const fadeIn = B.first ? smoothstep(iProg, 0.5, 0.92) : smoothstep(q, B.a, B.a + f);
+      const op = fadeIn * (B.last ? 1 : 1 - smoothstep(q, B.b - f, B.b));
+      const ramp = B.ramp || Math.min(0.025, (B.b - B.a) * 0.35);
+      const k = B.first ? clamp((iProg - 0.5) / 0.5, 0, 1) : clamp((q - B.a) / ramp, 0, 1);
+      if (Math.abs(op - B.op) > 0.004 || (op !== B.op && (op === 0 || op === 1))) { B.op = op; B.el.style.opacity = op.toFixed(3); }
+      if (Math.abs(k - B.k) > 0.008 || (k !== B.k && (k === 0 || k === 1))) { B.k = k; B.el.style.setProperty('--k', k.toFixed(3)); }
+      if (!B.interactive) return;
+      const inert = op < 0.05;
+      if (inert !== B.inert) { B.inert = inert; B.el.inert = inert; B.el.style.pointerEvents = inert ? 'none' : ''; }
+    });
+  }
+
+  let cueGone = null;
+  function updateCue() { const g = iProg > 0.2; if (g !== cueGone) { cueGone = g; cue.classList.toggle('gone', g); } }
+
+  function render(p) {
+    iProg = clamp(p / P0, 0, 1);
+    const q = clamp((p - P0) / (1 - P0), 0, 1);
+    if (Math.abs(iProg - lastI) > 0.003 || (iProg !== lastI && (iProg === 0 || iProg === 1))) {
+      lastI = iProg; stage.style.setProperty('--i', iProg.toFixed(4));
+    }
+    updateBoard(q); updateCaptions(q); updateCue();
+  }
+
+  /* The rAF loop: dt-normalized lerp, rests when converged or off-screen */
+  let target = 0, shown = 0, rafId = null, lastTick = 0, heroOnScreen = true, scrubOn = false;
+  function tick(now) {
+    const dt = Math.min(100, now - (lastTick || now));
+    lastTick = now;
+    const k = 0.14;
+    shown += (target - shown) * (1 - Math.pow(1 - k, dt / 16.667));
+    if (Math.abs(target - shown) < 0.0004) { shown = target; rafId = null; lastTick = 0; }
+    else rafId = requestAnimationFrame(tick);
+    render(shown);
+  }
+  function onScroll() {
+    target = heroProgress();
+    if (rafId === null && heroOnScreen && scrubOn) rafId = requestAnimationFrame(tick);
+  }
+  new IntersectionObserver(es => {
+    es.forEach(e => { heroOnScreen = e.isIntersecting; hero.classList.toggle('live', e.isIntersecting); });
+    if (heroOnScreen) onScroll();
+  }).observe(hero);
+
+  function enableScrub() {
+    root.classList.add('scrub');
+    if (scrubOn) return;
+    scrubOn = true;
+    measure();
+    bands.forEach(b => { b.op = -1; b.k = -1; b.inert = null; });
+    lines.forEach(l => { l.k = -1; });
+    paths.forEach(pp => { pp.k = -1; });
+    stickIdle = null; lastHead = null; lastI = -1;
+    addEventListener('scroll', onScroll, { passive: true });
+    target = shown = heroProgress();
+    render(shown);
+    onScroll();
+  }
+  function disableScrub() {
+    root.classList.remove('scrub');
+    if (!scrubOn) return;
+    scrubOn = false;
+    removeEventListener('scroll', onScroll);
+    if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; lastTick = 0; }
+    bands.forEach(b => { b.el.inert = false; b.el.style.pointerEvents = ''; });
+  }
+  function applyHeroMode() {
+    if (GATES.some(q => matchMedia(q).matches)) disableScrub(); else enableScrub();
+  }
+  const MQLS = GATES.map(q => matchMedia(q));
+  MQLS.forEach(m => m.addEventListener ? m.addEventListener('change', applyHeroMode) : m.addListener(applyHeroMode));
+  applyHeroMode();
+
+  const fontsReady = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
+  let started = false;
+  function go() { if (started) return; started = true; if (scrubOn) { measure(); render(shown); } }
+  fontsReady.then(go);
+  setTimeout(go, 1600);
+
+  let rsT = null;
+  addEventListener('resize', () => {
+    clearTimeout(rsT);
+    rsT = setTimeout(() => { if (scrubOn) { measure(); target = shown = heroProgress(); lastHead = null; render(shown); } drives(); }, 140);
+  });
+  addEventListener('load', () => { if (scrubOn) { measure(); render(shown); } });
+
+  /* ---------- Reveals and living elements ---------- */
+  const revealIO = new IntersectionObserver(es => {
+    es.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      el.classList.add('in');
+      revealIO.unobserve(el);
+      setTimeout(() => el.classList.add('rv-done'), 1700);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  $$('[data-reveal]').forEach(el => revealIO.observe(el));
+
+  const liveIO = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('live', e.isIntersecting)));
+  $$('.sec, .ticker').forEach(el => liveIO.observe(el));
+
+  document.addEventListener('visibilitychange', () => document.body.classList.toggle('paused', document.hidden));
+
+  /* ---------- Scroll-drawn timeline ---------- */
+  const tl = $('#timeline');
+  const tlFill = $('.tl-fill', tl);
+  const tlItems = $$('.tl-item', tl).map(el => ({ el, at: Number(el.dataset.at), lit: null }));
+  let tlNear = false, tlLast = -1, drivePending = false;
+  new IntersectionObserver(es => es.forEach(e => { tlNear = e.isIntersecting; if (tlNear) drives(); }), { rootMargin: '20% 0px' }).observe(tl);
+  function drives() {
+    updateNav();
+    if (!tlNear) return;
+    let prog;
+    if (RM.matches) prog = 1;
+    else {
+      const r = tl.getBoundingClientRect();
+      prog = clamp((innerHeight * 0.72 - r.top) / Math.max(1, r.height), 0, 1);
+    }
+    if (Math.abs(prog - tlLast) > 0.003 || (prog !== tlLast && (prog === 0 || prog === 1))) {
+      tlLast = prog;
+      tlFill.style.transform = 'scaleY(' + prog.toFixed(4) + ')';
+      tlItems.forEach(it => { const lit = prog >= it.at - 0.001; if (lit !== it.lit) { it.lit = lit; it.el.classList.toggle('lit', lit); } });
+    }
+  }
+  addEventListener('scroll', () => {
+    if (drivePending) return;
+    drivePending = true;
+    requestAnimationFrame(() => { drivePending = false; drives(); });
+  }, { passive: true });
+  drives();
+
+  /* ---------- The one interactive moment: hold to set the table ---------- */
+  const posto = $('#posto');
+  const holdBtn = $('.hold-btn', posto);
+  const holdRingP = $('.hold-ring .p', posto);
+  const holdLabel = $('.hold-label', posto);
+  const doneH = $('.done-h', posto);
+  let h = 0, lastH = -1, holding = false, holdRaf = null, holdLast = 0, holdDone = false, holdPinned = false;
+  function setH(v) {
+    if (Math.abs(v - lastH) < 0.002 && v !== 0 && v !== 1) return;
+    lastH = v;
+    posto.style.setProperty('--h', v.toFixed(4));
+    holdRingP.style.strokeDashoffset = (1 - v).toFixed(4);
+  }
+  function holdTick(now) {
+    const dt = Math.min(64, now - (holdLast || now)); holdLast = now;
+    if (holding && !holdDone) h = Math.min(1, h + dt / 1700);
+    else if (!holdDone) h = Math.max(0, h - dt / 1000 * (0.35 + h));
+    setH(h);
+    if (h >= 1 && !holdDone) finishHold();
+    if (!holdDone && (holding || h > 0)) holdRaf = requestAnimationFrame(holdTick);
+    else { holdRaf = null; holdLast = 0; }
+  }
+  function startHold() {
+    if (holdDone) return;
+    holding = true; holdBtn.classList.add('holding');
+    if (holdRaf === null) holdRaf = requestAnimationFrame(holdTick);
+  }
+  function endHold() {
+    if (!holding) return;
+    holding = false; holdBtn.classList.remove('holding');
+    if (holdRaf === null && !holdDone) holdRaf = requestAnimationFrame(holdTick);
+  }
+  function finishHold(pinned) {
+    holdDone = true; holding = false; h = 1; setH(1);
+    holdBtn.classList.remove('holding');
+    posto.classList.add('is-set');
+    holdBtn.disabled = true;
+    holdLabel.textContent = 'Tavola pronta';
+    doneH.textContent = 'Il tuo posto è pronto.';
+    holdPinned = !!pinned;
+  }
+  function resetHold() {
+    holdDone = false; holdPinned = false; h = 0; lastH = -1; setH(0);
+    posto.classList.remove('is-set');
+    holdBtn.disabled = false;
+    holdLabel.textContent = 'Tieni premuto per apparecchiare';
+    doneH.textContent = '';
+  }
+  holdBtn.addEventListener('pointerdown', e => {
+    if (e.button !== undefined && e.button !== 0) return;
+    e.preventDefault();
+    try { holdBtn.setPointerCapture(e.pointerId); } catch (err) {}
+    startHold();
+  });
+  ['pointerup', 'pointercancel', 'lostpointercapture'].forEach(t => holdBtn.addEventListener(t, endHold));
+  holdBtn.addEventListener('keydown', e => { if ((e.key === ' ' || e.key === 'Enter') && !e.repeat) { e.preventDefault(); startHold(); } });
+  holdBtn.addEventListener('keyup', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); endHold(); } });
+  holdBtn.addEventListener('blur', endHold);
+  holdBtn.addEventListener('contextmenu', e => e.preventDefault());
+  holdBtn.addEventListener('click', e => e.preventDefault());
+
+  /* ---------- Reduced motion, live in both directions ---------- */
+  function pinToFinalStates() {
+    if (!holdDone) finishHold(true);
+    tlLast = -1; drives();
+    motes.length = 0;
+  }
+  function unpinFinalStates() {
+    if (holdPinned) resetHold();
+    tlLast = -1; drives();
+  }
+  RM.addEventListener ? RM.addEventListener('change', e => { if (e.matches) pinToFinalStates(); else { unpinFinalStates(); applyHeroMode(); } }) : null;
+  if (RM.matches) pinToFinalStates();
+
+  /* ---------- Booking: two branches. Lunch goes through WhatsApp, events go by email ---------- */
+  const form = $('#book');
+  const hint = $('#hint');
+  const sent = $('#sent');
+  const evForm = $('#ev-form');
+  const evHint = $('#ev-hint');
+  const evSent = $('#ev-sent');
+  const evBtn = $('button[type=submit]', evForm);
+  const ml = { title: $('#ml-title'), tipo: $('#ml-tipo'), nome: $('#ml-nome'), giorno: $('#ml-giorno'), persone: $('#ml-persone') };
+  const fmt = new Intl.DateTimeFormat('it-IT', { weekday: 'long', day: 'numeric', month: 'long' });
+  const fmtLong = new Intl.DateTimeFormat('it-IT', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+  const EV = { matrimonio: 'Matrimonio', cerimonia: 'Comunione o cerimonia', aziendale: 'Evento aziendale', festa: 'Festa privata', collettiva: 'Ristorazione collettiva' };
+  const pad = n => String(n).padStart(2, '0');
+  const today = new Date();
+  const minDate = today.getFullYear() + '-' + pad(today.getMonth() + 1) + '-' + pad(today.getDate());
+  form.giorno.min = minDate;
+  evForm.data.min = minDate;
+
+  const tabs = $$('#prenota [role=tab]');
+  const panels = { pranzo: $('#panel-pranzo'), eventi: $('#panel-eventi') };
+  let branch = 'pranzo';
+  let captchaLoaded = false;
+  function loadCaptcha() {
+    if (captchaLoaded) return;
+    captchaLoaded = true;
+    const s = document.createElement('script');
+    s.src = 'https://web3forms.com/client/script.js';
+    s.async = true; s.defer = true;
+    document.body.appendChild(s);
+  }
+  function setBranch(name, focusTab) {
+    branch = name;
+    tabs.forEach(t => {
+      const on = t.id === 'tab-' + name;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      if (on && focusTab) t.focus();
+    });
+    panels.pranzo.hidden = name !== 'pranzo';
+    panels.eventi.hidden = name !== 'eventi';
+    if (name === 'eventi') loadCaptcha();
+    updatePreview();
+  }
+  tabs.forEach(t => {
+    t.addEventListener('click', () => setBranch(t.id.slice(4)));
+    t.addEventListener('keydown', e => {
+      let next = null;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') next = branch === 'pranzo' ? 'eventi' : 'pranzo';
+      else if (e.key === 'Home') next = 'pranzo';
+      else if (e.key === 'End') next = 'eventi';
+      if (next) { e.preventDefault(); setBranch(next, true); }
+    });
+  });
+
+  function chalkSet(el, text, placeholder) {
+    el.classList.toggle('is-ph', !!placeholder);
+    const old = el._t || '';
+    if (old === text) return;
+    let i = 0;
+    while (i < old.length && i < text.length && old[i] === text[i]) i++;
+    while (el.childNodes.length > i) el.removeChild(el.lastChild);
+    for (let j = i; j < text.length; j++) {
+      const s = document.createElement('span');
+      s.className = 'ink';
+      s.style.animationDelay = ((j - i) * 22) + 'ms';
+      s.textContent = text[j];
+      el.appendChild(s);
+    }
+    el._t = text;
+  }
+  function readDate(input) {
+    const v = input.value;
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(v)) return null;
+    const [y, m, d] = v.split('-').map(Number);
+    return new Date(y, m - 1, d);
+  }
+  const cleanName = v => v.trim().replace(/\s+/g, ' ');
+  function readCount(input) {
+    const n = parseInt(input.value, 10);
+    return Number.isFinite(n) && n > 0 ? n : null;
+  }
+  function readForm() {
+    return { nome: cleanName(form.nome.value), date: readDate(form.giorno), n: readCount(form.persone), note: form.note.value.trim() };
+  }
+  function readEv() {
+    const tipo = (evForm.querySelector('input[name=tipo_evento]:checked') || {}).value || '';
+    return { nome: cleanName(evForm.nome.value), email: evForm.email.value.trim(), tipo, date: readDate(evForm.data), n: readCount(evForm.ospiti), msg: evForm.messaggio.value.trim() };
+  }
+  function updatePreview() {
+    if (branch === 'pranzo') {
+      const f = readForm();
+      chalkSet(ml.title, 'Prenotazione');
+      chalkSet(ml.tipo, 'Pranzo in trattoria');
+      if (f.nome) chalkSet(ml.nome, 'Tavolo per ' + f.nome); else chalkSet(ml.nome, 'Tavolo per ...', true);
+      if (f.date) chalkSet(ml.giorno, fmt.format(f.date)); else chalkSet(ml.giorno, 'giorno da scegliere', true);
+      if (f.n) chalkSet(ml.persone, f.n === 1 ? '1 persona' : f.n + ' persone'); else chalkSet(ml.persone, 'quante persone?', true);
+      const msg = f.date && f.date.getDay() === 0 ? 'La domenica la trattoria è chiusa. Per un evento della domenica scegli "Eventi e aziende".' : '';
+      if (hint.textContent !== msg) hint.textContent = msg;
+    } else {
+      const f = readEv();
+      chalkSet(ml.title, 'Richiesta evento');
+      if (f.tipo) chalkSet(ml.tipo, EV[f.tipo]); else chalkSet(ml.tipo, 'che evento è?', true);
+      if (f.nome) chalkSet(ml.nome, 'per ' + f.nome); else chalkSet(ml.nome, 'per ...', true);
+      if (f.date) chalkSet(ml.giorno, fmt.format(f.date)); else chalkSet(ml.giorno, 'data da decidere', true);
+      if (f.n) chalkSet(ml.persone, f.n === 1 ? '1 ospite' : f.n + ' ospiti'); else chalkSet(ml.persone, 'quanti ospiti?', true);
+      const msg = f.date && f.date.getDay() === 0 && f.n && f.n < 22 && f.tipo !== 'collettiva' ? 'La domenica gli eventi partono da 22 persone.' : '';
+      if (evHint.textContent !== msg) evHint.textContent = msg;
+    }
+  }
+  form.addEventListener('input', updatePreview);
+  form.addEventListener('change', updatePreview);
+  evForm.addEventListener('input', updatePreview);
+  evForm.addEventListener('change', updatePreview);
+  updatePreview();
+
+  /* Buttons elsewhere on the page open the right branch */
+  $$('[data-tipo]').forEach(a => a.addEventListener('click', () => {
+    const t = a.dataset.tipo;
+    if (t === 'pranzo') { setBranch('pranzo'); return; }
+    setBranch('eventi');
+    if (t === 'aziende') { const r = evForm.querySelector('input[name=tipo_evento][value=collettiva]'); if (r) r.checked = true; updatePreview(); }
+  }));
+
+  /* Events: sent by email through Web3Forms, guarded by hCaptcha and a honeypot */
+  const EV_LABEL = evBtn.textContent;
+  evForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (evBtn.disabled) return;
+    if (evForm.botcheck.checked) return;
+    const f = readEv();
+    if (!f.nome) { evSent.textContent = 'Scrivi il tuo nome, così sappiamo chi sei.'; evForm.nome.focus(); return; }
+    if (!f.email || !evForm.email.checkValidity()) { evSent.textContent = 'Controlla la tua email: ci serve per risponderti.'; evForm.email.focus(); return; }
+    if (!evForm.privacy.checked) { evSent.textContent = 'Spunta il consenso, così possiamo risponderti.'; evForm.privacy.focus(); return; }
+    if (evForm.access_key.value.indexOf('INCOLLA') === 0) { evSent.textContent = 'Il modulo è quasi pronto. Per ora scrivici a info@laresidenzadelgusto.it.'; return; }
+    const token = evForm.querySelector('[name="h-captcha-response"]');
+    if (!token || !token.value) { evSent.textContent = 'Conferma di non essere un robot con il quadratino qui sopra, poi invia.'; return; }
+    const data = Object.fromEntries(new FormData(evForm));
+    data.tipo_evento = EV[f.tipo] || 'Non indicato';
+    data.data = f.date ? fmtLong.format(f.date) : 'Da decidere';
+    data.ospiti = f.n ? String(f.n) : 'Non indicato';
+    data.subject = 'Richiesta evento: ' + data.tipo_evento + ' · ' + f.nome;
+    evBtn.disabled = true;
+    evBtn.textContent = 'Invio in corso...';
+    evSent.textContent = '';
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || !json.success) throw new Error(json.message || String(res.status));
+      evForm.reset();
+      chalkSet(ml.tipo, 'Grazie, ' + f.nome + '!');
+      evSent.textContent = 'Grazie, ' + f.nome + '! La tua richiesta è arrivata: ti rispondiamo per email il prima possibile.';
+    } catch (err) {
+      evSent.textContent = 'Qualcosa non ha funzionato. Riprova tra poco, oppure scrivici a info@laresidenzadelgusto.it.';
+    } finally {
+      try { if (window.hcaptcha) window.hcaptcha.reset(); } catch (err) {}
+      evBtn.disabled = false;
+      evBtn.textContent = EV_LABEL;
+    }
+  });
+
+  /* Lunch: the chalk form, sent through WhatsApp */
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const f = readForm();
+    if (!f.nome) {
+      sent.textContent = 'Scrivi il tuo nome, così sappiamo chi sei.';
+      form.nome.focus();
+      return;
+    }
+    const dateStr = f.date ? fmt.format(f.date) : '';
+    const people = f.n ? (f.n === 1 ? '1 persona' : f.n + ' persone') : '';
+    let text = 'Ciao! Sono ' + f.nome + '. Vorrei prenotare un tavolo per il pranzo' + (dateStr ? ', ' + dateStr : '') + (people ? ', per ' + people : '') + '.';
+    if (f.note) text += '\n\n' + f.note;
+    const url = 'https://wa.me/393514052965?text=' + encodeURIComponent(text);
+    const a = document.createElement('a');
+    a.href = url; a.target = '_blank'; a.rel = 'noopener';
+    document.body.appendChild(a); a.click(); a.remove();
+    sent.textContent = 'Fatto! WhatsApp si apre con il tuo messaggio: premi invia e ti rispondiamo il prima possibile. Non si è aperto? Chiamaci al 351 405 2965.';
+    chalkSet(ml.nome, 'Grazie, ' + f.nome + '!');
+  });
+})();
+</script>
 </body>
 </html>
