@@ -493,6 +493,15 @@ html:not(.js) .rv{opacity:1;transform:none}
 .consent{display:flex;gap:12px;align-items:flex-start;color:#CFC8B6;font-size:.95rem;line-height:1.45;cursor:pointer;max-width:52ch}
 .consent input{width:22px;height:22px;margin:1px 0 0;accent-color:var(--gold);flex:none;cursor:pointer}
 .captcha-wrap{min-height:78px}
+.h-captcha:empty{display:flex;align-items:center;gap:12px;max-width:304px;min-height:78px;padding:0 16px;border-radius:6px;border:2px dashed rgba(244,241,232,.35);color:#CFC8B6;font-size:.95rem}
+.h-captcha:empty::before{content:"";width:24px;height:24px;flex:none;border:2px solid rgba(244,241,232,.55);border-radius:4px}
+.h-captcha:empty::after{content:"Verifica: non sono un robot"}
+.lunch-opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.lunch-card{display:grid;gap:10px;align-content:start;padding:20px;border-radius:18px;border:2px solid rgba(244,241,232,.35);background:rgba(244,241,232,.04)}
+.lunch-card .mono{font-family:var(--f-mono);font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:#CFC8B6}
+.lunch-num{font-family:var(--f-chalk);font-size:clamp(1.6rem,3.2vw,2.1rem);line-height:1.1;color:var(--chalk);text-decoration:none;font-variant-numeric:tabular-nums;white-space:nowrap}
+.lunch-card .btn-primary{justify-self:start;margin-top:4px}
+@media (max-width:560px){.lunch-opts{grid-template-columns:1fr}}
 @media (max-width:480px){.branch{display:flex}.branch [role=tab]{flex:1;padding:.55em .5em;font-size:.94rem}}
 .field{display:grid;gap:8px}
 .field>span,.tipo legend{font-family:var(--f-mono);font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:#CFC8B6}
@@ -957,19 +966,22 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
         </div>
         <div class="branch-panels rv" style="--d:3">
         <div class="bpanel" id="panel-pranzo" role="tabpanel" aria-labelledby="tab-pranzo">
-        <form class="book" id="book" novalidate>
-          <label class="field"><span>Come ti chiami?</span><input name="nome" type="text" autocomplete="name" placeholder="Il tuo nome" required maxlength="60"></label>
-          <div class="row2">
-            <label class="field"><span>Che giorno?</span><input name="giorno" type="date"></label>
-            <label class="field"><span>Quante persone?</span><input name="persone" type="number" inputmode="numeric" min="1" max="999" value="2"></label>
+        <div class="book lunch">
+          <p class="ev-intro">Per il pranzo in trattoria, dal lunedì al sabato dalle 12:00 alle 14:30, basta una telefonata o un messaggio.</p>
+          <div class="lunch-opts">
+            <div class="lunch-card">
+              <span class="mono">Telefono</span>
+              <a class="lunch-num" href="tel:+393514052965">351 405 2965</a>
+              <a class="btn btn-primary" href="tel:+393514052965"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>Chiama</a>
+            </div>
+            <div class="lunch-card">
+              <span class="mono">WhatsApp</span>
+              <a class="lunch-num" href="https://wa.me/393514052965?text=Ciao!%20Vorrei%20prenotare%20un%20tavolo%20per%20il%20pranzo." target="_blank" rel="noopener">351 405 2965</a>
+              <a class="btn btn-primary" href="https://wa.me/393514052965?text=Ciao!%20Vorrei%20prenotare%20un%20tavolo%20per%20il%20pranzo." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>Scrivi su WhatsApp</a>
+            </div>
           </div>
-          <p class="hint" id="hint" aria-live="polite"></p>
-          <label class="field"><span>Vuoi aggiungere qualcosa?</span><textarea name="note" rows="3" maxlength="500" placeholder="Un orario, un'intolleranza, una sorpresa..."></textarea></label>
-          <button class="btn btn-primary" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>Invia su WhatsApp</button>
-          <p class="fine">Si apre WhatsApp con il messaggio già scritto. Lo invii tu e ti rispondiamo il prima possibile.</p>
-          <p class="sent" id="sent" role="status"></p>
-          <p class="alt">Preferisci chiamare? <a href="tel:+393514052965">351 405 2965</a></p>
-        </form>
+          <p class="fine">Indicaci il giorno, l'orario e quante persone siete. Per eventi, cerimonie e aziende scegli "Eventi e aziende".</p>
+        </div>
         </div>
         <div class="bpanel" id="panel-eventi" role="tabpanel" aria-labelledby="tab-eventi" hidden>
         <form class="book" id="ev-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
@@ -1505,10 +1517,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   RM.addEventListener ? RM.addEventListener('change', e => { if (e.matches) pinToFinalStates(); else { unpinFinalStates(); applyHeroMode(); } }) : null;
   if (RM.matches) pinToFinalStates();
 
-  /* ---------- Booking: two branches. Lunch goes through WhatsApp, events go by email ---------- */
-  const form = $('#book');
-  const hint = $('#hint');
-  const sent = $('#sent');
+  /* ---------- Booking: two branches. Lunch by phone or WhatsApp, events only by email ---------- */
   const evForm = $('#ev-form');
   const evHint = $('#ev-hint');
   const evSent = $('#ev-sent');
@@ -1520,7 +1529,6 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   const pad = n => String(n).padStart(2, '0');
   const today = new Date();
   const minDate = today.getFullYear() + '-' + pad(today.getMonth() + 1) + '-' + pad(today.getDate());
-  form.giorno.min = minDate;
   evForm.data.min = minDate;
 
   const tabs = $$('#prenota [role=tab]');
@@ -1586,23 +1594,17 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
     const n = parseInt(input.value, 10);
     return Number.isFinite(n) && n > 0 ? n : null;
   }
-  function readForm() {
-    return { nome: cleanName(form.nome.value), date: readDate(form.giorno), n: readCount(form.persone), note: form.note.value.trim() };
-  }
   function readEv() {
     const tipo = (evForm.querySelector('input[name=tipo_evento]:checked') || {}).value || '';
     return { nome: cleanName(evForm.nome.value), email: evForm.email.value.trim(), tipo, date: readDate(evForm.data), n: readCount(evForm.ospiti), msg: evForm.messaggio.value.trim() };
   }
   function updatePreview() {
     if (branch === 'pranzo') {
-      const f = readForm();
       chalkSet(ml.title, 'Prenotazione');
       chalkSet(ml.tipo, 'Pranzo in trattoria');
-      if (f.nome) chalkSet(ml.nome, 'Tavolo per ' + f.nome); else chalkSet(ml.nome, 'Tavolo per ...', true);
-      if (f.date) chalkSet(ml.giorno, fmt.format(f.date)); else chalkSet(ml.giorno, 'giorno da scegliere', true);
-      if (f.n) chalkSet(ml.persone, f.n === 1 ? '1 persona' : f.n + ' persone'); else chalkSet(ml.persone, 'quante persone?', true);
-      const msg = f.date && f.date.getDay() === 0 ? 'La domenica la trattoria è chiusa. Per un evento della domenica scegli "Eventi e aziende".' : '';
-      if (hint.textContent !== msg) hint.textContent = msg;
+      chalkSet(ml.nome, 'Lun - Sab, 12:00 - 14:30');
+      chalkSet(ml.giorno, 'tel. 351 405 2965');
+      chalkSet(ml.persone, 'chiama o scrivi su WhatsApp');
     } else {
       const f = readEv();
       chalkSet(ml.title, 'Richiesta evento');
@@ -1614,8 +1616,6 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
       if (evHint.textContent !== msg) evHint.textContent = msg;
     }
   }
-  form.addEventListener('input', updatePreview);
-  form.addEventListener('change', updatePreview);
   evForm.addEventListener('input', updatePreview);
   evForm.addEventListener('change', updatePreview);
   updatePreview();
@@ -1667,27 +1667,6 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
       evBtn.disabled = false;
       evBtn.textContent = EV_LABEL;
     }
-  });
-
-  /* Lunch: the chalk form, sent through WhatsApp */
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const f = readForm();
-    if (!f.nome) {
-      sent.textContent = 'Scrivi il tuo nome, così sappiamo chi sei.';
-      form.nome.focus();
-      return;
-    }
-    const dateStr = f.date ? fmt.format(f.date) : '';
-    const people = f.n ? (f.n === 1 ? '1 persona' : f.n + ' persone') : '';
-    let text = 'Ciao! Sono ' + f.nome + '. Vorrei prenotare un tavolo per il pranzo' + (dateStr ? ', ' + dateStr : '') + (people ? ', per ' + people : '') + '.';
-    if (f.note) text += '\n\n' + f.note;
-    const url = 'https://wa.me/393514052965?text=' + encodeURIComponent(text);
-    const a = document.createElement('a');
-    a.href = url; a.target = '_blank'; a.rel = 'noopener';
-    document.body.appendChild(a); a.click(); a.remove();
-    sent.textContent = 'Fatto! WhatsApp si apre con il tuo messaggio: premi invia e ti rispondiamo il prima possibile. Non si è aperto? Chiamaci al 351 405 2965.';
-    chalkSet(ml.nome, 'Grazie, ' + f.nome + '!');
   });
 })();
 </script>
