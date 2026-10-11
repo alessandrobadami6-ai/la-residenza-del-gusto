@@ -17,12 +17,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Cabin+Sketch:wght@400;700&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <script>
-  /* The static-hero gate, decided before first paint. Same strings as the CSS block and the main script. */
+  /* The opening, decided before first paint: the logo on its plate, then the page settles in. */
   (function(){
-    var G = ['(prefers-reduced-motion: reduce)', '(orientation: landscape) and (pointer: coarse) and (max-height: 560px)'];
     var d = document.documentElement;
     d.classList.add('js');
-    if (!G.some(function(q){ return matchMedia(q).matches; })) d.classList.add('scrub');
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    d.classList.add('intro');
+    var evs = ['wheel', 'touchstart', 'keydown', 'pointerdown'];
+    function done(){ d.classList.remove('intro'); evs.forEach(function(t){ removeEventListener(t, done); }); }
+    evs.forEach(function(t){ addEventListener(t, done, { passive: true }); });
+    setTimeout(done, 1900);
   })();
 </script>
 <style>
@@ -135,7 +139,6 @@ button,input,textarea,select{font:inherit;color:inherit}
 .band-h{font-family:var(--f-display);font-weight:800;font-size:clamp(2.5rem,4.8vw,4.9rem);line-height:.96;letter-spacing:-.03em;margin:0 0 1.1rem;max-width:11ch;font-variation-settings:"opsz" 96}
 .band-sub{font-size:clamp(1.05rem,1.35vw,1.25rem);line-height:1.5;color:var(--text-secondary);font-weight:500;margin:0;max-width:34ch}
 .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:1.6rem}
-.static-copy{display:none}
 .board-wrap{width:min(44vw,600px,max(260px,calc((100vh - 200px) * .92)));width:min(44vw,600px,max(260px,calc((100svh - 200px) * .92)));position:relative}
 .board-label{display:flex;align-items:center;gap:.7em;margin:0 0 12px 4px;font-family:var(--f-mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-secondary)}
 .board-label::after{content:"";flex:1;height:0;border-top:2px dashed rgba(95,94,90,.4)}
@@ -174,81 +177,43 @@ button,input,textarea,select{font:inherit;color:inherit}
 .stick-body{position:absolute;left:0;top:-1.1cqw;width:8.5cqw;height:2.2cqw;border-radius:1.1cqw .6cqw .6cqw 1.1cqw;background:linear-gradient(180deg,#FFFFFF,#ECE6D8 55%,#CFC7B5);box-shadow:0 1.4cqw 1.8cqw -1cqw rgba(0,0,0,.6);transform-origin:0 50%;rotate:-34deg;transition:rotate .6s var(--ease-out),translate .6s var(--ease-out)}
 .stick.idle .stick-body{rotate:-48deg;translate:.6cqw -1.2cqw}
 .dust{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
-.cue{position:absolute;left:50%;bottom:22px;translate:-50% 0;display:flex;flex-direction:column;align-items:center;gap:6px;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-secondary);transition:opacity .5s var(--ease-out);pointer-events:none}
-.cue svg{width:22px;height:30px}
-.live .cue svg{animation:cueBob 2.4s var(--ease-io) -.6s infinite}
-@keyframes cueBob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
-.cue.gone{opacity:0}
 
-/* Scrub mode: the pinned journey */
-.scrub .hero{height:700vh}
-.scrub .stage{position:sticky;top:0;height:100vh;height:100svh;min-height:0;overflow:hidden;padding-top:96px;padding-bottom:48px}
-.scrub .band{opacity:0;will-change:opacity}
-/* The opening: the logo served on a plate, then it fades into a watermark as --i goes 0 to 1 */
-.stage>.captions,.stage>.board-wrap{position:relative;z-index:1}
-.logo-intro{position:absolute;inset:0;z-index:0;display:grid;place-content:center;justify-items:center;gap:22px;pointer-events:none}
+/* The opening: the logo served on a plate, then it settles into a watermark */
+.stage>.captions,.stage>.board-wrap{position:relative;z-index:1;transition:opacity .9s var(--ease-out) .2s,transform .9s var(--ease-out) .2s}
+.logo-intro{position:absolute;inset:0;z-index:0;display:grid;place-content:center;justify-items:center;gap:22px;pointer-events:none;opacity:.14;transform:scale(1.14);transition:opacity 1.1s var(--ease-out),transform 1.4s var(--ease-out)}
 .logo-plate{display:grid;place-items:center;width:min(560px,62vh,80vw);width:min(560px,62svh,80vw);aspect-ratio:1;border-radius:50%;background:var(--panel);box-shadow:inset 0 0 0 7px var(--rim),inset 0 0 0 15px var(--panel),inset 0 0 0 18px var(--rim),inset 0 0 60px rgba(140,120,60,.10),0 40px 70px -40px rgba(44,43,40,.65)}
 .logo-plate img{width:80%;height:auto}
-.logo-tag{margin:0;font-family:var(--f-mono);font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-secondary);text-align:center}
-.scrub .logo-intro{--li:clamp(0,calc(var(--i,0) / .55),1);opacity:calc(1 - .88 * var(--li));transform:scale(calc(1 + .14 * var(--li)));will-change:opacity,transform}
-.scrub .logo-tag{opacity:clamp(0,calc(1 - var(--i,0) * 3),1)}
-.scrub .logo-plate{animation:plateIn 1.3s var(--ease-out) .1s both}
+.logo-tag{margin:0;font-family:var(--f-mono);font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-secondary);text-align:center;transition:opacity .5s var(--ease-out)}
+html:not(.intro) .logo-tag{opacity:0}
+.intro .logo-intro{opacity:1;transform:none}
+.intro .logo-plate{animation:plateIn 1.3s var(--ease-out) .1s both}
 @keyframes plateIn{from{opacity:0;transform:translateY(18px) scale(.94)}to{opacity:1;transform:none}}
-.scrub .board-wrap{--e:clamp(0,calc((var(--i,0) - .42) / .43),1);opacity:var(--e);transform:translateY(calc((1 - var(--e)) * 40px))}
-html:not(.scrub) .logo-intro{opacity:.14;transform:scale(1.14)}
-html:not(.scrub) .logo-tag{display:none}
-.scrub .static-copy{display:none}
-html:not(.scrub) .band{display:none}
-html:not(.scrub) .static-copy{display:block}
-html:not(.scrub) .cue,html:not(.scrub) .stick{display:none}
-html:not(.scrub) .bl{--k:1!important}
-html:not(.scrub) .draw{stroke-dashoffset:0!important}
+.intro .stage>.captions,.intro .stage>.board-wrap{opacity:0;transform:translateY(28px);pointer-events:none}
+.static-copy .kicker{margin-bottom:1.1rem}
+/* The menu button: one press and the chalk writes the whole board */
+.reveal-btn{position:absolute;left:50%;top:58%;translate:-50% -50%;z-index:4;font-size:1.06rem;padding:1em 1.6em;white-space:nowrap;box-shadow:0 14px 28px -12px rgba(0,0,0,.7);transition:opacity .4s var(--ease-out),scale .4s var(--ease-out),transform .2s var(--ease-out)}
+.reveal-btn svg{width:1.2em;height:1.2em}
+.reveal-btn.gone{opacity:0;scale:.9;pointer-events:none}
+html:not(.js) .reveal-btn{display:none}
+html:not(.js) .draw{stroke-dashoffset:0}
 html:not(.js) .bl .c{opacity:1}
-
-/* Band entrances, all scrubbed off --k */
-.fx-rise .w{--kc:clamp(0,calc((var(--k,0) - var(--th,0)) * 3),1);opacity:var(--kc);transform:translateY(calc((1 - var(--kc)) * .5em))}
-.fx-rise .kicker,.fx-rise .band-sub{--ks:clamp(0,calc((var(--k,0) - .5) * 3),1);opacity:var(--ks);transform:translateY(calc((1 - var(--ks)) * 14px))}
-.fx-rise .kicker{--ks:clamp(0,calc(var(--k,0) * 3),1)}
-.fx-rise .cta-row{--kb:clamp(0,calc((var(--k,0) - .74) * 4.5),1);opacity:var(--kb);transform:translateY(calc((1 - var(--kb)) * 16px))}
-.band-h .w{display:inline-block;white-space:nowrap}
-.band-h .c{display:inline-block}
-.fx-write .c{--kc:clamp(0,calc(var(--k,0) * (var(--n,20) + 3) - var(--i,0)),1);opacity:var(--kc);transform:translateX(calc((1 - var(--kc)) * -.25em))}
-.fx-write .band-sub{--ks:clamp(0,calc((var(--k,0) - .6) * 3),1);opacity:var(--ks);transform:translateY(calc((1 - var(--ks)) * 12px))}
-.stack{display:grid}
-.stack>span{grid-area:1/1}
-.fx-blur .soft{filter:blur(9px);opacity:calc(1 - var(--k,0))}
-.fx-blur .sharp{opacity:var(--k,0);transform:scale(calc(1.04 - .04 * var(--k,0)));transform-origin:0 50%}
-.fx-blur .band-sub{--ks:clamp(0,calc((var(--k,0) - .45) * 2.5),1);opacity:var(--ks)}
-.fx-punch .w{--kc:clamp(0,calc((var(--k,0) - var(--th,0)) * 3),1);--ks:clamp(0,calc((var(--k,0) - var(--th,0) - var(--sd,.1)) * var(--ss,3.2)),1);opacity:var(--kc);transform:scale(calc(.6 + (.4 + var(--ov,.12)) * var(--kc) - var(--ov,.12) * var(--ks)));transform-origin:50% 80%}
-.fx-punch .w.em{--ov:.24;--sd:.16;--ss:2.6;color:var(--gold-deep)}
-.fx-punch .band-sub{--ks:clamp(0,calc((var(--k,0) - .55) * 3),1);opacity:var(--ks);transform:translateY(calc((1 - var(--ks)) * 12px))}
-
 @media (max-width:860px),(orientation:portrait){
   .stage{grid-template-columns:1fr;grid-template-rows:auto auto;align-content:center;align-items:start;gap:20px;padding-top:92px}
-  .scrub .stage{padding-top:84px;padding-bottom:26px;gap:18px}
   .board-wrap{width:min(100%,560px,max(200px,calc((100vh - 376px) * .86)));width:min(100%,560px,max(200px,calc((100svh - 376px) * .86)));justify-self:center;order:-1}
   .bl-title{font-size:9.4cqw}
   .bl-cat{font-size:4.1cqw}
   .bl-dish{font-size:5.5cqw}
   .captions{align-items:start;min-height:0}
-  .band{align-self:start}
   .band-h{font-size:clamp(1.85rem,7.6vw,3rem);max-width:14ch;margin-bottom:.6rem}
   .band-sub{font-size:1rem;max-width:40ch}
-  .band .kicker{margin-bottom:.6rem}
+  .static-copy .kicker{margin-bottom:.6rem}
   .cta-row{margin-top:1rem}
-  .cue{bottom:14px}
   .logo-tag{font-size:.7rem;letter-spacing:.12em;max-width:30ch}
   .board-label{font-size:.66rem;margin-bottom:8px}
   .frame{padding:10px;border-radius:16px}
 }
-@media (max-width:860px) and (max-height:700px){
-  .scrub .band-h{font-size:clamp(1.6rem,6.8vw,2.4rem)}
-  .scrub .band .kicker{display:none}
-  .scrub .cta-row .btn{padding:.7em 1.1em}
-}
-@media (max-height:560px){.cue{display:none}}
-html:not(.scrub) .board-wrap{width:min(44vw,600px)}
-@media (max-width:860px),(orientation:portrait){html:not(.scrub) .board-wrap{width:min(100%,520px)}}
+html .board-wrap{width:min(44vw,600px)}
+@media (max-width:860px),(orientation:portrait){html .board-wrap{width:min(100%,520px)}}
 main:focus{outline:none}
 
 /* SECTIONS */
@@ -568,12 +533,14 @@ html:not(.js) .rv{opacity:1;transform:none}
 /* Pause everything on hidden tabs */
 body.paused *,body.paused *::before,body.paused *::after{animation-play-state:paused!important}
 
-/* Reduced motion, honored completely. Same gate string as the head script and the main script. */
+/* Reduced motion, honored completely: the board is already written, no button. */
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important;transition-delay:0s!important}
   .rv{opacity:1!important;transform:none!important}
   .draw{stroke-dashoffset:0!important}
+  .bl{--k:1!important}
+  .reveal-btn{display:none}
   .tl-fill{transform:scaleY(1)!important}
   .tl-item .tl-node{box-shadow:inset 0 0 0 3px var(--gold),inset 0 0 0 7px var(--espresso),inset 0 0 0 9px var(--gold)}
   .tl-item .mono{opacity:1}
@@ -581,9 +548,6 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   .posto .hold-btn{display:none}
   .posto .done-msg{position:relative;opacity:1;transform:none;pointer-events:auto}
   .mini .ink{animation:none}
-}
-@media (orientation: landscape) and (pointer: coarse) and (max-height: 560px){
-  .scrub .hero{height:auto}
 }
 </style>
 </head>
@@ -618,31 +582,6 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
         <p class="logo-tag">Trattoria · Catering · Ristorazione collettiva</p>
       </div>
       <div class="captions">
-        <div class="band b1 fx-rise" data-a="0" data-b="0.19">
-          <p class="kicker"><span class="plate-dot" aria-hidden="true"></span>La Residenza del Gusto</p>
-          <h1 class="band-h split">Qui si pranza come a casa.</h1>
-          <p class="band-sub">Trattoria a Vigalfo, Albuzzano. Dal lunedì al sabato, a pranzo.</p>
-        </div>
-        <div class="band b2 fx-write" data-a="0.21" data-b="0.39" data-ramp="0.06">
-          <p class="band-h split">Il menù cambia ogni giorno.</p>
-          <p class="band-sub">Lo decide il mercato della mattina. E lo scriviamo qui, col gesso.</p>
-        </div>
-        <div class="band b3 fx-blur" data-a="0.41" data-b="0.58" data-ramp="0.05">
-          <p class="band-h"><span class="sr-only">Ricette di casa, fatte qui.</span><span class="stack" aria-hidden="true"><span class="soft">Ricette di casa, fatte qui.</span><span class="sharp">Ricette di casa, fatte qui.</span></span></p>
-          <p class="band-sub">Ingredienti freschi e di stagione, anche dai produttori dell'Oltrepò.</p>
-        </div>
-        <div class="band b4 fx-punch" data-a="0.60" data-b="0.78" data-ramp="0.04">
-          <p class="band-h split" data-em="3">Sua Maestà la griglia.</p>
-          <p class="band-sub">D'estate c'è tutti i giorni, di carne o di pesce.</p>
-        </div>
-        <div class="band b5 fx-rise" data-a="0.80" data-b="1" data-ramp="0.06">
-          <p class="band-h split">Il pranzo è servito.</p>
-          <p class="band-sub">Menù fisso a 13 euro, dalle 12:00 alle 14:30.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="#prenota" data-tipo="pranzo">Prenota il tavolo</a>
-            <a class="btn btn-ghost" href="tel:+393514052965"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>Chiama</a>
-          </div>
-        </div>
         <div class="static-copy">
           <p class="kicker"><span class="plate-dot" aria-hidden="true"></span>La Residenza del Gusto</p>
           <h1 class="band-h">Qui si pranza come a casa.</h1>
@@ -678,16 +617,13 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
             <canvas class="dust"></canvas>
             <div class="stick"><div class="stick-body"></div></div>
           </div>
+          <button class="btn btn-primary reveal-btn" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 17.25V21h3.75L17.8 9.94l-3.75-3.75L3 17.25zM20.7 7.04a1 1 0 0 0 0-1.41l-2.33-2.33a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.82-1.84z"/></svg>Scopri il menù</button>
           <div class="chalk-piece" aria-hidden="true"></div>
           <div class="eraser" aria-hidden="true"></div>
         </div>
         <p class="sr-only">Esempio di lavagna del giorno. Primi: spaghetti aglio, olio e peperoncino. Secondi: polpette al sugo, trippa della tradizione, merluzzo, polenta e cipolle. D'estate: griglia mista di carne o di pesce. Menù fisso 13 euro.</p>
       </div>
 
-      <div class="cue" aria-hidden="true">
-        <span>Scorri</span>
-        <svg viewBox="0 0 22 30"><path d="M11 2 C 10 10, 12 16, 11 26 M4 19 C 7 22, 9 24, 11 27 C 13 24, 15 22, 18 19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
     </div>
   </section>
 
@@ -1092,11 +1028,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   const smoothstep = (p, e0, e1) => { const t = clamp((p - e0) / (e1 - e0), 0, 1); return t * t * (3 - 2 * t); };
   function rng(seed) { let s = seed >>> 0; return () => (s = (s * 1664525 + 1013904223) >>> 0) / 4294967296; }
 
-  const GATES = [
-    '(prefers-reduced-motion: reduce)',
-    '(orientation: landscape) and (pointer: coarse) and (max-height: 560px)'
-  ];
-  const RM = matchMedia(GATES[0]);
+  const RM = matchMedia('(prefers-reduced-motion: reduce)');
 
   /* ---------- Nav ---------- */
   const nav = $('#nav');
@@ -1116,32 +1048,6 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   addEventListener('keydown', e => { if (e.key === 'Escape' && nav.classList.contains('open')) { setMenu(false); menuBtn.focus(); } });
 
   /* ---------- Text splitting (done once) ---------- */
-  function splitBand(el, seed) {
-    const text = el.textContent.trim();
-    const r = rng(seed);
-    const em = el.dataset.em !== undefined ? Number(el.dataset.em) : -1;
-    el.textContent = '';
-    const sr = document.createElement('span'); sr.className = 'sr-only'; sr.textContent = text;
-    const vis = document.createElement('span'); vis.setAttribute('aria-hidden', 'true');
-    const words = text.split(/\s+/);
-    let ci = 0;
-    words.forEach((w, wi) => {
-      const ws = document.createElement('span');
-      ws.className = 'w' + (wi === em ? ' em' : '');
-      ws.style.setProperty('--th', (wi / words.length * 0.5).toFixed(3));
-      for (const ch of w) {
-        const c = document.createElement('span');
-        c.className = 'c'; c.textContent = ch;
-        c.style.setProperty('--i', ci++);
-        c.style.setProperty('--jr', ((r() - 0.5) * 8).toFixed(1) + 'deg');
-        ws.appendChild(c);
-      }
-      vis.appendChild(ws);
-      if (wi < words.length - 1) vis.appendChild(document.createTextNode(' '));
-    });
-    vis.style.setProperty('--n', ci);
-    el.append(sr, vis);
-  }
   function splitChalk(el, seed) {
     const text = el.textContent.trim();
     const r = rng(seed);
@@ -1164,41 +1070,28 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
     return chars;
   }
 
-  $$('.band-h.split').forEach((el, i) => splitBand(el, 101 + i * 17));
-
-  /* ---------- Hero: the chalkboard ---------- */
-  const hero = $('.hero');
-  const stage = $('.stage', hero);
+  /* ---------- Hero: the chalkboard, written in one go when asked ---------- */
   const board = $('#board');
   const stick = $('.stick', board);
-  const cue = $('.cue');
   const canvas = $('.dust', board);
   const ctx = canvas.getContext('2d');
+  const revealBtn = $('.reveal-btn');
 
   const lines = $$('.bl', board).map((el, i) => {
     const chars = splitChalk(el, 7 + i * 13);
-    return { el, chars, n: chars.length, s: Number(el.dataset.s), e: Number(el.dataset.e), intro: el.dataset.intro || null, k: -1, pts: [] };
+    return { el, chars, n: chars.length, s: 0, e: 0, intro: el.dataset.intro || null, k: -1, pts: [] };
   });
-  const paths = $$('.draw', board).map(el => ({
-    el, s: Number(el.dataset.s), e: Number(el.dataset.e), intro: el.dataset.intro || null, k: -1, len: 0
-  }));
+  const paths = $$('.draw', board).map(el => ({ el, s: 0, e: 0, intro: el.dataset.intro || null, k: -1, len: 0 }));
   const circle = paths.find(p => !p.intro);
 
-  const bands = $$('.band').map((el, i, all) => ({
-    el, a: Number(el.dataset.a), b: Number(el.dataset.b),
-    ramp: el.dataset.ramp ? Number(el.dataset.ramp) : null,
-    first: i === 0, last: i === all.length - 1, op: -1, k: -1, inert: null,
-    interactive: !!el.querySelector('a, button')
-  }));
+  /* The writing timeline, in seconds: each line takes time in proportion to its letters,
+     with a short breath between lines, and the price gets its circle at the end. */
+  const PER_CHAR = 0.028, BREATH = 0.12, CIRCLE = 0.6;
+  let total = 0;
+  lines.filter(L => !L.intro).forEach(L => { L.s = total; L.e = total + Math.max(0.15, L.n * PER_CHAR); total = L.e + BREATH; });
+  if (circle) { circle.s = total; circle.e = total + CIRCLE; total = circle.e; }
 
-  let heroTop = 0, heroRange = 1, boardRect = null;
-  function measure() {
-    heroTop = hero.getBoundingClientRect().top + scrollY;
-    heroRange = Math.max(1, hero.offsetHeight - innerHeight);
-    computePositions();
-  }
-  function heroProgress() { return clamp((scrollY - heroTop) / heroRange, 0, 1); }
-
+  let boardRect = null;
   /* Points the chalk tip travels through: start of line, then the right edge of every character. */
   function computePositions() {
     const br = board.getBoundingClientRect();
@@ -1226,38 +1119,29 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
     lastHead = null;
   }
 
-  /* The journey opens on the logo: the first P0 of scroll fades the logo plate into a watermark
-     and brings in the board (iProg 0..1); the rest is the chalk journey (q 0..1). */
-  const P0 = 0.085;
-  let iProg = 0, lastI = -1;
-  function lineK(L, q) {
-    if (L.intro === 'title') return clamp((iProg - 0.55) / 0.33, 0, 1);
-    return clamp((q - L.s) / (L.e - L.s), 0, 1);
-  }
-  function pathK(P, q) {
-    if (P.intro === 'under') return clamp((iProg - 0.88) / 0.12, 0, 1);
-    return clamp((q - P.s) / (P.e - P.s), 0, 1);
-  }
+  /* The title and its underline are already on the board; everything else waits for the button. */
+  function lineK(L, t) { return L.intro ? 1 : clamp((t - L.s) / (L.e - L.s), 0, 1); }
+  function pathK(P, t) { return P.intro ? 1 : clamp((t - P.s) / (P.e - P.s), 0, 1); }
 
-  let lastHead = null, stickIdle = null;
-  function updateBoard(p) {
+  let lastHead = null, stickIdle = null, writingNow = false;
+  function updateBoard(t) {
     let active = null, activeK = 0;
     lines.forEach(L => {
-      const k = lineK(L, p);
-      if (k > 0) { active = L; activeK = k; }
+      const k = lineK(L, t);
+      if (k > 0 && !L.intro) { active = L; activeK = k; }
       if (Math.abs(k - L.k) > 0.004 || (k !== L.k && (k === 0 || k === 1))) {
         L.k = k; L.el.style.setProperty('--k', k.toFixed(4));
       }
     });
     let circleK = 0;
     paths.forEach(P => {
-      const k = pathK(P, p);
+      const k = pathK(P, t);
       if (P === circle) circleK = k;
       if (Math.abs(k - P.k) > 0.004 || (k !== P.k && (k === 0 || k === 1))) {
         P.k = k; P.el.style.strokeDashoffset = (1 - k).toFixed(4);
       }
     });
-    if (!scrubOn) return;
+    if (!writingNow) return;
     /* Where is the chalk tip? */
     let head = null, writing = false;
     if (circle && circleK > 0 && circle.len && circle.box) {
@@ -1266,9 +1150,9 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
       writing = circleK < 1;
     } else if (active && active.pts.length) {
       const u = clamp(activeK * (active.n + 1.5), 0, active.n);
-      const j = Math.floor(u), t = u - j;
+      const j = Math.floor(u), f = u - j;
       const a = active.pts[j], b = active.pts[Math.min(j + 1, active.n)];
-      head = { x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t };
+      head = { x: a.x + (b.x - a.x) * f, y: a.y + (b.y - a.y) * f };
       writing = activeK < 1;
     }
     if (!head) return;
@@ -1308,95 +1192,43 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
     else { dustRaf = null; dustLast = 0; ctx.clearRect(0, 0, canvas.width, canvas.height); }
   }
 
-  /* Caption bands, paced in scroll distance */
-  function updateCaptions(q) {
-    bands.forEach(B => {
-      const f = Math.min(0.02, (B.b - B.a) / 3);
-      const fadeIn = B.first ? smoothstep(iProg, 0.5, 0.92) : smoothstep(q, B.a, B.a + f);
-      const op = fadeIn * (B.last ? 1 : 1 - smoothstep(q, B.b - f, B.b));
-      const ramp = B.ramp || Math.min(0.025, (B.b - B.a) * 0.35);
-      const k = B.first ? clamp((iProg - 0.5) / 0.5, 0, 1) : clamp((q - B.a) / ramp, 0, 1);
-      if (Math.abs(op - B.op) > 0.004 || (op !== B.op && (op === 0 || op === 1))) { B.op = op; B.el.style.opacity = op.toFixed(3); }
-      if (Math.abs(k - B.k) > 0.008 || (k !== B.k && (k === 0 || k === 1))) { B.k = k; B.el.style.setProperty('--k', k.toFixed(3)); }
-      if (!B.interactive) return;
-      const inert = op < 0.05;
-      if (inert !== B.inert) { B.inert = inert; B.el.inert = inert; B.el.style.pointerEvents = inert ? 'none' : ''; }
-    });
+  /* The button: the chalk writes the whole menu, start to finish, in a few seconds */
+  let written = false, writeRaf = null, writeStart = 0;
+  function writeTick(now) {
+    if (!writeStart) writeStart = now;
+    const t = (now - writeStart) / 1000;
+    updateBoard(t);
+    if (t < total) { writeRaf = requestAnimationFrame(writeTick); return; }
+    writeRaf = null; writingNow = false;
+    stick.classList.add('idle');
   }
-
-  let cueGone = null;
-  function updateCue() { const g = iProg > 0.2; if (g !== cueGone) { cueGone = g; cue.classList.toggle('gone', g); } }
-
-  function render(p) {
-    iProg = clamp(p / P0, 0, 1);
-    const q = clamp((p - P0) / (1 - P0), 0, 1);
-    if (Math.abs(iProg - lastI) > 0.003 || (iProg !== lastI && (iProg === 0 || iProg === 1))) {
-      lastI = iProg; stage.style.setProperty('--i', iProg.toFixed(4));
-    }
-    updateBoard(q); updateCaptions(q); updateCue();
+  function showAll() {
+    written = true;
+    if (writeRaf !== null) { cancelAnimationFrame(writeRaf); writeRaf = null; }
+    writingNow = false;
+    stick.classList.remove('on');
+    updateBoard(total + 1);
+    revealBtn.classList.add('gone');
+    revealBtn.tabIndex = -1;
   }
-
-  /* The rAF loop: dt-normalized lerp, rests when converged or off-screen */
-  let target = 0, shown = 0, rafId = null, lastTick = 0, heroOnScreen = true, scrubOn = false;
-  function tick(now) {
-    const dt = Math.min(100, now - (lastTick || now));
-    lastTick = now;
-    const k = 0.14;
-    shown += (target - shown) * (1 - Math.pow(1 - k, dt / 16.667));
-    if (Math.abs(target - shown) < 0.0004) { shown = target; rafId = null; lastTick = 0; }
-    else rafId = requestAnimationFrame(tick);
-    render(shown);
-  }
-  function onScroll() {
-    target = heroProgress();
-    if (rafId === null && heroOnScreen && scrubOn) rafId = requestAnimationFrame(tick);
-  }
-  new IntersectionObserver(es => {
-    es.forEach(e => { heroOnScreen = e.isIntersecting; hero.classList.toggle('live', e.isIntersecting); });
-    if (heroOnScreen) onScroll();
-  }).observe(hero);
-
-  function enableScrub() {
-    root.classList.add('scrub');
-    if (scrubOn) return;
-    scrubOn = true;
-    measure();
-    bands.forEach(b => { b.op = -1; b.k = -1; b.inert = null; });
-    lines.forEach(l => { l.k = -1; });
-    paths.forEach(pp => { pp.k = -1; });
-    stickIdle = null; lastHead = null; lastI = -1;
-    addEventListener('scroll', onScroll, { passive: true });
-    target = shown = heroProgress();
-    render(shown);
-    onScroll();
-  }
-  function disableScrub() {
-    root.classList.remove('scrub');
-    if (!scrubOn) return;
-    scrubOn = false;
-    removeEventListener('scroll', onScroll);
-    if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; lastTick = 0; }
-    bands.forEach(b => { b.el.inert = false; b.el.style.pointerEvents = ''; });
-  }
-  function applyHeroMode() {
-    if (GATES.some(q => matchMedia(q).matches)) disableScrub(); else enableScrub();
-  }
-  const MQLS = GATES.map(q => matchMedia(q));
-  MQLS.forEach(m => m.addEventListener ? m.addEventListener('change', applyHeroMode) : m.addListener(applyHeroMode));
-  applyHeroMode();
-
-  const fontsReady = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
-  let started = false;
-  function go() { if (started) return; started = true; if (scrubOn) { measure(); render(shown); } }
-  fontsReady.then(go);
-  setTimeout(go, 1600);
+  revealBtn.addEventListener('click', () => {
+    if (written) return;
+    if (RM.matches) { showAll(); return; }
+    written = true;
+    revealBtn.classList.add('gone');
+    revealBtn.tabIndex = -1;
+    computePositions();
+    writingNow = true; writeStart = 0;
+    writeRaf = requestAnimationFrame(writeTick);
+  });
+  updateBoard(0);
+  if (RM.matches) showAll();
 
   let rsT = null;
   addEventListener('resize', () => {
     clearTimeout(rsT);
-    rsT = setTimeout(() => { if (scrubOn) { measure(); target = shown = heroProgress(); lastHead = null; render(shown); } drives(); }, 140);
+    rsT = setTimeout(() => { if (writingNow) computePositions(); drives(); }, 140);
   });
-  addEventListener('load', () => { if (scrubOn) { measure(); render(shown); } });
 
   /* ---------- Reveals and living elements ---------- */
   const revealIO = new IntersectionObserver(es => {
@@ -1509,12 +1341,13 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
     if (!holdDone) finishHold(true);
     tlLast = -1; drives();
     motes.length = 0;
+    showAll();
   }
   function unpinFinalStates() {
     if (holdPinned) resetHold();
     tlLast = -1; drives();
   }
-  RM.addEventListener ? RM.addEventListener('change', e => { if (e.matches) pinToFinalStates(); else { unpinFinalStates(); applyHeroMode(); } }) : null;
+  RM.addEventListener ? RM.addEventListener('change', e => { if (e.matches) pinToFinalStates(); else unpinFinalStates(); }) : null;
   if (RM.matches) pinToFinalStates();
 
   /* ---------- Booking: two branches. Lunch by phone or WhatsApp, events only by email ---------- */
